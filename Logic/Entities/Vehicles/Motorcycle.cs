@@ -7,8 +7,12 @@ namespace Logic.Entities.Vehicles
     public class Motorcycle : Vehicle
     {
         public int MaxSpeed { get; set; }
-        public Motorcycle(string model, string registrationnumber, int odometer, string fueltype, int maxspeed) : base(model, registrationnumber, odometer, fueltype)
+        public Motorcycle(string model, string registrationnumber, int odometer, string fueltype, int maxspeed)
         {
+            Model = model;
+            RegistrationNumber = registrationnumber;
+            Odometer = odometer;
+            FuelType = fueltype;
             MaxSpeed = maxspeed;
         }
     }
