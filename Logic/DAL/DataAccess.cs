@@ -21,6 +21,7 @@ namespace Logic.DAL
         /// 
         public T GetEntities()
         {
+         
             StreamReader sr = new StreamReader(path);
 
             string jsonString = sr.ReadToEnd();
@@ -32,9 +33,6 @@ namespace Logic.DAL
 
         public void AddEntity(T listclass)
         {
-
-            var oldentities = GetEntities();
-
            
             StreamWriter sw = new StreamWriter(path);
 
