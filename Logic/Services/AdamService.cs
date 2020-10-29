@@ -15,10 +15,10 @@ namespace Logic.Services
             
         }
 
-        public static void RemoveUser(UserDB user)
-        {
-            users = new DataAccess<user>
-        }
+        //public static void RemoveUser(UserDB user)
+        //{
+        //    users = new DataAccess<user>
+        //}
 
     }
 }

@@ -21,8 +21,18 @@ namespace Logic.Services
             _mechanics = new MechanicDB();
 
             var path = @"DAL\UserDB.json";
+            
+            //TEST
+            //if (!Directory.Exists(path))
+            //{
+            //    Directory.CreateDirectory(path);
+            //}
+
             if (!File.Exists(path))
             {
+
+                Directory.CreateDirectory(path); //Adam har lagt till, test. TA BORT
+                
                 var adminFile = File.Create(path);
                 adminFile.Close();
                 _users.DBList.Add(AddDefaultAdmin());
