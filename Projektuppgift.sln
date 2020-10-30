@@ -6,11 +6,6 @@ MinimumVisualStudioVersion = 15.0.26124.0
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GUI", "GUI\GUI.csproj", "{2F1FDB02-5562-4BE6-A948-73BF2E7522C0}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Logic", "Logic\Logic.csproj", "{4B68C664-B7D8-41D4-BAFB-526B34BC72E9}"
-<<<<<<< Updated upstream
-=======
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", "{7F25213A-F567-407D-8F84-811781C9B4EE}"
->>>>>>> Stashed changes
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -46,18 +41,6 @@ Global
 		{4B68C664-B7D8-41D4-BAFB-526B34BC72E9}.Release|x64.Build.0 = Release|Any CPU
 		{4B68C664-B7D8-41D4-BAFB-526B34BC72E9}.Release|x86.ActiveCfg = Release|Any CPU
 		{4B68C664-B7D8-41D4-BAFB-526B34BC72E9}.Release|x86.Build.0 = Release|Any CPU
-		{7F25213A-F567-407D-8F84-811781C9B4EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7F25213A-F567-407D-8F84-811781C9B4EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7F25213A-F567-407D-8F84-811781C9B4EE}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{7F25213A-F567-407D-8F84-811781C9B4EE}.Debug|x64.Build.0 = Debug|Any CPU
-		{7F25213A-F567-407D-8F84-811781C9B4EE}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{7F25213A-F567-407D-8F84-811781C9B4EE}.Debug|x86.Build.0 = Debug|Any CPU
-		{7F25213A-F567-407D-8F84-811781C9B4EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7F25213A-F567-407D-8F84-811781C9B4EE}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7F25213A-F567-407D-8F84-811781C9B4EE}.Release|x64.ActiveCfg = Release|Any CPU
-		{7F25213A-F567-407D-8F84-811781C9B4EE}.Release|x64.Build.0 = Release|Any CPU
-		{7F25213A-F567-407D-8F84-811781C9B4EE}.Release|x86.ActiveCfg = Release|Any CPU
-		{7F25213A-F567-407D-8F84-811781C9B4EE}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
