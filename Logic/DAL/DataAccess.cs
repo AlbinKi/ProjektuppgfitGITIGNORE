@@ -41,6 +41,10 @@ namespace Logic.DAL
             }     
         }
 
+        /// <summary>
+        /// Sparar en entitet
+        /// </summary>
+        /// <param name="entity"></param>
         public void Save(T entity)
         {
             var entities = Load();
