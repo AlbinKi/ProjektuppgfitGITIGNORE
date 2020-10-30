@@ -24,7 +24,6 @@ namespace Logic.Services
             _errands = _erranddb.GetEntities();
             _errands.ListDB.Add(errand);
             _mechanics = _mechanicdb.GetEntities();
-            
 
             var mechanicsAvailable = new List<Mechanic>();
 

@@ -126,6 +126,14 @@ namespace GUI.Errands.Admin.NewErrand
             var maxload = int.Parse(MaxLoad.Text);
             var maxspeed = int.Parse(MaxSpeed.Text);
             var maxpassenger = int.Parse(MaxPassenger.Text);
+            //if (Towbar1)
+            //{
+
+            //}
+            
+
+
+
 
 
 

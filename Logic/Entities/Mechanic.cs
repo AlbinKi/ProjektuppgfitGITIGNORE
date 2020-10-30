@@ -12,7 +12,7 @@ namespace Logic.Entities
         public int Age { get; set; }
         public List<Errand> NumberOfErrands { get; set; }
         public DateTime DateOfBirth { get; set; }
-        public List<String> Skills { get; set; }
+        public List<string> Skills { get; set; }
 
         //public List<Errands> CurrentErrands { get; set; }
         public Mechanic(string firstname, string lastname, DateTime dateofbirth)
@@ -66,6 +66,5 @@ namespace Logic.Entities
                 Age = Age - 1;
             }
         }
-
     }
 }

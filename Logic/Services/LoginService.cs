@@ -40,6 +40,7 @@ namespace Logic.Services
         public bool Login(string username, string password)
         {
             _users = _userdb.GetEntities();
+
             return _users.DBList.Exists(user => user.Username.Equals(username) && user.Password.Equals(password));
         }
 

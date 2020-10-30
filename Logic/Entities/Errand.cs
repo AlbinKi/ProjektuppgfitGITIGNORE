@@ -8,7 +8,7 @@ namespace Logic.Entities
     public class Errand
     {
         public string Description { get; set; }
-        public Vehicle Vehicle{ get; set; }
+        public Vehicle Vehicle { get; set; }
         public string Issue { get; set; }
         public Mechanic Mechanic { get; set; }
         public bool Status { get; set; }

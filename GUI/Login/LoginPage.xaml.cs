@@ -1,5 +1,4 @@
-﻿
-using GUI.Home;
+﻿using GUI.Home;
 using Logic.Services;
 using System;
 using System.Collections.Generic;
