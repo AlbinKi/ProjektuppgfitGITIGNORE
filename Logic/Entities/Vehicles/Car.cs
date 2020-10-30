@@ -7,11 +7,15 @@ namespace Logic.Entities.Vehicles
 {
     public class Car : Vehicle
     {
-        public string CarType { get; set; }
         public bool HasTowbar { get; set; }
-        public Car(string model, string registrationnumber, int odometer, string fueltype):base(model, registrationnumber, odometer, fueltype)
+
+        public Car()
         {
 
+        }
+        public Car(string model, string registrationnumber, int odometer, string fueltype, bool hastowbar):base(model, registrationnumber, odometer, fueltype)
+        {
+            HasTowbar = hastowbar;
         }
     }
 }
