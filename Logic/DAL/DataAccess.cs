@@ -19,21 +19,33 @@ namespace Logic.DAL
         /// </summary>
         /// <returns></returns>
         /// 
-        public T GetEntities()
+        public List<T> Load()
         {
-         
+          if (!File.Exists(path))
+            {
+                var fs = File.Create(path);
+                fs.Close();
+            }
             StreamReader sr = new StreamReader(path);
 
             string jsonString = sr.ReadToEnd();
-            var entity = JsonSerializer.Deserialize<T>(jsonString);
             sr.Close();
-
-            return entity;
+            try
+            {
+                var entities = JsonSerializer.Deserialize<List<T>>(jsonString);
+                return entities;
+            }
+            catch (JsonException)
+            {
+                return new List<T>();
+            }     
         }
 
-        public void AddEntity(T listclass)
+        public void Save(T entity)
         {
-           
+            var entities = Load();
+            entities.Add(entity);
+
             StreamWriter sw = new StreamWriter(path);
 
             JsonSerializerOptions options = new JsonSerializerOptions
@@ -42,7 +54,7 @@ namespace Logic.DAL
 
             };
 
-            var jsonString = JsonSerializer.Serialize(listclass, options);
+            var jsonString = JsonSerializer.Serialize(entities, options);
 
             sw.Write(jsonString);
             sw.Close();

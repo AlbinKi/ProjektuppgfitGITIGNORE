@@ -11,6 +11,10 @@ namespace Logic.Entities.Vehicles
         public int Odometer { get; set; }
         public string FuelType { get; set; }
 
+        public Vehicle()
+        {
+
+        }
         public Vehicle(string model, string registrationnumber, int odometer, string fueltype)
         {
             Model = model;
