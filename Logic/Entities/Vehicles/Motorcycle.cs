@@ -11,5 +11,9 @@ namespace Logic.Entities.Vehicles
         {
             MaxSpeed = maxspeed;
         }
+        public Motorcycle()
+        {
+
+        }
     }
 }

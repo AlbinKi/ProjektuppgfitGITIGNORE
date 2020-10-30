@@ -24,10 +24,6 @@ namespace Logic.Services
             _errands = _erranddb.GetEntities();
             _errands.ListDB.Add(errand);
             _mechanics = _mechanicdb.GetEntities();
-<<<<<<< HEAD
-=======
-            
->>>>>>> parent of dd3800b... Merge pull request #1 from AlbinKi/Albin-V1
 
             var mechanicsAvailable = new List<Mechanic>();
 
