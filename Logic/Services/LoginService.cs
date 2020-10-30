@@ -40,7 +40,10 @@ namespace Logic.Services
         public bool Login(string username, string password)
         {
             _users = _userdb.GetEntities();
+<<<<<<< HEAD
 
+=======
+>>>>>>> parent of dd3800b... Merge pull request #1 from AlbinKi/Albin-V1
             return _users.DBList.Exists(user => user.Username.Equals(username) && user.Password.Equals(password));
         }
 
