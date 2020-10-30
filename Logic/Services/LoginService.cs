@@ -41,9 +41,12 @@ namespace Logic.Services
         {
             _users = _userdb.GetEntities();
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> parent of dd3800b... Merge pull request #1 from AlbinKi/Albin-V1
+=======
+>>>>>>> parent of 6b91630... nya saker
             return _users.DBList.Exists(user => user.Username.Equals(username) && user.Password.Equals(password));
         }
 

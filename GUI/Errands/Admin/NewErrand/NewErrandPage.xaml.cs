@@ -123,6 +123,7 @@ namespace GUI.Errands.Admin.NewErrand
             var registrationnumber = RegistrationNumber.Text;
             var odometer = int.Parse(Odometer.Text);
 <<<<<<< HEAD
+<<<<<<< HEAD
 
             var maxload = int.Parse(MaxLoad.Text);
             var maxspeed = int.Parse(MaxSpeed.Text);
@@ -143,6 +144,13 @@ namespace GUI.Errands.Admin.NewErrand
             var maxpassenger = int.Parse(MaxPassenger.Text);
 
 >>>>>>> parent of dd3800b... Merge pull request #1 from AlbinKi/Albin-V1
+=======
+
+            var maxload = int.Parse(MaxLoad.Text);
+            var maxspeed = int.Parse(MaxSpeed.Text);
+            var maxpassenger = int.Parse(MaxPassenger.Text);
+
+>>>>>>> parent of 6b91630... nya saker
 
 
         }
