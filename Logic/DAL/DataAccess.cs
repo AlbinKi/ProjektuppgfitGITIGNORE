@@ -22,13 +22,9 @@ namespace Logic.DAL
         public T GetEntities()
         {
 <<<<<<< HEAD
-<<<<<<< HEAD
 =======
          
 >>>>>>> parent of dd3800b... Merge pull request #1 from AlbinKi/Albin-V1
-=======
-         
->>>>>>> parent of 6b91630... nya saker
             StreamReader sr = new StreamReader(path);
 
             string jsonString = sr.ReadToEnd();
@@ -36,7 +32,6 @@ namespace Logic.DAL
             sr.Close();
 
             return entity;
-<<<<<<< HEAD
 <<<<<<< HEAD
         }
 
@@ -84,13 +79,6 @@ namespace Logic.DAL
         {
            
 >>>>>>> parent of dd3800b... Merge pull request #1 from AlbinKi/Albin-V1
-=======
-        }
-
-        public void AddEntity(T listclass)
-        {
-           
->>>>>>> parent of 6b91630... nya saker
             StreamWriter sw = new StreamWriter(path);
 
             JsonSerializerOptions options = new JsonSerializerOptions
@@ -100,14 +88,10 @@ namespace Logic.DAL
             };
 
 <<<<<<< HEAD
-<<<<<<< HEAD
             var jsonString = JsonSerializer.Serialize(users, options);
 =======
             var jsonString = JsonSerializer.Serialize(listclass, options);
 >>>>>>> parent of dd3800b... Merge pull request #1 from AlbinKi/Albin-V1
-=======
-            var jsonString = JsonSerializer.Serialize(listclass, options);
->>>>>>> parent of 6b91630... nya saker
 
             sw.Write(jsonString);
             sw.Close();
