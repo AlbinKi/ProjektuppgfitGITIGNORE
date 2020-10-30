@@ -12,11 +12,7 @@ namespace Logic.Entities
         public int Age { get; set; }
         public List<Errand> NumberOfErrands { get; set; }
         public DateTime DateOfBirth { get; set; }
-<<<<<<< HEAD
         public List<string> Skills { get; set; }
-=======
-        public List<String> Skills { get; set; }
->>>>>>> parent of dd3800b... Merge pull request #1 from AlbinKi/Albin-V1
 
         //public List<Errands> CurrentErrands { get; set; }
         public Mechanic(string firstname, string lastname, DateTime dateofbirth)
