@@ -21,6 +21,10 @@ namespace Logic.DAL
         /// 
         public T GetEntities()
         {
+<<<<<<< HEAD
+=======
+         
+>>>>>>> parent of dd3800b... Merge pull request #1 from AlbinKi/Albin-V1
             StreamReader sr = new StreamReader(path);
 
             string jsonString = sr.ReadToEnd();
@@ -28,6 +32,7 @@ namespace Logic.DAL
             sr.Close();
 
             return entity;
+<<<<<<< HEAD
         }
 
         public void AddEntity(T listclass)
@@ -67,6 +72,13 @@ namespace Logic.DAL
         }  
         private void AddEntity(List<Mechanic> users)
         {
+=======
+        }
+
+        public void AddEntity(T listclass)
+        {
+           
+>>>>>>> parent of dd3800b... Merge pull request #1 from AlbinKi/Albin-V1
             StreamWriter sw = new StreamWriter(path);
 
             JsonSerializerOptions options = new JsonSerializerOptions
@@ -75,7 +87,11 @@ namespace Logic.DAL
 
             };
 
+<<<<<<< HEAD
             var jsonString = JsonSerializer.Serialize(users, options);
+=======
+            var jsonString = JsonSerializer.Serialize(listclass, options);
+>>>>>>> parent of dd3800b... Merge pull request #1 from AlbinKi/Albin-V1
 
             sw.Write(jsonString);
             sw.Close();
