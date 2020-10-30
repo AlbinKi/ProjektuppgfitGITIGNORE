@@ -14,11 +14,6 @@ namespace Logic.Entities
         public DateTime DateOfBirth { get; set; }
         public List<string> Skills { get; set; }
 
-        public Mechanic()
-        {
-            
-        }
-
         //public List<Errands> CurrentErrands { get; set; }
         public Mechanic(string firstname, string lastname, DateTime dateofbirth)
         {
@@ -71,6 +66,5 @@ namespace Logic.Entities
                 Age = Age - 1;
             }
         }
-
     }
 }
