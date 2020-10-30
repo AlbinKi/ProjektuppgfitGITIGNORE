@@ -11,7 +11,7 @@ namespace Logic.DAL
     public class DataAccess<T>
     {
         //Path == T:s beteckning. Exempelvis DataAccess<User> gör så att pathen blir Dal\User.Json
-        private readonly string path = $@"DAL\{typeof(T).Name}.json";
+        private string path = $@"DAL\{typeof(T).Name}.json";
 
 
         /// <summary>
@@ -19,37 +19,19 @@ namespace Logic.DAL
         /// </summary>
         /// <returns></returns>
         /// 
-        public List<T> Load()
+        public T GetEntities()
         {
-          if (!File.Exists(path))
-            {
-                var fs = File.Create(path);
-                fs.Close();
-            }
             StreamReader sr = new StreamReader(path);
 
             string jsonString = sr.ReadToEnd();
+            var entity = JsonSerializer.Deserialize<T>(jsonString);
             sr.Close();
-            try
-            {
-                var entities = JsonSerializer.Deserialize<List<T>>(jsonString);
-                return entities;
-            }
-            catch (JsonException)
-            {
-                return new List<T>();
-            }     
+
+            return entity;
         }
 
-        /// <summary>
-        /// Sparar en entitet
-        /// </summary>
-        /// <param name="entity"></param>
-        public void Save(T entity)
+        public void AddEntity(T listclass)
         {
-            var entities = Load();
-            entities.Add(entity);
-
             StreamWriter sw = new StreamWriter(path);
 
             JsonSerializerOptions options = new JsonSerializerOptions
@@ -58,10 +40,48 @@ namespace Logic.DAL
 
             };
 
-            var jsonString = JsonSerializer.Serialize(entities, options);
+            var jsonString = JsonSerializer.Serialize(listclass, options);
 
             sw.Write(jsonString);
             sw.Close();
         }
+
+        /// <summary>
+        /// Overloadar addentity metoden om det inte finns några users i databasen.
+        /// </summary>
+        /// <param name="users"></param>
+        private void AddEntity(List<User> users)
+        {
+            StreamWriter sw = new StreamWriter(path);
+
+            JsonSerializerOptions options = new JsonSerializerOptions
+            {
+                WriteIndented = true,
+
+            };
+
+            var jsonString = JsonSerializer.Serialize(users, options);
+
+            sw.Write(jsonString);
+            sw.Close();
+        }  
+        private void AddEntity(List<Mechanic> users)
+        {
+            StreamWriter sw = new StreamWriter(path);
+
+            JsonSerializerOptions options = new JsonSerializerOptions
+            {
+                WriteIndented = true,
+
+            };
+
+            var jsonString = JsonSerializer.Serialize(users, options);
+
+            sw.Write(jsonString);
+            sw.Close();
+        }
+
+      
+
     }
 }
