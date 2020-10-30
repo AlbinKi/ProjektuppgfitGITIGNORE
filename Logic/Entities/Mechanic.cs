@@ -10,7 +10,7 @@ namespace Logic.Entities
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public int Age { get; set; }
-        public List<Errand> NumberOfErrands { get; set; }
+        public List<Errand> NumberOfErrands { get; set; } //Array???
         public DateTime DateOfBirth { get; set; }
         public List<String> Skills { get; set; }
 

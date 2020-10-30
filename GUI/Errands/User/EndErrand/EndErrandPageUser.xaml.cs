@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Security.Cryptography.Xml;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -10,6 +11,11 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Logic.Entities;
+using Logic.Entities.Vehicles;
+using System.Text.RegularExpressions;
+using Xceed.Wpf.Toolkit;
+using MessageBox = System.Windows.MessageBox;
 
 namespace GUI.Errands.User.EndErrand
 {

@@ -20,8 +20,9 @@ namespace Logic.Services
             _users = new UserDB();
             _mechanics = new MechanicDB();
 
-            var path = @"DAL\UserDB.json";
-            
+            var path = @"DAL";
+            var pathFile = @"DAL\UserDB.json";
+
             //TEST
             //if (!Directory.Exists(path))
             //{
@@ -31,9 +32,9 @@ namespace Logic.Services
             if (!File.Exists(path))
             {
 
-                Directory.CreateDirectory(path); //Adam har lagt till, test. TA BORT
+                //Directory.CreateDirectory(path); //Adam har lagt till, test. TA BORT
                 
-                var adminFile = File.Create(path);
+                var adminFile = File.Create(pathFile);
                 adminFile.Close();
                 _users.DBList.Add(AddDefaultAdmin());
                 _userdb.AddEntity(_users);
