@@ -13,12 +13,11 @@ namespace Logic.DAL
         //Path == T:s beteckning. Exempelvis DataAccess<User> gör så att pathen blir Dal\User.Json
         private readonly string path = $@"DAL\{typeof(T).Name}.json";
 
-
         /// <summary>
         /// Hämtar alla objekt i en lista av förvald typ
         /// </summary>
         /// <returns></returns>
-        /// 
+        ///
         public List<T> Load()
         {
           if (!File.Exists(path))

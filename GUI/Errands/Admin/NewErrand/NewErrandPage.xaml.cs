@@ -17,6 +17,7 @@ using System.Text.RegularExpressions;
 using Xceed.Wpf.Toolkit;
 using MessageBox = System.Windows.MessageBox;
 using Logic.Services;
+using Logic.DAL;
 
 namespace GUI.Errands.Admin.NewErrand
 {
@@ -126,7 +127,17 @@ namespace GUI.Errands.Admin.NewErrand
             var issuebox = (ComboBoxItem)Issue.SelectedItem;
             var issue = issuebox.Content.ToString();
             var description = Description.Text;
+            var mechanicID = "";
             var mechanic = MechanicsAvailable.SelectedItem as Mechanic;
+
+            if (mechanic == null)
+            {
+                mechanicID = MechanicsAvailable.SelectedItem as string;
+            }
+            else
+            {
+                mechanicID = mechanic.MechanicID;
+            }
             #endregion
 
             #region Parametrar för fordonet
@@ -152,7 +163,7 @@ namespace GUI.Errands.Admin.NewErrand
                     towbar = false;
                 }
                 var vehicle = new Car(model, registrationnumber, odometer, fueltype, towbar);
-                Errand errand = new Errand(description, vehicle.RegistrationNumber, issue, mechanic.MechanicID, true);
+                Errand errand = new Errand(description, vehicle.RegistrationNumber, issue, mechanicID, true);
                 _dbservice.SaveEntity(vehicle);
                 _dbservice.SaveEntity(errand);
             }
@@ -162,7 +173,7 @@ namespace GUI.Errands.Admin.NewErrand
             {
                 var maxload = int.Parse(MaxLoad.Text);
                 var vehicle = new Truck(model, registrationnumber, odometer, fueltype, maxload);
-                Errand errand = new Errand(description, vehicle.RegistrationNumber, issue, mechanic.MechanicID, true);
+                Errand errand = new Errand(description, vehicle.RegistrationNumber, issue, mechanicID, true);
                 _dbservice.SaveEntity(vehicle);
                 _dbservice.SaveEntity(errand);
             }
@@ -172,7 +183,7 @@ namespace GUI.Errands.Admin.NewErrand
             {
                 var maxpassengers = int.Parse(MaxPassenger.Text);
                 var vehicle = new Bus(model, registrationnumber, odometer, fueltype, maxpassengers);
-                Errand errand = new Errand(description, vehicle.RegistrationNumber, issue, mechanic.MechanicID, true);
+                Errand errand = new Errand(description, vehicle.RegistrationNumber, issue, mechanicID, true);
                 _dbservice.SaveEntity(vehicle);
                 _dbservice.SaveEntity(errand);
             }
@@ -182,11 +193,11 @@ namespace GUI.Errands.Admin.NewErrand
             {
                 var maxspeed = int.Parse(MaxSpeed.Text);
                 var vehicle = new Motorcycle(model, registrationnumber, odometer, fueltype, maxspeed);
-                Errand errand = new Errand(description, vehicle.RegistrationNumber, issue, mechanic.MechanicID, true);
+                Errand errand = new Errand(description, vehicle.RegistrationNumber, issue, mechanicID, true);
                 _dbservice.SaveEntity(vehicle);
                 _dbservice.SaveEntity(errand);
             }
-            #endregion
+            #endregion 
         }
 
         /// <summary>
@@ -212,6 +223,13 @@ namespace GUI.Errands.Admin.NewErrand
 
             var _mechanics = _errandservice.AvailableMechanics(value);
             MechanicsAvailable.ItemsSource = _mechanics;
+
+            if (MechanicsAvailable.Items.Count == 0)
+            {
+                 var noMechanic = new string[] { "Väntar på ledig mekaniker"};
+
+                MechanicsAvailable.ItemsSource = noMechanic;
+            }
             
         }
     }

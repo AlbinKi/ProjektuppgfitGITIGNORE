@@ -7,7 +7,15 @@ namespace Logic.Entities.Vehicles
     public class Truck : Vehicle
     {
         public int MaxLoad { get; set; }
-        public Truck(string model, string registrationnumber, int odometer, string fueltype) : base(model, registrationnumber, odometer, fueltype)
+        public Truck(string model, string registrationnumber, int odometer, string fueltype, int maxload)
+        {
+            Model = model;
+            RegistrationNumber = registrationnumber;
+            Odometer = odometer;
+            FuelType = fueltype;
+            MaxLoad = maxload;
+        }
+        public Truck()
         {
 
         }
