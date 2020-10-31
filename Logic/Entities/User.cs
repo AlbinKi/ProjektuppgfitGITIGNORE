@@ -8,12 +8,19 @@ namespace Logic.Entities
     {
         public string Username { get; set; }
         public string Password { get; set; }
-        public string UserID { get; set; }
+        public Guid UserID { get; set; }
+        //public string UserID { get; set; }
         public bool Admin { get; set; }
 
         public User(string username, string password, bool admin)
         {
             //Skapa metod för att sätta userid till lämpligt mechanicid.
+            Username = username;
+        }
+
+        public User()
+        {
+
         }
 
     }

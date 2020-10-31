@@ -5,15 +5,28 @@ using System.Text;
 
 namespace Logic.Services
 {
-    class AdamService
+    public class AdamService
     {
-        public static void AddUser(UserDB user)
-        {
-            DataAccess<UserDB> dataAccess = new DataAccess<UserDB>();
 
-            dataAccess.AddEntity(user);
-            
-        }
+        ///Enum för kompetenser
+        //enum SkillsAndIssues
+        //{
+        //    Bromsar,
+        //    Motor,
+        //    Kaross,
+        //    Vindruta,
+        //    Däck
+        //}
+
+
+
+        //public static void AddUser(UserDB user)
+        //{
+        //    DataAccess<UserDB> dataAccess = new DataAccess<UserDB>();
+
+        //    dataAccess.AddEntity(user);
+
+        //}
 
         //public static void RemoveUser(UserDB user)
         //{

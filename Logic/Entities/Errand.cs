@@ -12,5 +12,14 @@ namespace Logic.Entities
         public string Issue { get; set; }
         public Mechanic Mechanic { get; set; }
         public bool Status { get; set; }
+
+        public Errand(string description, Vehicle vehicle, string issue, Mechanic mechanic)
+        {
+            Description = description;
+            Vehicle = vehicle;
+            Issue = issue;
+            Mechanic = mechanic;
+            Status = true;
+        }
     }
 }
