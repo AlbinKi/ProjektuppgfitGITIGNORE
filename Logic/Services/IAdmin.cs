@@ -12,9 +12,13 @@ namespace Logic.Services
 
         void AddMechanic(string x, string y, DateTime z);
 
+        void RemoveMechanic(Mechanic mechanic);
+
         void AddSkill(Mechanic x, string y);
 
-        void AddUser(User x);
+        void AddUser(string x, string y, bool z);
+
+        void RemoveUser(User x);
 
 
         //public void ChangeMechanic()

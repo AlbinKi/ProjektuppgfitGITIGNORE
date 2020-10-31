@@ -61,23 +61,48 @@ namespace Logic.Services
 
         }
 
+        public void RemoveMechanic(Mechanic mechanic)
+        {
+            _mechanics = _mechanicdb.GetEntities();
+
+            foreach (var item in _mechanics.DBList)
+            {
+                if (item.MechanicID == mechanic.MechanicID)
+                {
+                    _mechanics.DBList.Remove(item);
+                    _mechanicdb.AddEntity(_mechanics);
+                    return;
+                }
+            }
+        }
+
+        /// <summary>
+        /// Admin och användare kan lägga till kompetenser.
+        /// </summary>
+        /// <param name="mechanic"></param>
+        /// <param name="skill"></param>
         public void AddSkill(Mechanic mechanic, String skill)
         {
             _mechanics = _mechanicdb.GetEntities();
 
             foreach (var item in _mechanics.DBList)
             {
-                if (mechanic.MechanicID == item.MechanicID)
+                if (item.MechanicID == mechanic.MechanicID)
                 {
-                    //Hur många skills?? Kontrollera för att ej lägga in för många!
+                    //Hur många skills?? Kontrollera för att ej lägga in för många! 5!
                     mechanic.Skills.Add(skill);
-                    break;
+                    _mechanicdb.AddEntity(_mechanics);
+                    return;
                 }
             }
-
-            _mechanicdb.AddEntity(_mechanics);
         }
 
+        /// <summary>
+        /// Admin lägger till en användare.
+        /// </summary>
+        /// <param name="username"></param>
+        /// <param name="password"></param>
+        /// <param name="admin"></param>
         public void AddUser(string username, string password, bool admin)
         {
             User user = new User(username, password, admin); //Metod för userid behövs i user-klassen.
@@ -85,6 +110,35 @@ namespace Logic.Services
             _users = _userdb.GetEntities();
             _users.DBList.Add(user);
             _userdb.AddEntity(_users);
+        }
+
+        /// <summary>
+        /// Admin tar bort användare (och mekaniker kopplad till användare).
+        /// </summary>
+        /// <param name="user"></param>
+        public void RemoveUser(User user)
+        {
+            _users = _userdb.GetEntities();
+            _mechanics = _mechanicdb.GetEntities();
+
+            foreach (var item in _users.DBList)
+            {
+                if (item.UserID == user.UserID)
+                {
+                    foreach (var mechanic in _mechanics.DBList)
+                    {
+                        if (mechanic.MechanicID == item.UserID)
+                        {
+                            _mechanics.DBList.Remove(mechanic);
+                            _mechanicdb.AddEntity(_mechanics);
+                        }
+                    }
+
+                    _users.DBList.Remove(item);
+                    _userdb.AddEntity(_users);
+                    return;
+                }
+            }
         }
 
     }
