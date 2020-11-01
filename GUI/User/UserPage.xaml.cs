@@ -1,5 +1,4 @@
-﻿using GUI.Errands.User.EndErrand;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -12,23 +11,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace GUI.Errands.User
+namespace GUI.User
 {
     /// <summary>
-    /// Interaction logic for ErrandPageUser.xaml
+    /// Interaction logic for UserPage.xaml
     /// </summary>
-    public partial class ErrandPageUser : Page
+    public partial class UserPage : Page
     {
-        public ErrandPageUser()
+        public UserPage()
         {
             InitializeComponent();
-        }
-
-        private void EndErrand_CLICK(object sender, RoutedEventArgs e)
-        {
-            var endErrand = new EndErrandPageUser();
-
-            NavigationService.Navigate(endErrand);
         }
     }
 }
