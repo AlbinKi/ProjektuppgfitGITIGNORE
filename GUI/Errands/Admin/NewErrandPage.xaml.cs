@@ -122,20 +122,6 @@ namespace GUI.Errands.Admin.NewErrand
             }
         }
 
-
-    
-     
-       
-
-
-        private void Add_CanExecute(object sender, CanExecuteRoutedEventArgs e)
-        {
-          
-
-        }
-
-
-
         /// <summary>
         /// Lägger till ärendet när AddErrandknappen trycks ned
         /// </summary>

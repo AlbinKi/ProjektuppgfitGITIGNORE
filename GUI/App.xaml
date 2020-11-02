@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:GUI"
              xmlns:extToolkit="http://schemas.xceed.com/wpf/xaml/toolkit"
+             
              StartupUri="MainWindow.xaml">
     <Application.Resources>
         <Style TargetType="{x:Type extToolkit:WatermarkTextBox}">
@@ -19,7 +20,6 @@
                             </TextBlock>
                             <Border BorderBrush="Green" BorderThickness="1">
                                 <AdornedElementPlaceholder />
-                                
                             </Border>
                         </DockPanel>
                     </ControlTemplate>
