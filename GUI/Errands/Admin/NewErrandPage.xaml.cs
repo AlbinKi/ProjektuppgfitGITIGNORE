@@ -26,7 +26,8 @@ namespace GUI.Errands.Admin.NewErrand
     /// </summary>
     public partial class NewErrandPage : Page
     {
-        private static readonly Regex _regex = new Regex("[^0-9]+"); //Ser till så det bara går att lägga in siffror i Textboxen
+        private static readonly Regex _regexonlynumbers = new Regex("[^0-9]+"); //Ser till så det bara går att lägga in siffror i Textboxen
+        private static readonly Regex _regexregisternumber = new Regex("[A-Öa-ö0-9]{2,7}");
         private ErrandService _errandservice;
         private DBService _dbservice;
 
@@ -108,13 +109,32 @@ namespace GUI.Errands.Admin.NewErrand
             {
                 MessageBox.Show("Mata in svaret i siffror!");
                 textbox.Text = "";
-                AddErrand.IsEnabled = false;
-            }
-            else
-            {
-                AddErrand.IsEnabled = true;
             }
         }
+
+        private void RegistrationNumber_LOSTFOCUS(object sender, RoutedEventArgs e)
+        {
+            var textbox = sender as WatermarkTextBox;
+            if (IsRegisterNotNumberAllowed(textbox.Text))
+            {
+                MessageBox.Show("Ange endast 2-7 tecken");
+                textbox.Text = "";
+            }
+        }
+
+
+    
+     
+       
+
+
+        private void Add_CanExecute(object sender, CanExecuteRoutedEventArgs e)
+        {
+          
+
+        }
+
+
 
         /// <summary>
         /// Lägger till ärendet när AddErrandknappen trycks ned
@@ -127,9 +147,10 @@ namespace GUI.Errands.Admin.NewErrand
             var issuebox = (ComboBoxItem)Issue.SelectedItem;
             var issue = issuebox.Content.ToString();
             var description = Description.Text;
-            var mechanicID = "";
+            
             var mechanic = MechanicsAvailable.SelectedItem as Mechanic;
 
+            string mechanicID;
             if (mechanic == null)
             {
                 mechanicID = MechanicsAvailable.SelectedItem as string;
@@ -207,7 +228,12 @@ namespace GUI.Errands.Admin.NewErrand
         /// <returns></returns>
         private static bool IsTextAllowed(string text)
         {
-            return !_regex.IsMatch(text);
+            return !_regexonlynumbers.IsMatch(text);
+        }
+
+        private static bool IsRegisterNotNumberAllowed(string text)
+        {
+            return !_regexregisternumber.IsMatch(text);
         }
 
         /// <summary>
