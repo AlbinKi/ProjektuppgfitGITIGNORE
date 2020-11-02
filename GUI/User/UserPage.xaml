@@ -1,0 +1,16 @@
+﻿<Page x:Class="GUI.User.UserPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:GUI.User"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="UserPage">
+
+    <Grid>
+        <Button Content="Avsluta ett ärende" HorizontalAlignment="Left" Margin="26,10,0,0" VerticalAlignment="Top" Height="48" Width="168"/>
+        <Button Content="Redigera dina kompetenser" HorizontalAlignment="Left" Margin="215,10,0,0" VerticalAlignment="Top" Height="48" Width="168" Click="UpdateSkills_Cli"/>
+
+    </Grid>
+</Page>

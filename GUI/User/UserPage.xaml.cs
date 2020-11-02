@@ -1,9 +1,7 @@
-﻿using Logic.Entities;
+﻿using GUI.User.Skills;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -13,19 +11,23 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using System.IO;
 
-namespace GUI
+namespace GUI.User
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for UserPage.xaml
     /// </summary>
-    public partial class MainWindow : NavigationWindow
+    public partial class UserPage : Page
     {
-        public MainWindow()
+        public UserPage()
         {
             InitializeComponent();
+        }
 
+        private void UpdateSkills_Click(object sender, RoutedEventArgs e)
+        {
+            var newUpdateSkills = new UpdateSkills();
+            NavigationService.Navigate(newUpdateSkills);
         }
     }
 }

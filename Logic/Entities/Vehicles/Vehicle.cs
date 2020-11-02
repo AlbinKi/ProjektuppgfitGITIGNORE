@@ -11,6 +11,5 @@ namespace Logic.Entities.Vehicles
         public int Odometer { get; set; }
         public string FuelType { get; set; }
 
-      
     }
 }

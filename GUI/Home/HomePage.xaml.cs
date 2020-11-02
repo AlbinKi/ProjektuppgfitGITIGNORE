@@ -11,6 +11,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Logic.DAL;
+using Logic.Entities;
 
 namespace GUI.Home
 {
@@ -28,6 +30,7 @@ namespace GUI.Home
         {
             ErrandPageAdmin errandPage = new ErrandPageAdmin();
 
+            //Lägg till "if user admin==true - gå till adminErrandPage. GÖR KONTROLLEN VID INLOGG!!!
             this.NavigationService.Navigate(errandPage);
         }
 
