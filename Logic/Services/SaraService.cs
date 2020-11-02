@@ -7,6 +7,7 @@ namespace Logic.Services
     {
         class SaraService
         {
+        //bdfbdfbdfbdf
             public void AddMechanicSkill(List<string> skill)
             {
                 while (true)
