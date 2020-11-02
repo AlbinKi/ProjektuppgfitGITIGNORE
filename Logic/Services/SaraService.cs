@@ -2,13 +2,6 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Logic.Services
-{
-    class SaraService
-    {
-        using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Logic.Services
     {
@@ -96,5 +89,5 @@ namespace Logic.Services
             }
         }
     }
-}
-}
+
+

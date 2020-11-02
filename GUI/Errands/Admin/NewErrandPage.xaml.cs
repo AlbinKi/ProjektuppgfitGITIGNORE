@@ -143,7 +143,7 @@ namespace GUI.Errands.Admin.NewErrand
             }
             else
             {
-                mechanicID = mechanic.MechanicID;
+                mechanicID = mechanic.MechanicID.ToString();
             }
             #endregion
 

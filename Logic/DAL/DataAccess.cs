@@ -63,5 +63,21 @@ namespace Logic.DAL
             sw.Close();
 
         }
+        public void Save(List<T> entities)
+        {
+            StreamWriter sw = new StreamWriter(path);
+
+            JsonSerializerOptions options = new JsonSerializerOptions
+            {
+                WriteIndented = true,
+
+            };
+
+            var jsonString = JsonSerializer.Serialize(entities, options);
+
+            sw.Write(jsonString);
+            sw.Close();
+
+        }
     }
 }
