@@ -9,6 +9,8 @@
       Title="UserPage">
 
     <Grid>
-        
+        <Button Content="Avsluta ett ärende" HorizontalAlignment="Left" Margin="26,10,0,0" VerticalAlignment="Top" Height="48" Width="168"/>
+        <Button Content="Redigera dina kompetenser" HorizontalAlignment="Left" Margin="215,10,0,0" VerticalAlignment="Top" Height="48" Width="168" Click="UpdateSkills_Cli"/>
+
     </Grid>
 </Page>

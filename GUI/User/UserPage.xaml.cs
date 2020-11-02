@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GUI.User.Skills;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -21,6 +22,12 @@ namespace GUI.User
         public UserPage()
         {
             InitializeComponent();
+        }
+
+        private void UpdateSkills_Click(object sender, RoutedEventArgs e)
+        {
+            var newUpdateSkills = new UpdateSkills();
+            NavigationService.Navigate(newUpdateSkills);
         }
     }
 }
