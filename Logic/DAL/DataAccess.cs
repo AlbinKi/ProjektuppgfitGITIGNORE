@@ -63,6 +63,11 @@ namespace Logic.DAL
             sw.Close();
 
         }
+
+        /// <summary>
+        /// Skickar in en hel lista istället för bara ett objekt (Används vid removemetoder)
+        /// </summary>
+        /// <param name="entities"></param>
         public void Save(List<T> entities)
         {
             StreamWriter sw = new StreamWriter(path);
