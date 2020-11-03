@@ -13,6 +13,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Logic.DAL;
 using Logic.Entities;
+using GUI.User;
 
 namespace GUI.Home
 {
@@ -37,6 +38,12 @@ namespace GUI.Home
         public void Skills_CLICK(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void TempClickUser(object sender, RoutedEventArgs e)
+        {
+            UserPage userPage = new UserPage();
+            NavigationService.Navigate(userPage);
         }
     }
 }

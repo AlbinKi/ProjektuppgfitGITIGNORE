@@ -61,13 +61,27 @@ namespace Logic.Services
             {
                 if (item.MechanicID == mechanic.MechanicID)
                 {
-                    //Hur många skills?? Kontrollera för att ej lägga in för många! 5!
+                    foreach (var mechSkill in item.Skills)
+                    {
+                        if (item.Skills.Contains(skill))
+                        {
+                            return;
+                        }
+                    }
+                    //Totalt 5 skills!
                     mechanic.Skills.Add(skill);
                     _mechanicdb.Save(mechanic);
                     return;
                 }
             }
         }
+
+        public void ListSkills(Mechanic mechanic)
+        {
+            _mechanics = _mechanicdb.Load();
+        }
+
+
 
         /// <summary>
         /// Admin lägger till en användare.

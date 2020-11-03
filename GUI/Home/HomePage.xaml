@@ -20,5 +20,6 @@
         <Label Grid.Row="0" Grid.Column="0">Hem</Label>
         <Button Click="Errand_CLICK" Content="Ärendehantering" HorizontalAlignment="Center" Margin="0,66,0,0" VerticalAlignment="Top" Height="32" Width="124"/>
         <Button Click="Skills_CLICK" Content="Kompetenser" HorizontalAlignment="Center" Margin="0,114,0,0" VerticalAlignment="Top" Height="32" Width="124"/>
+        <Button Content="Tillfällig user skill" HorizontalAlignment="Left" Margin="328,294,0,0" VerticalAlignment="Top" Click="TempClickUser"/>
     </Grid>
 </Page>

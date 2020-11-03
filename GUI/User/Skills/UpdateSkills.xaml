@@ -3,12 +3,16 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:extToolkit="http://schemas.xceed.com/wpf/xaml/toolkit"
       xmlns:local="clr-namespace:GUI.User.Skills"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="UpdateSkills">
 
     <Grid>
-        
+        <extToolkit:WatermarkComboBox x:Name="SkillList" Watermark="Välj en kompetens att lägga till" HorizontalAlignment="Left" Margin="111,91,0,0" VerticalAlignment="Top" Width="192"/>
+        <ListBox Margin="331,91,277,165" Name="CurrentSkills" SelectionChanged="CurrentSkills_SelectionChanged"/>
+        <TextBlock HorizontalAlignment="Left" Margin="331,56,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Language="sv-se" Text="Dina nuvarande kompetenser"/></TextBlock>
+
     </Grid>
 </Page>
