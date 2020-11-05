@@ -3,6 +3,7 @@ using Logic.Entities;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 
 namespace Logic.Services
 {
@@ -14,6 +15,11 @@ namespace Logic.Services
         private List<Mechanic> _mechanics; 
         private const string _path = @"DAL\User.json";
         private const string _folderpath = @"DAL";
+
+        public void GetCurrentUser(string username, string password)
+        {
+            CurrentUser.ID = _users.FirstOrDefault(user => user.Username.Equals(username) && user.Password.Equals(password));
+        }
 
         public LoginService()
         {
