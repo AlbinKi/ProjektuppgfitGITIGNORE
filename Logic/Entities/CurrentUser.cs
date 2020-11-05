@@ -6,6 +6,7 @@ namespace Logic.Entities
 {
     public static class CurrentUser
     {
-        public static Guid ID { get; set; }
+        public static User user { get; set; }
+
     }
 }

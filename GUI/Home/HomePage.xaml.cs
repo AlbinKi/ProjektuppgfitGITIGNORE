@@ -36,7 +36,7 @@ namespace GUI.Home
 
         public void Skills_CLICK(object sender, RoutedEventArgs e)
         {
-
+            
         }
     }
 }

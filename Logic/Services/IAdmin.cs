@@ -20,7 +20,6 @@ namespace Logic.Services
 
         void RemoveUser(User x);
 
-
         //public void ChangeMechanic()
         //{
 
@@ -50,6 +49,5 @@ namespace Logic.Services
         //{
 
         //}
-
     }
 }

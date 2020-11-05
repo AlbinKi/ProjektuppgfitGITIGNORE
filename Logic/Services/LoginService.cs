@@ -54,8 +54,9 @@ namespace Logic.Services
 
         public void GetCurrentUser(string username, string password)
         {
-            CurrentUser.ID = _users.FirstOrDefault(user => user.Username.Equals(username) && user.Password.Equals(password)).UserID;          
+            CurrentUser.user = _users.FirstOrDefault(user => user.Username.Equals(username) && user.Password.Equals(password));         
         }
+
         private Admin AddDefaultAdmin()
         {         
             var mechanic = new Mechanic("Bosse", "Andersson", new DateTime(1967, 05, 23));
