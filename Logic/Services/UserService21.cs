@@ -53,7 +53,7 @@ namespace Logic.Services
         /// </summary>
         /// <param name="mechanic"></param>
         /// <param name="skill"></param>
-        public void AddSkill(Mechanic mechanic, String skill)
+        public void AddSkill(Mechanic mechanic, string skill)
         {
             _mechanics = _mechanicdb.Load();
 
@@ -62,7 +62,15 @@ namespace Logic.Services
                 if (item.MechanicID == mechanic.MechanicID)
                 {
                     //Hur många skills?? Kontrollera för att ej lägga in för många! 5!
-                    mechanic.Skills.Add(skill);
+                    for (int i = 0; i < mechanic.Skills.Length; i++)
+                    {
+                        if (mechanic.Skills[i] == null)
+                        {
+                            mechanic.Skills[i] = skill;
+                            break;
+                        }                
+                    }
+                    
                     _mechanicdb.Save(mechanic);
                     return;
                 }

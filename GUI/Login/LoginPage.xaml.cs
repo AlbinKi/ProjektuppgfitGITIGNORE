@@ -33,14 +33,16 @@ namespace GUI.Login
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            string username = this.tbUsernam.Text;
-            string password = this.pbPassword.Password;
+            // string username = this.tbUsernam.Text;
+            //string password = this.pbPassword.Password;
+            string username = "Bosse";
+            string password = "Meckarn123";
 
             bool successful = _loginService.Login(username, password);
 
             if (successful)
             {
-
+                _loginService.GetCurrentUser(username, password);
                 HomePage homePage = new HomePage();
 
                 this.NavigationService.Navigate(homePage);

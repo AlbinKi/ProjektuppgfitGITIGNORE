@@ -82,7 +82,6 @@ namespace Logic.DAL
 
             sw.Write(jsonString);
             sw.Close();
-
         }
     }
 }

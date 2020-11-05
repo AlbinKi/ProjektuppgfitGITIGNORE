@@ -1,23 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Security.Cryptography.Xml;
+﻿using GUI.ErrandScreen;
+using GUI.Validators;
+using Logic.Entities;
+using Logic.Entities.Vehicles;
+using Logic.Services;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using Logic.Entities;
-using Logic.Entities.Vehicles;
-using System.Text.RegularExpressions;
-using Xceed.Wpf.Toolkit;
 using MessageBox = System.Windows.MessageBox;
-using Logic.Services;
-using Logic.DAL;
 
 namespace GUI.Errands.Admin.NewErrand
 {
@@ -26,16 +15,21 @@ namespace GUI.Errands.Admin.NewErrand
     /// </summary>
     public partial class NewErrandPage : Page
     {
-        private static readonly Regex _regexonlynumbers = new Regex("[^0-9]+"); //Ser till så det bara går att lägga in siffror i Textboxen
-        private static readonly Regex _regexregisternumber = new Regex("[A-Öa-ö0-9]{2,7}");
+
+
         private ErrandService _errandservice;
         private DBService _dbservice;
+        private Errand _errand;
+
 
         public NewErrandPage()
         {
             InitializeComponent();
             _errandservice = new ErrandService();
             _dbservice = new DBService();
+            _errand = new Errand();
+            //Binder sidans datakontext till ett ärende
+            this.DataContext = _errand;
         }
 
         /// <summary>
@@ -49,177 +43,60 @@ namespace GUI.Errands.Admin.NewErrand
             var box = (ComboBoxItem)(sender as ComboBox).SelectedItem;
             var value = box.Content.ToString();
 
+        
             //Olika frågor visas beroende på vilken fordonstyp som matas in
             #region Fordonstyper
             if (value == "Bil")
             {
                 Towbar1.Visibility = Visibility.Visible;
                 Towbar2.Visibility = Visibility.Visible;
-                Towbar2.IsChecked = true;
+                CarType.Visibility = Visibility.Visible;
+                CarType.SelectedIndex = 0;
             }
             else
             {
                 Towbar1.Visibility = Visibility.Hidden;
                 Towbar1.IsChecked = false;
                 Towbar2.Visibility = Visibility.Hidden;
-                Towbar2.IsChecked = false;
+                Towbar2.IsChecked = true;
+                CarType.Visibility = Visibility.Hidden;
+                CarType.SelectedIndex = 1;
             }
 
             if (value == "Lastbil")
             {
+                MaxLoad.Text = "";
                 MaxLoad.Visibility = Visibility.Visible;
+
             }
             else
             {
                 MaxLoad.Visibility = Visibility.Hidden;
-                MaxLoad.Text = "";
+                MaxLoad.Text = "0";
             }
-           
+
             if (value == "Buss")
             {
+                MaxPassenger.Text = "";
                 MaxPassenger.Visibility = Visibility.Visible;
             }
             else
             {
                 MaxPassenger.Visibility = Visibility.Hidden;
-                MaxPassenger.Text = "";
+                MaxPassenger.Text = "0";
             }
-           
+
             if (value == "Motorcykel")
             {
+                MaxSpeed.Text = "";
                 MaxSpeed.Visibility = Visibility.Visible;
             }
             else
             {
                 MaxSpeed.Visibility = Visibility.Hidden;
-                MaxSpeed.Text = "";
+                MaxSpeed.Text = "0";
             }
             #endregion
-        }
-
-        /// <summary>
-        /// Ser till så att bara numeriska värden kan fyllas i i de textrutor som innehar metoden
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void Numeric_LOSTFOCUS(object sender, RoutedEventArgs e)
-        {
-            var textbox = sender as WatermarkTextBox;
-            if (!IsTextAllowed(textbox.Text))
-            {
-                MessageBox.Show("Mata in svaret i siffror!");
-                textbox.Text = "";
-            }
-        }
-
-        private void RegistrationNumber_LOSTFOCUS(object sender, RoutedEventArgs e)
-        {
-            var textbox = sender as WatermarkTextBox;
-            if (IsRegisterNotNumberAllowed(textbox.Text))
-            {
-                MessageBox.Show("Ange endast 2-7 tecken");
-                textbox.Text = "";
-            }
-        }
-
-        /// <summary>
-        /// Lägger till ärendet när AddErrandknappen trycks ned
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void AddErrand_CLICK(object sender, RoutedEventArgs e)
-        {
-            #region Parametrar för ärende
-            var issuebox = (ComboBoxItem)Issue.SelectedItem;
-            var issue = issuebox.Content.ToString();
-            var description = Description.Text;
-            
-            var mechanic = MechanicsAvailable.SelectedItem as Mechanic;
-
-            string mechanicID;
-            if (mechanic == null)
-            {
-                mechanicID = MechanicsAvailable.SelectedItem as string;
-            }
-            else
-            {
-                mechanicID = mechanic.MechanicID.ToString();
-            }
-            #endregion
-
-            #region Parametrar för fordonet
-            var model = Model.Text;
-            var registrationnumber = RegistrationNumber.Text;
-            var odometer = int.Parse(Odometer.Text);
-            var fueltype = FuelType.Text;
-            var controller = (ComboBoxItem)VehicleType.SelectedItem;
-            var vehicletype = controller.Content.ToString();
-            #endregion
-
-            #region Skapandet av fordon och ärenden
-            //Skapar upp en bil
-            if (vehicletype == "Bil")
-            {
-                var towbar = false;
-                if (Towbar1.IsChecked == true)
-                {
-                    towbar = true;
-                }
-                else
-                {
-                    towbar = false;
-                }
-                var vehicle = new Car(model, registrationnumber, odometer, fueltype, towbar);
-                Errand errand = new Errand(description, vehicle.RegistrationNumber, issue, mechanicID, true);
-                _dbservice.SaveEntity(vehicle);
-                _dbservice.SaveEntity(errand);
-            }
-
-            //Skapar upp en lastbil
-            else if (vehicletype == "Lastbil")
-            {
-                var maxload = int.Parse(MaxLoad.Text);
-                var vehicle = new Truck(model, registrationnumber, odometer, fueltype, maxload);
-                Errand errand = new Errand(description, vehicle.RegistrationNumber, issue, mechanicID, true);
-                _dbservice.SaveEntity(vehicle);
-                _dbservice.SaveEntity(errand);
-            }
-
-            //Skapar upp en buss
-            else if (vehicletype == "Buss")
-            {
-                var maxpassengers = int.Parse(MaxPassenger.Text);
-                var vehicle = new Bus(model, registrationnumber, odometer, fueltype, maxpassengers);
-                Errand errand = new Errand(description, vehicle.RegistrationNumber, issue, mechanicID, true);
-                _dbservice.SaveEntity(vehicle);
-                _dbservice.SaveEntity(errand);
-            }
-
-            //Skapar upp en motorcykel
-            else if (vehicletype == "Motorcykel")
-            {
-                var maxspeed = int.Parse(MaxSpeed.Text);
-                var vehicle = new Motorcycle(model, registrationnumber, odometer, fueltype, maxspeed);
-                Errand errand = new Errand(description, vehicle.RegistrationNumber, issue, mechanicID, true);
-                _dbservice.SaveEntity(vehicle);
-                _dbservice.SaveEntity(errand);
-            }
-            #endregion 
-        }
-
-        /// <summary>
-        /// Returnerar om texten stämmer överens med den skapade regexen
-        /// </summary>
-        /// <param name="text"></param>
-        /// <returns></returns>
-        private static bool IsTextAllowed(string text)
-        {
-            return !_regexonlynumbers.IsMatch(text);
-        }
-
-        private static bool IsRegisterNotNumberAllowed(string text)
-        {
-            return !_regexregisternumber.IsMatch(text);
         }
 
         /// <summary>
@@ -230,19 +107,116 @@ namespace GUI.Errands.Admin.NewErrand
         private void Issue_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             MechanicsAvailable.ItemsSource = null;
-            var box = (ComboBoxItem)(sender as ComboBox).SelectedItem;
-            var value = box.Content.ToString();
 
-            var _mechanics = _errandservice.AvailableMechanics(value);
-            MechanicsAvailable.ItemsSource = _mechanics;
+            var box = (ComboBoxItem)(sender as ComboBox).SelectedItem;
+
+            var value = box.Content.ToString();
+        
+            MechanicsAvailable.ItemsSource = _errandservice.AvailableMechanics(value);
 
             if (MechanicsAvailable.Items.Count == 0)
             {
-                 var noMechanic = new string[] { "Väntar på ledig mekaniker"};
+                var noMechanic = new string[] { "Väntar på ledig mekaniker" };
 
-                MechanicsAvailable.ItemsSource = noMechanic;
+                MechanicsAvailable.ItemsSource = noMechanic;        
+            }          
+        }
+
+        /// <summary>
+        /// Lägger till ärendet när AddErrandknappen trycks ned
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void AddErrand_CLICK(object sender, RoutedEventArgs e)
+        {
+            #region Kollar om inmatningarna är giltiga annars kliver den ut ur metoden
+            ErrandValidator ev = new ErrandValidator()
+            {
+                Description = Description.Text,
+                Issue = Issue.Text,
+                MechanicID = MechanicsAvailable.SelectedValuePath,
+                RegistrationNumber = RegistrationNumber.Text,
+                VehicleType = VehicleType.Text,
+                Model = Model.Text,
+                FuelType = FuelType.Text,
+                Odometer = Odometer.Text,
+                MaxSpeed = MaxSpeed.Text,
+                MaxLoad = MaxLoad.Text,
+                MaxPassenger = MaxPassenger.Text,
+                CarType = CarType.Text
+            };
+
+            var results = ev.Validate(ev);
+            if (!results.IsValid)
+            {
+                var sb = new StringBuilder();
+                foreach (var failure in results.Errors)
+                {
+                    sb.Append($"{failure.ErrorMessage}\n");
+                }
+                MessageBox.Show(sb.ToString());
+                return;
+            }
+            #endregion
+
+            //All kod under denna kommentar körs endast om datan användaren matat in är giltiga
+            #region Sparandet av fordon till databasen
+            //Skapar upp fordon
+            switch (VehicleType.Text)
+            {
+                case "Bil":
+                    {
+                        var towbar = false;
+                        if (Towbar1.IsChecked == true)
+                        {
+                            towbar = true;
+                        }
+                        else
+                        {
+                            towbar = false;
+                        }
+                        var vehicle = new Car(Model.Text, RegistrationNumber.Text, int.Parse(Odometer.Text), FuelType.Text, towbar, CarType.Text);
+                        _dbservice.Save(vehicle);
+                        break;
+                    }
+                case "Lastbil":
+                    {
+                        var vehicle = new Truck(Model.Text, RegistrationNumber.Text, int.Parse(Odometer.Text), FuelType.Text, int.Parse(MaxLoad.Text));
+                        _dbservice.Save(vehicle);
+                        break;
+                    }
+                case "Motorcykel":
+                    {
+                        var vehicle = new Motorcycle(Model.Text, RegistrationNumber.Text, int.Parse(Odometer.Text), FuelType.Text, int.Parse(MaxSpeed.Text));
+                        _dbservice.Save(vehicle);
+                        break;
+                    }
+                case "Buss":
+                    {
+                        var vehicle = new Bus(Model.Text, RegistrationNumber.Text, int.Parse(Odometer.Text), FuelType.Text, int.Parse(MaxPassenger.Text));
+                        _dbservice.Save(vehicle);
+                        break;
+                    }
+            }
+            #endregion
+               
+            
+
+            if (MechanicsAvailable.SelectedItem is Mechanic)
+            {
+                var mechanic = MechanicsAvailable.SelectedItem as Mechanic;
+                mechanic.NumberOfErrands += 1;
+                _dbservice.ModifyMechanic(mechanic);
             }
             
+           
+            //Sparar ärendet till databasen
+            _dbservice.Save(_errand);
+
+            //Går tillbaka till föregående sida
+            ErrandPageAdmin page = new ErrandPageAdmin();
+            NavigationService.Navigate(page);          
         }
     }
 }
+

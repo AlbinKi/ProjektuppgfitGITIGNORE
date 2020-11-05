@@ -3,6 +3,7 @@ using Logic.Entities;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 
 namespace Logic.Services
 {
@@ -48,22 +49,28 @@ namespace Logic.Services
         public bool Login(string username, string password)
         {
             _users = _userdb.Load();
-            return _users.Exists(user => user.Username.Equals(username) && user.Password.Equals(password));
+            return _users.Exists(user => user.Username.Equals(username) && user.Password.Equals(password));           
         }
 
-        private Admin AddDefaultAdmin()
+        public void GetCurrentUser(string username, string password)
         {
+            CurrentUser.ID = _users.FirstOrDefault(user => user.Username.Equals(username) && user.Password.Equals(password)).UserID;          
+        }
+        private Admin AddDefaultAdmin()
+        {         
             var mechanic = new Mechanic("Bosse", "Andersson", new DateTime(1967, 05, 23));
-            mechanic.Skills.Add("Motor");
-            mechanic.Skills.Add("Hjul");
-            mechanic.Skills.Add("Bromsar");
+            mechanic.Skills[0] = "Motor";
+            mechanic.Skills[1] = "Hjul";
+            mechanic.Skills[2] = "Bromsar";
+            mechanic.Skills[3] = "Vindruta";
+            mechanic.Skills[4] = "Kaross";
             _mechanicdb.Save(mechanic);
-            _mechanics = _mechanicdb.Load();
 
             var admin = new Admin();
             admin.Username = "Bosse";
             admin.Password = "Meckarn123";
             admin.UserID = mechanic.MechanicID;
+            admin.Admin = true;
 
             return admin;
         }

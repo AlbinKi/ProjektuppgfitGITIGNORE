@@ -11,8 +11,8 @@ namespace Logic.Services
             {
                 while (true)
                 {
-                    Console.Write("Ange kompetens att lägga till på bilmekaniker: ");
-                    string addmechanicskill = Console.ReadLine().ToLower();
+                   Console.Write("Ange kompetens att lägga till på bilmekaniker: ");
+                   string addmechanicskill = Console.ReadLine().ToLower();
 
                     if (addmechanicskill == "breaks" || addmechanicskill == "engine" || addmechanicskill == "body" ||
                         addmechanicskill == "windshields" || addmechanicskill == "tire")

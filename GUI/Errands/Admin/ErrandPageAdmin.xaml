@@ -10,6 +10,8 @@
 
     <Grid>
         <Button Content="Lägg till ett nytt ärende" HorizontalAlignment="Left" Margin="303,80,0,0" VerticalAlignment="Top" Height="48" Width="167" Click="NewErrand_CLICK"/>
+        <Button x:Name="ErrandMechanic" Content="Lägg mekaniker på ärende" HorizontalAlignment="Left" Margin="303,148,0,0" VerticalAlignment="Top" Height="48" Width="167" Click="ErrandMechanic_CLICK"/>
+        <Button Content="Ändra status på ärende" HorizontalAlignment="Left" Margin="303,213,0,0" VerticalAlignment="Top" Height="48" Width="167" Click="ErrandStatus_CLICK"/>
 
     </Grid>
 </Page>

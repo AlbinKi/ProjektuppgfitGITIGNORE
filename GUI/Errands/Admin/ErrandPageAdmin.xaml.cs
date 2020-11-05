@@ -1,4 +1,7 @@
-﻿using GUI.Errands.Admin.NewErrand;
+﻿using GUI.Errands.Admin;
+using GUI.Errands.Admin.NewErrand;
+using Logic.Entities;
+using Logic.Services;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -21,6 +24,11 @@ namespace GUI.ErrandScreen
     {
         public ErrandPageAdmin()
         {
+            ErrandService es = new ErrandService();
+            if (es.UnassignedErrands() == null)
+            {
+                ErrandMechanic.IsEnabled = false;
+            }
             InitializeComponent();
         }
 
@@ -29,5 +37,16 @@ namespace GUI.ErrandScreen
             var newErrand = new NewErrandPage();
             this.NavigationService.Navigate(newErrand);
         }
+        private void ErrandStatus_CLICK(object sender, RoutedEventArgs e)
+        {
+            var errandStatus = new ErrandStatus();
+            this.NavigationService.Navigate(errandStatus);
+        }
+        private void ErrandMechanic_CLICK(object sender, RoutedEventArgs e)
+        {
+            var errandMechanic = new ErrandMechanic();
+            this.NavigationService.Navigate(errandMechanic);
+        }
+
     }
 }

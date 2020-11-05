@@ -8,6 +8,8 @@ namespace Logic.Entities
     public class Errand
     {
         public string Description { get; set; }
+           
+            
         public string VehicleID{ get; set; }
         public string Issue { get; set; }
         public string MechanicID { get; set; }

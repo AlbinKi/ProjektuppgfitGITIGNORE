@@ -1,6 +1,8 @@
 ﻿using Logic.DAL;
 using Logic.Entities;
 using System.Collections.Generic;
+using System.Linq;
+
 namespace Logic.Services
 {
     public class ErrandService
@@ -30,7 +32,7 @@ namespace Logic.Services
 
             foreach (var mechanic in _mechanics)
             {
-                var errandCount = mechanic.NumberOfErrands.Count;
+                var errandCount = mechanic.NumberOfErrands;
                 foreach (var skill in mechanic.Skills)
                 {
                     if (issue == skill)
@@ -50,19 +52,10 @@ namespace Logic.Services
         /// Returnerar en lista av ärenden som ej har en mekaniker tilldelade till sig
         /// </summary>
         /// <returns></returns>
-        public List<Errand> UnassignedMechanicToErrand()
+        public List<Errand> UnassignedErrands()
         {
-           var errands = _erranddb.Load();
-            var unassignedErrands = new List<Errand>();
-            foreach (var errand in errands)
-            {
-                if (errand.MechanicID == "")
-                {
-                    unassignedErrands.Add(errand);
-                }
-            }
-            return unassignedErrands;
+            var errands = _erranddb.Load();
+            return errands.Where(errand => errand.MechanicID == null).ToList();
         }
-
     }
 }
