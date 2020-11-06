@@ -15,6 +15,7 @@
             <ComboBoxItem Content="Motor"/>
             <ComboBoxItem Content="Kaross"/>
             <ComboBoxItem Content="Hjul"/>
+            <ComboBoxItem Content="Vindrutor"/>
         </extToolkit:WatermarkComboBox>
         <ListBox Margin="331,91,277,165" Name="CurrentSkills" SelectionChanged="CurrentSkills_SelectionChanged"/>
         <TextBlock HorizontalAlignment="Left" Margin="331,56,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Language="sv-se" Text="Dina nuvarande kompetenser"/></TextBlock>
