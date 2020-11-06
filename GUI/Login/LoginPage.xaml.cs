@@ -1,5 +1,6 @@
 ﻿
 using GUI.Home;
+using Logic.Entities;
 using Logic.Services;
 using System;
 using System.Collections.Generic;

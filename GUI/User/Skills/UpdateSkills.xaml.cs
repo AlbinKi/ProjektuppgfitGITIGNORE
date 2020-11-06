@@ -1,4 +1,5 @@
-﻿using Logic.Entities;
+﻿using GUI.Login;
+using Logic.Entities;
 using Logic.Services;
 using System;
 using System.Collections.Generic;
@@ -13,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Xceed.Wpf.Toolkit;
+using System.Linq;
 
 
 namespace GUI.User.Skills
@@ -26,6 +28,9 @@ namespace GUI.User.Skills
         private DBService _dbservice;
         private Mechanic _mechanic; //Kanske "mechanic == user"
         //Hämta en lista med skills och spara till variabel här?
+        private UserService21 _userService;
+
+
 
         public UpdateSkills()
         {
@@ -36,8 +41,13 @@ namespace GUI.User.Skills
 
         private void CurrentSkills_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            UserService21 list = new UserService21();
+            //UserService21 list = new UserService21();
             //list.ListSkills();
+            var user = CurrentUser.ID;
+            _mechanic = FirstOrDefault(_mechanic => _mechanic.MechanicID // Equals(username) && user.Password.Equals(password) CurrentUser.ID;
+            _userService.ListSkills(_mechanic);
+            
+            
         }
     }
 }
