@@ -13,9 +13,10 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using MessageBox = System.Windows.MessageBox;
 using Xceed.Wpf.Toolkit;
 using System.Linq;
-
+using Logic.DAL;
 
 namespace GUI.User.Skills
 {
@@ -26,9 +27,12 @@ namespace GUI.User.Skills
     {
 
         private DBService _dbservice;
-        private Mechanic _mechanic; //Kanske "mechanic == user"
-        //Hämta en lista med skills och spara till variabel här?
+        private Mechanic _mechanic;
         private UserService21 _userService;
+        //private DataAccess<Mechanic> _dataAccess;
+        private List<Mechanic> _mechanics;
+        private DataAccess<Mechanic> _mechanicdb;
+
 
 
 
@@ -36,18 +40,50 @@ namespace GUI.User.Skills
         {
             InitializeComponent();
             _dbservice = new DBService();
-            //_mechanic = 
+            _mechanicdb = new DataAccess<Mechanic>();
+            _userService = new UserService21();
+
+            List<string> SkillList = _userService.ListSkills();
+            CurrentSkills.ItemsSource = SkillList;
+
         }
 
         private void CurrentSkills_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            //UserService21 list = new UserService21();
-            //list.ListSkills();
-            var user = CurrentUser.ID;
-            _mechanic = FirstOrDefault(_mechanic => _mechanic.MechanicID // Equals(username) && user.Password.Equals(password) CurrentUser.ID;
-            _userService.ListSkills(_mechanic);
-            
-            
+
+
+        }
+
+        private void AddButton_Click(object sender, RoutedEventArgs e)
+        {
+            _mechanics = _mechanicdb.Load();
+
+            _mechanic = _mechanics.FirstOrDefault(mechanic => mechanic.MechanicID == CurrentUser.ID.UserID);
+
+            List<string> SkillList = _userService.ListSkills();
+
+            var skill = SkillBox.Text;
+
+            if(SkillList.Any(x => x == skill))
+            {
+                MessageBox.Show("Du har angett en kompetens som du redan har.");
+            }
+            else
+            {
+                SkillList.Add(skill);
+
+                _mechanic.Skills.Add(skill);
+
+                _dbservice.Modify(_mechanic);
+
+                CurrentSkills.ItemsSource = SkillList;
+            }
+
+        }
+
+        private void SkillBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }

@@ -10,7 +10,7 @@
       Title="UpdateSkills">
 
     <Grid>
-        <extToolkit:WatermarkComboBox x:Name="SkillList" Watermark="Välj en kompetens att lägga till" HorizontalAlignment="Left" Margin="111,91,0,0" VerticalAlignment="Top" Width="192">
+        <extToolkit:WatermarkComboBox x:Name="SkillBox" Watermark="Välj en kompetens att lägga till" HorizontalAlignment="Left" Margin="111,91,0,0" VerticalAlignment="Top" Width="192" SelectionChanged="SkillBox_SelectionChanged">
             <ComboBoxItem Content="Bromsar"/>
             <ComboBoxItem Content="Motor"/>
             <ComboBoxItem Content="Kaross"/>
@@ -18,6 +18,7 @@
         </extToolkit:WatermarkComboBox>
         <ListBox Margin="331,91,277,165" Name="CurrentSkills" SelectionChanged="CurrentSkills_SelectionChanged"/>
         <TextBlock HorizontalAlignment="Left" Margin="331,56,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Language="sv-se" Text="Dina nuvarande kompetenser"/></TextBlock>
+        <Button Content="Lägg till" Name="AddButton" HorizontalAlignment="Left" Margin="240,151,0,0" VerticalAlignment="Top" Height="37" Width="63" Click="AddButton_Click"/>
 
     </Grid>
 </Page>

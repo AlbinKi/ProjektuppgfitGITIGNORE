@@ -2,6 +2,7 @@
 using Logic.Entities;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Logic.Services
@@ -76,9 +77,13 @@ namespace Logic.Services
             }
         }
 
-        public void ListSkills(Mechanic mechanic)
+        public List<string> ListSkills()
         {
             _mechanics = _mechanicdb.Load();
+
+            Mechanic _mechanic = _mechanics.FirstOrDefault(mechanic => mechanic.MechanicID == CurrentUser.ID.UserID);
+            
+            return _mechanic.Skills;
         }
 
 

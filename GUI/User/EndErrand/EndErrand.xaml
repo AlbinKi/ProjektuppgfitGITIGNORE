@@ -9,6 +9,9 @@
       Title="EndErrand">
 
     <Grid>
-        
+        <Button Content="Avsluta ärende" Name="EndErrand_button" HorizontalAlignment="Left" Margin="236,242,0,0" VerticalAlignment="Top" Height="31" Width="96"/>
+        <ListBox Name="Errands" Margin="357,122,233,177"/>
+        <TextBlock HorizontalAlignment="Left" Margin="357,101,0,0" Text="Välj ett ärende att som är klart och kan avslutas." TextWrapping="Wrap" VerticalAlignment="Top"/>
+
     </Grid>
 </Page>
