@@ -7,22 +7,40 @@ using System.Text;
 
 namespace Logic.Services
 {
-    public class DBService
+    
+    public static class DBService
     {
-        public void Save<T>(T entity)
+        public static void Save<T>(T entity)
         {
             var db = new DataAccess<T>();
             db.Save(entity);
         }
 
-    
-        public void ModifyMechanic(Mechanic mechanic)
+
+        public static void  Modify(Mechanic m)
         {
             var db = new DataAccess<Mechanic>();
-            var entities = db.Load();
-            entities.RemoveAll(e => e.MechanicID == mechanic.MechanicID);
-            entities.Add(mechanic);
-            db.Save(entities);
+            var mechanics = db.Load();
+            mechanics[mechanics.FindIndex(ind => ind.MechanicID == m.MechanicID)] = m;
+            mechanics.Add(m);
+            db.Save(mechanics);
+        }
+
+        public static void Modify(Errand e)
+        {
+            var db = new DataAccess<Errand>();
+            var mechanics = db.Load();
+            mechanics[mechanics.FindIndex(ind => ind.ID == e.ID)] = e;
+            mechanics.Add(e);
+            db.Save(mechanics);
+        }   
+        public static void Modify(User u)
+        {
+            var db = new DataAccess<User>();
+            var mechanics = db.Load();
+            mechanics[mechanics.FindIndex(ind => ind.userID == u.userID)] = u;
+            mechanics.Add(u);
+            db.Save(mechanics);
         }
     }
 }

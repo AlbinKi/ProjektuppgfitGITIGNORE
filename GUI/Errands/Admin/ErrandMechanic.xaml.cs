@@ -1,4 +1,5 @@
-﻿using Logic.Entities;
+﻿using GUI.Validators;
+using Logic.Entities;
 using Logic.Services;
 using System;
 using System.Collections.Generic;
@@ -13,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Xceed.Wpf.Toolkit;
+using MessageBox = System.Windows.MessageBox;
 
 namespace GUI.Errands.Admin
 {
@@ -37,6 +39,33 @@ namespace GUI.Errands.Admin
             var value = errand.Issue;
 
             MechanicList.ItemsSource = _errandserivce.AvailableMechanics(value);
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void AddMechanic_Click(object sender, RoutedEventArgs e)
+        {
+            MechanicToErrandValidator mv = new MechanicToErrandValidator()
+            {
+                MechanicList = MechanicList.SelectedItem as Mechanic,
+                ErrandList = ErrandList.SelectedItem as Errand
+            };
+
+            var results = mv.Validate(mv);
+            if (!results.IsValid)
+            {
+                var sb = new StringBuilder();
+                foreach (var failure in results.Errors)
+                {
+                    sb.Append($"{failure.ErrorMessage}\n");
+                }
+                MessageBox.Show(sb.ToString());
+                return;
+            }
+
         }
     }
 }

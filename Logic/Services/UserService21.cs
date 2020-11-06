@@ -101,11 +101,11 @@ namespace Logic.Services
 
             foreach (var item in _users)
             {
-                if (item.UserID == user.UserID)
+                if (item.userID == user.userID)
                 {
                     foreach (var mechanic in _mechanics)
                     {
-                        if (mechanic.MechanicID == item.UserID)
+                        if (mechanic.MechanicID == item.userID)
                         {
                             _mechanics.Remove(mechanic);
                             _mechanicdb.Save(_mechanics);

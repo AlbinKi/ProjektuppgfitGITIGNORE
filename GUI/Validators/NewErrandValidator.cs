@@ -9,7 +9,7 @@ using Logic.Entities;
 
 namespace GUI.Validators
 {
-    public class ErrandValidator : AbstractValidator<ErrandValidator>
+    public class NewErrandValidator : AbstractValidator<NewErrandValidator>
     {
 
         public string Description { get; set; }
@@ -27,7 +27,7 @@ namespace GUI.Validators
         private static readonly Regex _nospecialchars = new Regex(@"^[_A-z0-9]*((-|\s)*[_A-z0-9])*$");
         private static readonly Regex _regexonlynumbers = new Regex("[0-9]+");
 
-        public ErrandValidator()
+        public NewErrandValidator()
         {
             RuleFor(e => e.Description).Cascade(CascadeMode.Stop).Length(5, 100).WithMessage("Ärendebeskrivningen måste vara mellan 5-100 tecken");
             RuleFor(e => e.VehicleType).Cascade(CascadeMode.Stop).NotEmpty().WithMessage("Fordonstyp måste anges");

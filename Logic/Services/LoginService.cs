@@ -57,7 +57,7 @@ namespace Logic.Services
             CurrentUser.user = _users.FirstOrDefault(user => user.Username.Equals(username) && user.Password.Equals(password));         
         }
 
-        private Admin AddDefaultAdmin()
+        private User AddDefaultAdmin()
         {         
             var mechanic = new Mechanic("Bosse", "Andersson", new DateTime(1967, 05, 23));
             mechanic.Skills[0] = "Motor";
@@ -67,13 +67,13 @@ namespace Logic.Services
             mechanic.Skills[4] = "Kaross";
             _mechanicdb.Save(mechanic);
 
-            var admin = new Admin();
-            admin.Username = "Bosse";
-            admin.Password = "Meckarn123";
-            admin.UserID = mechanic.MechanicID;
-            admin.Admin = true;
+            var user = new User();
+            user.Username = "Bosse";
+            user.Password = "Meckarn123";
+            user.userID = mechanic.MechanicID;
+            user.Admin = true;
 
-            return admin;
+            return user;
         }
     }
 }

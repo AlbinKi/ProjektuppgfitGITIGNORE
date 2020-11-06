@@ -30,6 +30,7 @@ namespace GUI.ErrandScreen
                 ErrandMechanic.IsEnabled = false;
             }
             InitializeComponent();
+            
         }
 
         private void NewErrand_CLICK(object sender, RoutedEventArgs e)

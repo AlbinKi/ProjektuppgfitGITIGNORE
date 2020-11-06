@@ -15,10 +15,7 @@ namespace GUI.Errands.Admin.NewErrand
     /// </summary>
     public partial class NewErrandPage : Page
     {
-
-
-        private ErrandService _errandservice;
-        private DBService _dbservice;
+        private ErrandService _errandservice; 
         private Errand _errand;
 
 
@@ -26,7 +23,6 @@ namespace GUI.Errands.Admin.NewErrand
         {
             InitializeComponent();
             _errandservice = new ErrandService();
-            _dbservice = new DBService();
             _errand = new Errand();
             //Binder sidans datakontext till ett ärende
             this.DataContext = _errand;
@@ -130,7 +126,7 @@ namespace GUI.Errands.Admin.NewErrand
         private void AddErrand_CLICK(object sender, RoutedEventArgs e)
         {
             #region Kollar om inmatningarna är giltiga annars kliver den ut ur metoden
-            ErrandValidator ev = new ErrandValidator()
+            NewErrandValidator ev = new NewErrandValidator()
             {
                 Description = Description.Text,
                 Issue = Issue.Text,
@@ -176,25 +172,25 @@ namespace GUI.Errands.Admin.NewErrand
                             towbar = false;
                         }
                         var vehicle = new Car(Model.Text, RegistrationNumber.Text, int.Parse(Odometer.Text), FuelType.Text, towbar, CarType.Text);
-                        _dbservice.Save(vehicle);
+                        DBService.Save(vehicle);
                         break;
                     }
                 case "Lastbil":
                     {
                         var vehicle = new Truck(Model.Text, RegistrationNumber.Text, int.Parse(Odometer.Text), FuelType.Text, int.Parse(MaxLoad.Text));
-                        _dbservice.Save(vehicle);
+                        DBService.Save(vehicle);
                         break;
                     }
                 case "Motorcykel":
                     {
                         var vehicle = new Motorcycle(Model.Text, RegistrationNumber.Text, int.Parse(Odometer.Text), FuelType.Text, int.Parse(MaxSpeed.Text));
-                        _dbservice.Save(vehicle);
+                        DBService.Save(vehicle);
                         break;
                     }
                 case "Buss":
                     {
                         var vehicle = new Bus(Model.Text, RegistrationNumber.Text, int.Parse(Odometer.Text), FuelType.Text, int.Parse(MaxPassenger.Text));
-                        _dbservice.Save(vehicle);
+                        DBService.Save(vehicle);
                         break;
                     }
             }
@@ -206,12 +202,12 @@ namespace GUI.Errands.Admin.NewErrand
             {
                 var mechanic = MechanicsAvailable.SelectedItem as Mechanic;
                 mechanic.NumberOfErrands += 1;
-                _dbservice.ModifyMechanic(mechanic);
+                DBService.Modify(mechanic);
             }
             
            
             //Sparar ärendet till databasen
-            _dbservice.Save(_errand);
+            DBService.Save(_errand);
 
             //Går tillbaka till föregående sida
             ErrandPageAdmin page = new ErrandPageAdmin();

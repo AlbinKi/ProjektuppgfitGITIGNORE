@@ -47,12 +47,55 @@
         <Grid Grid.Row="2" Grid.Column="3">
 
             <ListBox x:Name="ErrandList" BorderThickness="0" SelectionChanged="ErrandList_SelectionChanged">
-
+                <ListBox.Resources>
+                    <Style TargetType="ListBoxItem">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="ListBoxItem">
+                                    <Border Name="Border" Padding="2" SnapsToDevicePixels="true">
+                                        <ContentPresenter />
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsSelected" Value="true">
+                                            <Setter TargetName="Border" Property="Background"
+                                            Value="LightGray"/>
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </ListBox.Resources>
             </ListBox>
 
         </Grid>
         <Grid Grid.Row="2" Grid.Column="1">
-            <ListBox x:Name="MechanicList" BorderThickness="0"/>
+            <ListBox x:Name="MechanicList" BorderThickness="0">
+                <ListBox.Resources>
+                    <Style TargetType="ListBoxItem">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="ListBoxItem">
+                                    <Border Name="Border" Padding="2" SnapsToDevicePixels="true">
+                                        <ContentPresenter />
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsSelected" Value="true">
+                                            <Setter TargetName="Border" Property="Background"
+                                            Value="LightGray"/>
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </ListBox.Resources>
+            </ListBox>
+        </Grid>
+
+        <Grid Grid.Row="2" Grid.Column="2">
+            <Button x:Name="AddMechanic" MaxHeight="50" MaxWidth=" 130" Content="Lägg till mekaniker" FontSize="14" Click="AddMechanic_Click" />
+
         </Grid>
     </Grid>
 </Page>

@@ -8,7 +8,7 @@ namespace Logic.Entities
     {
         public string Username { get; set; }
         public string Password { get; set; }
-        public Guid UserID { get; set; }
+        public Guid userID { get; set; }
         //public string UserID { get; set; }
         public bool Admin { get; set; }
 
