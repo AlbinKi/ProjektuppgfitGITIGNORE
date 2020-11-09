@@ -86,6 +86,7 @@ namespace Logic.Services
         /// <returns></returns>
         public List<string> ListSkills()
         {
+            //Kan inte längre ladda en lista, blir null!
             _mechanics = _mechanicdb.Load();
 
             _mechanic = _mechanics.FirstOrDefault(mechanic => mechanic.MechanicID == CurrentUser.user.UserID);

@@ -20,7 +20,7 @@ namespace Logic.DAL
         ///
         public List<T> Load()
         {
-          if (!File.Exists(path))
+            if (!File.Exists(path))
             {
                 var fs = File.Create(path);
                 fs.Close();
