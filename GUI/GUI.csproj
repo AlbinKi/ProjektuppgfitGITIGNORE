@@ -15,8 +15,4 @@
     <ProjectReference Include="..\Logic\Logic.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Admin\" />
-  </ItemGroup>
-
 </Project>

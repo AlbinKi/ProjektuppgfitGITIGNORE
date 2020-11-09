@@ -13,6 +13,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Logic.DAL;
 using Logic.Entities;
+using GUI.Admin;
 
 namespace GUI.Home
 {
@@ -37,6 +38,12 @@ namespace GUI.Home
         public void Skills_CLICK(object sender, RoutedEventArgs e)
         {
             
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            AdminPage adminpage = new AdminPage();
+            this.NavigationService.Navigate(adminpage);
         }
     }
 }

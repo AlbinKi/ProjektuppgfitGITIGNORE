@@ -1,0 +1,56 @@
+﻿<Page x:Class="GUI.Admin.UserOrMechanic.UserAndMechanic"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:GUI.Admin.UserOrMechanic" xmlns:extToolkit="http://schemas.xceed.com/wpf/xaml/toolkit"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="UserAndMechanic">
+
+    <Grid x:Name="AddRemoveU1">
+        <TextBlock HorizontalAlignment="Left" Margin="19,24,0,0" Text="Hantera användare och bilmekaniker" TextWrapping="Wrap" VerticalAlignment="Top" Height="39" Width="530" FontSize="30"/>
+
+        <Button x:Name="AddRemoveUser" Content="Lägg till" HorizontalAlignment="Left" Margin="540,134,0,0" VerticalAlignment="Top" Height="22" Width="116" Click="AddRemoveUser_Click"/>
+
+        <Button x:Name="AddMechanic" Content="Lägg till" HorizontalAlignment="Left" Margin="540,246,0,0" VerticalAlignment="Top" Height="22" Width="116" Click="AddRemoveMechanic_Click"/>
+        <Button x:Name="RemoveMechanic" Content="Ta bort" HorizontalAlignment="Left" Margin="661,247,0,0" VerticalAlignment="Top" Height="22" Width="116" Click="RemoveMechanic_Click"/>
+
+        <!--<Button x:Name="InfoMechanic" Content="Information om bilmekaniker" HorizontalAlignment="Left" Margin="595,120,0,0" VerticalAlignment="Top" Height="20" Width="174" Click="InfoMechanic_Click"/>
+
+        <Button x:Name="AddRemoveSkill" Content="Lägg till/ta bort kompetens" HorizontalAlignment="Left" Margin="400,120,0,0" VerticalAlignment="Top" Height="20" Width="173" Click="AddRemoveSkill_Click"/>-->
+
+
+        <extToolkit:WatermarkComboBox x:Name="AddRemoveU" Watermark="Välj alternativ" HorizontalAlignment="Left" Height="21" Margin="19,107,0,0" VerticalAlignment="Top" Width="244" SelectionChanged="AddRemoveU_SelectionChanged">
+            <ComboBoxItem Content="Lägg till användare"/>
+            <ComboBoxItem Content="Ta bort användare"/>
+        </extToolkit:WatermarkComboBox>
+
+        <extToolkit:WatermarkComboBox x:Name="AddRemoveM" Watermark="Välj alternativ" HorizontalAlignment="Left" Height="21" Margin="19,192,0,0" VerticalAlignment="Top" Width="244" SelectionChanged="AddRemoveM_SelectionChanged">
+            <ComboBoxItem Content="Lägg till bilmekaniker"/>
+            <ComboBoxItem Content="Ta bort bilmekaniker"/>
+        </extToolkit:WatermarkComboBox>
+        <extToolkit:WatermarkComboBox x:Name="fiveSkills" Watermark="Välj kompetens" HorizontalAlignment="Center" Height="21" Margin="0,303,0,0" VerticalAlignment="Top" Width="244" Visibility="Hidden">
+            <ComboBoxItem Content="Bromsar"/>
+            <ComboBoxItem Content="Motor"/>
+            <ComboBoxItem Content="Kaross"/>
+            <ComboBoxItem Content="Vindrutor"/>
+            <ComboBoxItem Content="Däck"/>
+        </extToolkit:WatermarkComboBox>
+
+
+        <extToolkit:WatermarkTextBox x:Name="Username" ToolTip="abc@def.ghi" HorizontalAlignment="Center" Margin="0,107,0,0" Watermark="Användarnamn" TextWrapping="Wrap" VerticalAlignment="Top" Width="244" Height="22" Visibility="Hidden"/>
+        <extToolkit:WatermarkTextBox x:Name="Password" ToolTip="Ange i bokstäver/siffror" HorizontalAlignment="Center" Margin="0,134,0,0" Watermark="Lösenord" TextWrapping="Wrap" VerticalAlignment="Top" Width="244" Height="22" Visibility="Hidden"/>
+
+        <extToolkit:WatermarkTextBox x:Name="Firstname" ToolTip="Ange svar i bokstäver" HorizontalAlignment="Center" Margin="0,192,0,0" Watermark="Förnamn" TextWrapping="Wrap" VerticalAlignment="Top" Width="244" Height="22" Visibility="Hidden"/>
+        <extToolkit:WatermarkTextBox x:Name="Lastname" ToolTip="Ange svar i bokstäver" HorizontalAlignment="Center" Margin="0,219,0,0" Watermark="Efternamn" TextWrapping="Wrap" VerticalAlignment="Top" Width="244" Height="22" Visibility="Hidden"/>
+        <!--<extToolkit:WatermarkTextBox x:Name="DOB" ToolTip="Ange (yyyy-MM-dd)" HorizontalAlignment="Left" Margin="220,355,0,0" Watermark="Födelsedatum" TextWrapping="Wrap" VerticalAlignment="Top" Width="244" Height="22"/>-->
+        <DatePicker x:Name="DOB" HorizontalAlignment="Left" Margin="420,246,0,0" VerticalAlignment="Top" />
+
+
+        <TextBlock x:Name="Tblock" HorizontalAlignment="Left" Margin="19,86,0,0" Text="Användare" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold"/>
+        <TextBlock HorizontalAlignment="Left" Margin="19,171,0,0" Text="Bilmekaniker" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold"/>
+        <!--<ListBox x:Name="MechanicList" Margin="278,314,226,10" SelectionChanged="MechanicList_SelectionChanged"/>-->
+
+    </Grid>
+</Page>

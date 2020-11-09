@@ -23,12 +23,14 @@ namespace Logic.Services
         }
 
        
-        public void AddMechanic(string firstName, string lastName, DateTime dob)
+        public Mechanic AddMechanic(string firstName, string lastName, DateTime dob)
         {
 
             Mechanic mechanic = new Mechanic(firstName, lastName, dob);
 
             _mechanicdb.Save(mechanic);
+
+            return mechanic;
 
         }
 
