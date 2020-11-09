@@ -24,8 +24,6 @@ namespace GUI.Admin.UserOrMechanic
     public partial class UserAndMechanic : Page
     {
         private UserService21 _userservice21;
-        private DBService _dbservice;
-
         private Mechanic _mechanic;
         private List<Mechanic> _mechanics;
         private DataAccess<Mechanic> _mechanicdb;
@@ -37,7 +35,6 @@ namespace GUI.Admin.UserOrMechanic
         {
             InitializeComponent();
             _userservice21 = new UserService21();
-            _dbservice = new DBService();
 
             _mechanic = new Mechanic();
             _mechanics = new List<Mechanic>();
@@ -125,7 +122,7 @@ namespace GUI.Admin.UserOrMechanic
 
             var _mechanic = _userservice21.AddMechanic(firstName, lastName, dob);
             _mechanics.Add(_mechanic);
-            //_dbservice.SaveEntity(_mechanic);
+            //DBService.SaveEntity(_mechanic);
 
             MessageBox.Show("Bilmekaniker har lagts till"); 
         }

@@ -75,9 +75,5 @@ namespace Logic.Services
 
             return user;
         }
-        public void GetCurrentUser(string username, string password)
-        {
-            CurrentUser.ID = _users.FirstOrDefault(user => user.Username.Equals(username) && user.Password.Equals(password)).UserID;
-        }
     }
 }
