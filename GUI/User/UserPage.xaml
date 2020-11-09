@@ -9,8 +9,7 @@
       Title="UserPage">
 
     <Grid>
-        <Button Content="Avsluta ett ärende" HorizontalAlignment="Left" Margin="26,10,0,0" VerticalAlignment="Top" Height="48" Width="168"/>
-        <Button Content="Redigera dina kompetenser" HorizontalAlignment="Left" Margin="215,10,0,0" VerticalAlignment="Top" Height="48" Width="168" Click="UpdateSkills_Click"/>
-
+        <Button Content="Avsluta ett ärende" Name ="EndErrand" HorizontalAlignment="Left" Margin="26,101,0,0" VerticalAlignment="Top" Height="48" Width="168" Click="EndErrand_Click"/>
+        <Button Content="Redigera dina kompetenser" Name="UpdateSkills" HorizontalAlignment="Left" Margin="26,177,0,0" VerticalAlignment="Top" Height="48" Width="168" Click="UpdateSkills_Click"/>
     </Grid>
 </Page>

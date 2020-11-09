@@ -14,6 +14,8 @@ using System.Windows.Shapes;
 using Logic.DAL;
 using Logic.Entities;
 using GUI.Admin;
+using GUI.User;
+
 
 namespace GUI.Home
 {
@@ -44,6 +46,12 @@ namespace GUI.Home
         {
             AdminPage adminpage = new AdminPage();
             this.NavigationService.Navigate(adminpage);
+        }
+
+        private void TempClickUser(object sender, RoutedEventArgs e)
+        {
+            UserPage userPage = new UserPage();
+            NavigationService.Navigate(userPage);
         }
     }
 }

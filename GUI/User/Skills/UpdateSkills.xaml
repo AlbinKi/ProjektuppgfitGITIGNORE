@@ -3,12 +3,26 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:extToolkit="http://schemas.xceed.com/wpf/xaml/toolkit"
       xmlns:local="clr-namespace:GUI.User.Skills"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="UpdateSkills">
 
     <Grid>
-        
+        <extToolkit:WatermarkComboBox x:Name="SkillBox" Watermark="Välj en kompetens i listan" HorizontalAlignment="Left" Margin="263,91,0,0" VerticalAlignment="Top" Width="192" SelectionChanged="SkillBox_SelectionChanged">
+            <ComboBoxItem Content="Bromsar"/>
+            <ComboBoxItem Content="Motor"/>
+            <ComboBoxItem Content="Kaross"/>
+            <ComboBoxItem Content="Hjul"/>
+            <ComboBoxItem Content="Vindrutor"/>
+        </extToolkit:WatermarkComboBox>
+        <ListBox Margin="483,91,125,165" Name="CurrentSkills" SelectionChanged="CurrentSkills_SelectionChanged"/>
+        <TextBlock HorizontalAlignment="Left" Margin="483,56,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Language="sv-se" Text="Dina nuvarande kompetenser"/></TextBlock>
+        <Button Content="Lägg till" Name="AddButton" HorizontalAlignment="Left" Margin="295,151,0,0" VerticalAlignment="Top" Height="37" Width="64" Click="AddButton_Click"/>
+        <Button Content="Ta bort" Name="RemoveButton" HorizontalAlignment="Left" Margin="391,151,0,0" VerticalAlignment="Top" Height="37" Width="64" Click="RemoveButton_Click"/>
+        <Button Content="Avsluta ett ärende" Name="EndErrand2" HorizontalAlignment="Left" Margin="26,101,0,0" VerticalAlignment="Top" Height="48" Width="168"/>
+        <Button Content="Redigera dina kompetenser" Name="UpdateSkills2" IsEnabled="False" HorizontalAlignment="Left" Margin="26,177,0,0" VerticalAlignment="Top" Height="48" Width="168"/>
     </Grid>
+    
 </Page>

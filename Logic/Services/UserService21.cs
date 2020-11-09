@@ -2,6 +2,7 @@
 using Logic.Entities;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Logic.Services
@@ -14,6 +15,7 @@ namespace Logic.Services
         private DataAccess<Errand> _erranddb;
         private List<User> _users;
         private DataAccess<User> _userdb;
+        private Mechanic _mechanic;
 
         public UserService21()
         {
@@ -23,14 +25,12 @@ namespace Logic.Services
         }
 
        
-        public Mechanic AddMechanic(string firstName, string lastName, DateTime dob)
+        public void AddMechanic(string firstName, string lastName, DateTime dob)
         {
 
             Mechanic mechanic = new Mechanic(firstName, lastName, dob);
 
             _mechanicdb.Save(mechanic);
-
-            return mechanic;
 
         }
 
@@ -55,7 +55,7 @@ namespace Logic.Services
         /// </summary>
         /// <param name="mechanic"></param>
         /// <param name="skill"></param>
-        public void AddSkill(Mechanic mechanic, string skill)
+        public void AddSkill(Mechanic mechanic, String skill)
         {
             _mechanics = _mechanicdb.Load();
 
@@ -63,21 +63,48 @@ namespace Logic.Services
             {
                 if (item.MechanicID == mechanic.MechanicID)
                 {
-                    //Hur många skills?? Kontrollera för att ej lägga in för många! 5!
-                    for (int i = 0; i < mechanic.Skills.Length; i++)
+                    foreach (var mechSkill in item.Skills)
                     {
-                        if (mechanic.Skills[i] == null)
+                        if (item.Skills.Contains(skill))
                         {
-                            mechanic.Skills[i] = skill;
-                            break;
-                        }                
+                            return;
+                        }
                     }
-                    
+                    //Totalt 5 skills!
+                    mechanic.Skills.Add(skill);
                     _mechanicdb.Save(mechanic);
                     return;
                 }
             }
         }
+
+        /// <summary>
+        /// Returnerar en lista med den inloggade mekanikerns nuvarande kompetenser.
+        /// </summary>
+        /// <returns></returns>
+        public List<string> ListSkills()
+        {
+            _mechanics = _mechanicdb.Load();
+
+            _mechanic = _mechanics.FirstOrDefault(mechanic => mechanic.MechanicID == CurrentUser.ID.UserID);
+            
+            return _mechanic.Skills;
+        }
+
+        /// <summary>
+        /// Returnerar en lista med den inloggade mekanikerns pågående ärenden.
+        /// </summary>
+        /// <returns></returns>
+        public List<Errand> ListErrands()
+        {
+            _errands = _erranddb.Load();
+
+            List<Errand> _mechanicErrands = _errands.Where(e => (e.MechanicID == CurrentUser.ID.UserID) && (e.Status == true)).ToList();
+
+            return _mechanicErrands;
+        }
+
+
 
         /// <summary>
         /// Admin lägger till en användare.
@@ -103,11 +130,11 @@ namespace Logic.Services
 
             foreach (var item in _users)
             {
-                if (item.userID == user.userID)
+                if (item.UserID == user.UserID)
                 {
                     foreach (var mechanic in _mechanics)
                     {
-                        if (mechanic.MechanicID == item.userID)
+                        if (mechanic.MechanicID == item.UserID)
                         {
                             _mechanics.Remove(mechanic);
                             _mechanicdb.Save(_mechanics);
