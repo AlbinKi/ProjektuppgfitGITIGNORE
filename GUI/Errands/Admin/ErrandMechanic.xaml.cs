@@ -29,27 +29,38 @@ namespace GUI.Errands.Admin
             _errandserivce = new ErrandService();          
             InitializeComponent();
             ErrandList.ItemsSource = _errandserivce.UnassignedErrands();
-            
+            if (ErrandList.Items.Count == 0)
+            {
+                AddMechanic.IsEnabled = false;
+                ErrandList.IsEnabled = false;
+                MechanicList.IsEnabled = false;
+                var noErrand = new string[] { "Det finns inga ärenden utan mekaniker" };
+                ErrandList.ItemsSource = noErrand;
+            }
+
+
         }
 
         private void ErrandList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            AddMechanic.IsEnabled = true;
             var errand = ErrandList.SelectedItem as Errand;
             var value = errand.Issue;
 
             MechanicList.ItemsSource = _errandserivce.AvailableMechanics(value);
+            if (MechanicList.Items.Count == 0)
+            {
+                AddMechanic.IsEnabled = false;
+                var noMechanic = new string[] { "Det finns inga mekaniker lediga för ärendet ännu" };
+                MechanicList.ItemsSource = noMechanic;
+            }
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
 
         private void AddMechanic_Click(object sender, RoutedEventArgs e)
         {
             MechanicToErrandValidator mv = new MechanicToErrandValidator()
-            {
+            {              
                 MechanicList = MechanicList.SelectedItem as Mechanic,
                 ErrandList = ErrandList.SelectedItem as Errand
             };
@@ -65,6 +76,16 @@ namespace GUI.Errands.Admin
                 MessageBox.Show(sb.ToString());
                 return;
             }
+            var errand = ErrandList.SelectedItem as Errand;
+            var mechanic = MechanicList.SelectedItem as Mechanic;
+
+            mechanic.NumberOfErrands += 1;
+
+            errand.MechanicID = mechanic.MechanicID;
+
+            DBService.Modify(mechanic);
+            DBService.Modify(errand);
+
 
         }
     }
