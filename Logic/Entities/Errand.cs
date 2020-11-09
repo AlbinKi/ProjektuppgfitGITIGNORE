@@ -22,7 +22,7 @@ namespace Logic.Entities
 
         public Errand(string description, string vehicleid, string issue, Guid mechanicid, bool status)
         {
-            ID = new Guid();
+            ID = Guid.NewGuid();
             Description = description;
             VehicleID = vehicleid;
             Issue = issue;

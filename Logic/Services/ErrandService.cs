@@ -1,5 +1,6 @@
 ﻿using Logic.DAL;
 using Logic.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -55,7 +56,7 @@ namespace Logic.Services
         public List<Errand> UnassignedErrands()
         {
             var errands = _erranddb.Load();
-            return errands.Where(errand => errand.MechanicID == null).ToList();
+            return errands.Where(errand => errand.MechanicID == Guid.Empty).ToList();
         }
     }
 }

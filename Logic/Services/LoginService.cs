@@ -61,11 +61,12 @@ namespace Logic.Services
         private User AddDefaultAdmin()
         {         
             var mechanic = new Mechanic("Bosse", "Andersson", new DateTime(1967, 05, 23));
-            mechanic.Skills[0] = "Motor";
-            mechanic.Skills[1] = "Hjul";
-            mechanic.Skills[2] = "Bromsar";
-            mechanic.Skills[3] = "Vindruta";
-            mechanic.Skills[4] = "Kaross";
+            mechanic.Skills.Add("Motor");
+            mechanic.Skills.Add("Hjul");
+            mechanic.Skills.Add("Kaross");
+            mechanic.Skills.Add("Vindruta");
+            mechanic.Skills.Add("Bromsar");
+          
             _mechanicdb.Save(mechanic);
 
             var user = new User();
