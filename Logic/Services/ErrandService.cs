@@ -56,7 +56,7 @@ namespace Logic.Services
             var unassignedErrands = new List<Errand>();
             foreach (var errand in errands)
             {
-                if (errand.MechanicID == "")
+                if (errand.MechanicID == CurrentUser.ID.UserID)
                 {
                     unassignedErrands.Add(errand);
                 }

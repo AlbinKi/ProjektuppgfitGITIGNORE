@@ -1,4 +1,5 @@
-﻿using GUI.User.Skills;
+﻿using GUI.User.EndErrand;
+using GUI.User.Skills;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -28,6 +29,13 @@ namespace GUI.User
         {
             var newUpdateSkills = new UpdateSkills();
             NavigationService.Navigate(newUpdateSkills);
+        }
+
+        private void EndErrand_Click(object sender, RoutedEventArgs e)
+        {
+            var newEndErrand = new EndErrand.EndErrand(); //Varför blir syntax så här??? Se UpdateSkills_Click!!
+
+            NavigationService.Navigate(newEndErrand);
         }
     }
 }

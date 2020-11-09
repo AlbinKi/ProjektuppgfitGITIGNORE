@@ -10,7 +10,7 @@ namespace Logic.Entities
         public string Description { get; set; }
         public string VehicleID{ get; set; }
         public string Issue { get; set; }
-        public string MechanicID { get; set; }
+        public Guid MechanicID { get; set; }
         public bool Status { get; set; }
 
         public Errand()
@@ -18,7 +18,7 @@ namespace Logic.Entities
 
         }
 
-        public Errand(string description, string vehicleid, string issue, string mechanicid, bool status)
+        public Errand(string description, string vehicleid, string issue, Guid mechanicid, bool status)
         {
             Description = description;
             VehicleID = vehicleid;

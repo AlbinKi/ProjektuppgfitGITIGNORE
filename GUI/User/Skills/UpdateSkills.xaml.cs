@@ -34,8 +34,6 @@ namespace GUI.User.Skills
         private DataAccess<Mechanic> _mechanicdb;
 
 
-
-
         public UpdateSkills()
         {
             InitializeComponent();
@@ -48,12 +46,13 @@ namespace GUI.User.Skills
 
         }
 
+        //Visar den inloggade mekanikerns nuvarande kompetenser.
         private void CurrentSkills_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
-
         }
 
+        //Lägger till en kompetens i den inloggade mekanikerns skill-lista.
         private void AddButton_Click(object sender, RoutedEventArgs e)
         {
             _mechanics = _mechanicdb.Load();
@@ -81,9 +80,39 @@ namespace GUI.User.Skills
 
         }
 
+        //Tar bort en kompetens i den inloggade mekanikerns skill-lista.
+        private void RemoveButton_Click(object sender, RoutedEventArgs e)
+        {
+            _mechanics = _mechanicdb.Load();
+
+            _mechanic = _mechanics.FirstOrDefault(mechanic => mechanic.MechanicID == CurrentUser.ID.UserID);
+
+            List<string> SkillList = _userService.ListSkills();
+
+            var skill = SkillBox.Text;
+
+            if (SkillList.Any(x => x == skill))
+            {
+                SkillList.Remove(skill);
+
+                _mechanic.Skills.Remove(skill);
+
+                _dbservice.Modify(_mechanic);
+
+                CurrentSkills.ItemsSource = SkillList;
+
+            }
+            else
+            {
+                MessageBox.Show("Du försöker ta bort en kompetens som du inte har.");
+            }
+        }
+
+        //Visar alla tillgängliga kompetenser.
         private void SkillBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
         }
+        
     }
 }

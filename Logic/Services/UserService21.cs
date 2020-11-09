@@ -15,6 +15,7 @@ namespace Logic.Services
         private DataAccess<Errand> _erranddb;
         private List<User> _users;
         private DataAccess<User> _userdb;
+        private Mechanic _mechanic;
 
         public UserService21()
         {
@@ -77,13 +78,30 @@ namespace Logic.Services
             }
         }
 
+        /// <summary>
+        /// Returnerar en lista med den inloggade mekanikerns nuvarande kompetenser.
+        /// </summary>
+        /// <returns></returns>
         public List<string> ListSkills()
         {
             _mechanics = _mechanicdb.Load();
 
-            Mechanic _mechanic = _mechanics.FirstOrDefault(mechanic => mechanic.MechanicID == CurrentUser.ID.UserID);
+            _mechanic = _mechanics.FirstOrDefault(mechanic => mechanic.MechanicID == CurrentUser.ID.UserID);
             
             return _mechanic.Skills;
+        }
+
+        /// <summary>
+        /// Returnerar en lista med den inloggade mekanikerns pågående ärenden.
+        /// </summary>
+        /// <returns></returns>
+        public List<Errand> ListErrands()
+        {
+            _errands = _erranddb.Load();
+
+            List<Errand> _mechanicErrands = _errands.Where(e => (e.MechanicID == CurrentUser.ID.UserID) && (e.Status == true)).ToList();
+
+            return _mechanicErrands;
         }
 
 
