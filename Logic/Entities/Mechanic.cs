@@ -33,7 +33,10 @@ namespace Logic.Entities
             CalculateAge();
             //SetMechanicID();
         }
+        public Mechanic()
+        {
 
+        }
         /// <summary>
         /// Sätter mekanikerns ID till mekanikerns initialer och födelseår.
         /// </summary>

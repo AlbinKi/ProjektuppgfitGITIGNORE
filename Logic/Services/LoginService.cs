@@ -3,6 +3,7 @@ using Logic.Entities;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 
 namespace Logic.Services
 {
@@ -66,6 +67,10 @@ namespace Logic.Services
             admin.UserID = mechanic.MechanicID;
 
             return admin;
+        }
+        public void GetCurrentUser(string username, string password)
+        {
+            CurrentUser.ID = _users.FirstOrDefault(user => user.Username.Equals(username) && user.Password.Equals(password)).UserID;
         }
     }
 }
