@@ -121,8 +121,7 @@ namespace GUI.Admin.UserOrMechanic
 
 
             var _mechanic = _userservice21.AddMechanic(firstName, lastName, dob);
-            _mechanics.Add(_mechanic);
-            //DBService.SaveEntity(_mechanic);
+            _mechanics.Add(_mechanic);         
 
             MessageBox.Show("Bilmekaniker har lagts till"); 
         }

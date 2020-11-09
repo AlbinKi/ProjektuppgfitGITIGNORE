@@ -38,7 +38,7 @@ namespace Logic.Services
         {
             var db = new DataAccess<User>();
             var mechanics = db.Load();
-            mechanics[mechanics.FindIndex(ind => ind.userID == u.userID)] = u;
+            mechanics[mechanics.FindIndex(ind => ind.UserID == u.UserID)] = u;
             mechanics.Add(u);
             db.Save(mechanics);
         }

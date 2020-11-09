@@ -15,7 +15,7 @@ namespace Logic.Entities
         public int Age { get; set; }
         public int NumberOfErrands { get; set; } //Array???
         public DateTime DateOfBirth { get; set; }
-        public string[] Skills { get; set; }
+        public List<string> Skills { get; set; }
         
 
 
@@ -26,7 +26,7 @@ namespace Logic.Entities
             FirstName = firstname;
             LastName = lastname;
             DateOfBirth = dateofbirth;
-            Skills = new string[5]; //Kaross, Vindruta, Motor, Hjul & Bromsar
+            Skills = new List<string>(); //Kaross, Vindruta, Motor, Hjul & Bromsar
             NumberOfErrands = 0;
             MechanicID = Guid.NewGuid();
             CalculateAge();

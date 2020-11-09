@@ -25,12 +25,14 @@ namespace Logic.Services
         }
 
        
-        public void AddMechanic(string firstName, string lastName, DateTime dob)
+        public Mechanic AddMechanic(string firstName, string lastName, DateTime dob)
         {
 
             Mechanic mechanic = new Mechanic(firstName, lastName, dob);
 
             _mechanicdb.Save(mechanic);
+
+            return mechanic;
 
         }
 
@@ -86,7 +88,7 @@ namespace Logic.Services
         {
             _mechanics = _mechanicdb.Load();
 
-            _mechanic = _mechanics.FirstOrDefault(mechanic => mechanic.MechanicID == CurrentUser.ID.UserID);
+            _mechanic = _mechanics.FirstOrDefault(mechanic => mechanic.MechanicID == CurrentUser.user.UserID);
             
             return _mechanic.Skills;
         }
@@ -99,7 +101,7 @@ namespace Logic.Services
         {
             _errands = _erranddb.Load();
 
-            List<Errand> _mechanicErrands = _errands.Where(e => (e.MechanicID == CurrentUser.ID.UserID) && (e.Status == true)).ToList();
+            List<Errand> _mechanicErrands = _errands.Where(e => (e.MechanicID == CurrentUser.user.UserID) && (e.Status == true)).ToList();
 
             return _mechanicErrands;
         }

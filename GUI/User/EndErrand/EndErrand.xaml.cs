@@ -26,7 +26,7 @@ namespace GUI.User.EndErrand
     public partial class EndErrand : Page
     {
 
-        private DBService _dbservice;
+       
         private Mechanic _mechanic;
         private UserService21 _userService;
         //private DataAccess<Mechanic> _dataAccess;

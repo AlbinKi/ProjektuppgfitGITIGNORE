@@ -16,10 +16,6 @@ namespace Logic.Services
         private const string _path = @"DAL\User.json";
         private const string _folderpath = @"DAL";
 
-        public void GetCurrentUser(string username, string password)
-        {
-            CurrentUser.ID = _users.FirstOrDefault(user => user.Username.Equals(username) && user.Password.Equals(password));
-        }
 
         public LoginService()
         {
@@ -75,7 +71,7 @@ namespace Logic.Services
             var user = new User();
             user.Username = "Bosse";
             user.Password = "Meckarn123";
-            user.userID = mechanic.MechanicID;
+            user.UserID = mechanic.MechanicID;
             user.Admin = true;
 
             return user;

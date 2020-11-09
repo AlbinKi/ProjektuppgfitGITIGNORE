@@ -26,7 +26,7 @@ namespace GUI.User.Skills
     public partial class UpdateSkills : Page
     {
 
-        private DBService _dbservice;
+        
         private Mechanic _mechanic;
         private UserService21 _userService;
         //private DataAccess<Mechanic> _dataAccess;
@@ -37,7 +37,6 @@ namespace GUI.User.Skills
         public UpdateSkills()
         {
             InitializeComponent();
-            _dbservice = new DBService();
             _mechanicdb = new DataAccess<Mechanic>();
             _userService = new UserService21();
 
@@ -57,7 +56,7 @@ namespace GUI.User.Skills
         {
             _mechanics = _mechanicdb.Load();
 
-            _mechanic = _mechanics.FirstOrDefault(mechanic => mechanic.MechanicID == CurrentUser.ID.UserID);
+            _mechanic = _mechanics.FirstOrDefault(mechanic => mechanic.MechanicID == CurrentUser.user.UserID);
 
             List<string> SkillList = _userService.ListSkills();
 
@@ -73,7 +72,7 @@ namespace GUI.User.Skills
 
                 _mechanic.Skills.Add(skill);
 
-                _dbservice.Modify(_mechanic);
+                DBService.Modify(_mechanic);
 
                 CurrentSkills.ItemsSource = SkillList;
             }
@@ -85,7 +84,7 @@ namespace GUI.User.Skills
         {
             _mechanics = _mechanicdb.Load();
 
-            _mechanic = _mechanics.FirstOrDefault(mechanic => mechanic.MechanicID == CurrentUser.ID.UserID);
+            _mechanic = _mechanics.FirstOrDefault(mechanic => mechanic.MechanicID == CurrentUser.user.UserID);
 
             List<string> SkillList = _userService.ListSkills();
 
@@ -97,7 +96,7 @@ namespace GUI.User.Skills
 
                 _mechanic.Skills.Remove(skill);
 
-                _dbservice.Modify(_mechanic);
+                DBService.Modify(_mechanic);
 
                 CurrentSkills.ItemsSource = SkillList;
 
