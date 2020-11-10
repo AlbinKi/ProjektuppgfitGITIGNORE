@@ -38,13 +38,11 @@ namespace GUI.Errands.Admin
                 var noErrand = new string[] { "Det finns inga ärenden utan mekaniker" };
                 ErrandList.ItemsSource = noErrand;
             }
-
-
         }
 
         private void ErrandList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            AddMechanic.IsEnabled = true;
+            
             var errand = ErrandList.SelectedItem as Errand;
             var value = errand.Issue;
 
@@ -54,6 +52,9 @@ namespace GUI.Errands.Admin
                 AddMechanic.IsEnabled = false;
                 var noMechanic = new string[] { "Det finns inga mekaniker lediga för ärendet ännu" };
                 MechanicList.ItemsSource = noMechanic;
+            } else
+            {
+                AddMechanic.IsEnabled = true;
             }
         }
 

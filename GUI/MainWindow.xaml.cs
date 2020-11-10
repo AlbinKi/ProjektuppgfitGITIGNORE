@@ -25,7 +25,7 @@ namespace GUI
         public MainWindow()
         {
             InitializeComponent();
-
+            
         }
     }
 }

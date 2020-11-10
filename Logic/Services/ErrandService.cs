@@ -26,27 +26,27 @@ namespace Logic.Services
         /// <returns></returns>
         public List<Mechanic> AvailableMechanics(string issue)
         {
-            _mechanics = _mechanicdb.Load();
+            var mechanicsAvailable = _mechanicdb.Load();
 
 
-            var mechanicsAvailable = new List<Mechanic>();
+            //var mechanicsAvailable = new List<Mechanic>();
 
-            foreach (var mechanic in _mechanics)
-            {
-                var errandCount = mechanic.NumberOfErrands;
-                foreach (var skill in mechanic.Skills)
-                {
-                    if (issue == skill)
-                    {
-                        if (errandCount < 2 && errandCount >= 0)
-                        {
-                            mechanicsAvailable.Add(mechanic);
-                        }
-                    }
-                }
-            }
-
-            return mechanicsAvailable;
+            //foreach (var mechanic in _mechanics)
+            //{
+            //    var errandCount = mechanic.NumberOfErrands;
+            //    foreach (var skill in mechanic.Skills)
+            //    {
+            //        if (issue == skill)
+            //        {
+            //            if (errandCount < 2 && errandCount >= 0)
+            //            {
+            //                mechanicsAvailable.Add(mechanic);
+            //            }
+            //        }
+            //    }
+            //}
+            
+            return mechanicsAvailable.Where(m => m.Skills.FirstOrDefault(s => s == issue) == issue && m.NumberOfErrands < 2 && m.NumberOfErrands >= 0).ToList();
         }
 
         /// <summary>
@@ -56,7 +56,17 @@ namespace Logic.Services
         public List<Errand> UnassignedErrands()
         {
             var errands = _erranddb.Load();
-            return errands.Where(errand => errand.MechanicID == Guid.Empty).ToList();
+            return errands.Where(errand => errand.MechanicID == Guid.Empty).OrderBy(o => o.Issue).ToList();
+        }
+
+        /// <summary>
+        /// Returnerar alla pågående ärenden som har en mekaniker tilldelad
+        /// </summary>
+        /// <returns></returns>
+        public List<Errand> OnGoingErrands()
+        {
+            var errands = _erranddb.Load();
+            return errands.Where(errand => errand.Status == true && errand.MechanicID != Guid.Empty).OrderBy(o => o.Issue).ToList();
         }
     }
 }

@@ -106,7 +106,19 @@ namespace Logic.Services
             return _mechanicErrands;
         }
 
+        public int DaysUntilBirthday(Mechanic mechanic)
+        {
+            var next = mechanic.DateOfBirth.AddYears(DateTime.Today.Year - mechanic.DateOfBirth.Year);
+            var numdays = (next - DateTime.Today).Days;
+            return numdays;
+        }
 
+        public Mechanic NextBirthday()
+        {
+            var mechanics = _mechanicdb.Load();
+            mechanics = mechanics.OrderBy(m => DaysUntilBirthday(m)).ToList();
+            return mechanics[0];
+        }
 
         /// <summary>
         /// Admin lägger till en användare.
