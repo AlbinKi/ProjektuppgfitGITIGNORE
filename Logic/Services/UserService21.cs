@@ -102,9 +102,8 @@ namespace Logic.Services
         {
             _errands = _erranddb.Load();
 
-            List<Errand> _mechanicErrands = _errands.Where(e => (e.MechanicID == CurrentUser.user.UserID) && (e.Status == true)).ToList();
+            return _errands.Where(e => (e.MechanicID == CurrentUser.user.UserID) && (e.Status == true)).ToList();
 
-            return _mechanicErrands;
         }
 
 

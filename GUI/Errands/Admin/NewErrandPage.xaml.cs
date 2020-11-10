@@ -3,6 +3,7 @@ using GUI.Validators;
 using Logic.Entities;
 using Logic.Entities.Vehicles;
 using Logic.Services;
+using System;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -204,9 +205,10 @@ namespace GUI.Errands.Admin.NewErrand
                 mechanic.NumberOfErrands += 1;
                 DBService.Modify(mechanic);
             }
-            
-           
+
+
             //Sparar ärendet till databasen
+            _errand.ID = Guid.NewGuid();
             DBService.Save(_errand);
 
             //Går tillbaka till föregående sida
