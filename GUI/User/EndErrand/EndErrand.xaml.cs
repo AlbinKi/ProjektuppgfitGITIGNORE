@@ -36,6 +36,18 @@ namespace GUI.User.EndErrand
         public EndErrand()
         {
             InitializeComponent();
+
+            _userService = new UserService21();
+
+            List<Errand> errandList = _userService.ListErrands();
+
+            Errands.ItemsSource = errandList;
+
+        }
+
+        private void Errands_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }

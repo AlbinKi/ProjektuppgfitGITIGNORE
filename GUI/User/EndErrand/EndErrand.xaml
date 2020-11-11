@@ -10,7 +10,7 @@
 
     <Grid>
         <Button Content="Avsluta ärende" Name="EndErrand_button" HorizontalAlignment="Left" Margin="236,242,0,0" VerticalAlignment="Top" Height="31" Width="96"/>
-        <ListBox Name="Errands" Margin="357,122,233,177"/>
+        <ListBox Name="Errands" Margin="357,122,233,177" SelectionChanged="Errands_SelectionChanged"/>
         <TextBlock HorizontalAlignment="Left" Margin="357,101,0,0" Text="Välj ett ärende att som är klart och kan avslutas." TextWrapping="Wrap" VerticalAlignment="Top"/>
         <Button Content="Avsluta ett ärende" Name="EndErrand3" IsEnabled="False" HorizontalAlignment="Left" Margin="26,101,0,0" VerticalAlignment="Top" Height="48" Width="168"/>
         <Button Content="Redigera dina kompetenser" Name="UpdateSkills3" IsEnabled="True" HorizontalAlignment="Left" Margin="26,177,0,0" VerticalAlignment="Top" Height="48" Width="168"/>
