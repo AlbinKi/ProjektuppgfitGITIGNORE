@@ -18,11 +18,11 @@
             <ComboBoxItem Content="Vindrutor"/>
         </extToolkit:WatermarkComboBox>
         <ListBox Margin="483,91,125,165" Name="CurrentSkills" SelectionChanged="CurrentSkills_SelectionChanged"/>
-        <TextBlock HorizontalAlignment="Left" Margin="483,56,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Language="sv-se" Text="Dina nuvarande kompetenser"/></TextBlock>
         <Button Content="Lägg till" Name="AddButton" HorizontalAlignment="Left" Margin="295,151,0,0" VerticalAlignment="Top" Height="37" Width="64" Click="AddButton_Click"/>
         <Button Content="Ta bort" Name="RemoveButton" HorizontalAlignment="Left" Margin="391,151,0,0" VerticalAlignment="Top" Height="37" Width="64" Click="RemoveButton_Click"/>
         <Button Content="Avsluta ett ärende" Name="EndErrand2" HorizontalAlignment="Left" Margin="26,101,0,0" VerticalAlignment="Top" Height="48" Width="168"/>
         <Button Content="Redigera dina kompetenser" Name="UpdateSkills2" IsEnabled="False" HorizontalAlignment="Left" Margin="26,177,0,0" VerticalAlignment="Top" Height="48" Width="168"/>
+        <Label Content="Dina nuvarande kompetenser" HorizontalAlignment="Left" Margin="478,60,0,0" VerticalAlignment="Top"/>
     </Grid>
-    
+
 </Page>
