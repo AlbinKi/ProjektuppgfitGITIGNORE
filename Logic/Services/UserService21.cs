@@ -106,6 +106,11 @@ namespace Logic.Services
 
         }
 
+        public void EndActiveErrand()
+        {
+
+        }
+
 
 
         /// <summary>

@@ -29,7 +29,6 @@ namespace GUI.User.Skills
         
         private Mechanic _mechanic;
         private UserService21 _userService;
-        //private DataAccess<Mechanic> _dataAccess;
         private List<Mechanic> _mechanics;
         private DataAccess<Mechanic> _mechanicdb;
 

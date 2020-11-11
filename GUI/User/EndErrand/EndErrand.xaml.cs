@@ -26,20 +26,21 @@ namespace GUI.User.EndErrand
     public partial class EndErrand : Page
     {
 
-       
         private Mechanic _mechanic;
         private UserService21 _userService;
-        //private DataAccess<Mechanic> _dataAccess;
         private List<Mechanic> _mechanics;
         private DataAccess<Mechanic> _mechanicdb;
+        private List<Errand> errandList;
 
         public EndErrand()
         {
             InitializeComponent();
 
             _userService = new UserService21();
+            _mechanicdb = new DataAccess<Mechanic>();
 
-            List<Errand> errandList = _userService.ListErrands();
+
+            errandList = _userService.ListErrands();
 
             Errands.ItemsSource = errandList;
 
@@ -48,6 +49,30 @@ namespace GUI.User.EndErrand
         private void Errands_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
+        }
+
+        private void EndErrand_button_Click(object sender, RoutedEventArgs e)
+        {
+            if (Errands.SelectedItem==null)
+            {
+                MessageBox.Show("Du har inte valt ett ärende.");
+
+                return;
+            }
+
+            Errand selectedErrand = (Errand)Errands.SelectedItem;
+            
+            _mechanics = _mechanicdb.Load();
+            _mechanic = _mechanics.FirstOrDefault(mechanic => mechanic.MechanicID == CurrentUser.user.UserID);
+
+            selectedErrand.Status = false;
+            _mechanic.NumberOfErrands--;
+            
+            DBService.Modify(selectedErrand);
+            DBService.Modify(_mechanic);
+
+            errandList = _userService.ListErrands();
+            Errands.ItemsSource = errandList;
         }
     }
 }

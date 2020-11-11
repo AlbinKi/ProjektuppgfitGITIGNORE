@@ -208,6 +208,7 @@ namespace GUI.Errands.Admin.NewErrand
 
 
             //Sparar ärendet till databasen
+            _errand.Status = true;
             _errand.ID = Guid.NewGuid();
             DBService.Save(_errand);
 
