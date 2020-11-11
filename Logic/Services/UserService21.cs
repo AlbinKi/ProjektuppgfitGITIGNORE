@@ -106,11 +106,17 @@ namespace Logic.Services
 
         }
 
-        public void EndActiveErrand()
+        public void EndActiveErrand(Errand e)
         {
+            _mechanics = _mechanicdb.Load();
+            _mechanic = _mechanics.FirstOrDefault(mechanic => mechanic.MechanicID == CurrentUser.user.UserID);
 
+            e.Status = false;
+            _mechanic.NumberOfErrands--;
+
+            DBService.Modify(e);
+            DBService.Modify(_mechanic);
         }
-
 
 
         /// <summary>
