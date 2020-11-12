@@ -14,7 +14,7 @@ using System.Windows.Shapes;
 using Logic.DAL;
 using Logic.Entities;
 using GUI.Admin;
-using GUI.User;
+using GUI.UserPages;
 
 
 namespace GUI.Home

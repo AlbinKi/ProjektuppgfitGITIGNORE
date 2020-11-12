@@ -8,14 +8,13 @@ namespace Logic.Services
 {
     public class ErrandService
     {
-        private List<Mechanic> _mechanics;
+   
         private DataAccess<Mechanic> _mechanicdb;
         private DataAccess<Errand> _erranddb;
 
         public ErrandService()
         {
-            _mechanicdb = new DataAccess<Mechanic>();
-            _mechanics = new List<Mechanic>();
+            _mechanicdb = new DataAccess<Mechanic>();          
             _erranddb = new DataAccess<Errand>();
         }
 
@@ -26,26 +25,7 @@ namespace Logic.Services
         /// <returns></returns>
         public List<Mechanic> AvailableMechanics(string issue)
         {
-            var mechanicsAvailable = _mechanicdb.Load();
-
-
-            //var mechanicsAvailable = new List<Mechanic>();
-
-            //foreach (var mechanic in _mechanics)
-            //{
-            //    var errandCount = mechanic.NumberOfErrands;
-            //    foreach (var skill in mechanic.Skills)
-            //    {
-            //        if (issue == skill)
-            //        {
-            //            if (errandCount < 2 && errandCount >= 0)
-            //            {
-            //                mechanicsAvailable.Add(mechanic);
-            //            }
-            //        }
-            //    }
-            //}
-            
+            var mechanicsAvailable = _mechanicdb.Load();          
             return mechanicsAvailable.Where(m => m.Skills.FirstOrDefault(s => s == issue) == issue && m.NumberOfErrands < 2 && m.NumberOfErrands >= 0).ToList();
         }
 

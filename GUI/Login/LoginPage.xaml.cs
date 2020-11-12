@@ -28,7 +28,7 @@ namespace GUI.Login
         public LoginPage()
         {
             InitializeComponent();
-
+            ShowsNavigationUI = false;
             _loginService = new LoginService();
         }
         
@@ -45,9 +45,10 @@ namespace GUI.Login
             {
 
                 _loginService.GetCurrentUser(username, password);
-                HomePage homePage = new HomePage();
-
-                this.NavigationService.Navigate(homePage);
+                
+                homemenu home = new homemenu();
+                home.Show();
+                Window.GetWindow(this).Close();
             }
             else
             {

@@ -95,7 +95,7 @@ namespace GUI.Errands.Admin.NewErrand
             }
             #endregion
         }
-
+        
         /// <summary>
         /// Matchar mekaniker med det valda ärendet
         /// </summary>

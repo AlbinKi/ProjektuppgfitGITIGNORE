@@ -31,8 +31,8 @@ namespace GUI.Errands.Admin
             if (Errands.Items.Count == 0)
             {
                 MessageBox.Show("Det finns inga pågående ärenden just nu");
-                var ep = new ErrandPageAdmin();
-                NavigationService.Navigate(ep);
+                //var ep = new ErrandPageAdmin();
+                //NavigationService.Navigate(ep);
             }
         }
 
