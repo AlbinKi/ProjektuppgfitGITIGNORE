@@ -106,6 +106,11 @@ namespace Logic.Services
 
         }
 
+        public void ShowInfo(Mechanic m)
+        {
+
+        }
+
         public void EndActiveErrand(Errand e)
         {
             _mechanics = _mechanicdb.Load();
