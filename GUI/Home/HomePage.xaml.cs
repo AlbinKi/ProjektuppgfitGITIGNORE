@@ -53,5 +53,12 @@ namespace GUI.Home
             UserPage userPage = new UserPage();
             NavigationService.Navigate(userPage);
         }
+
+
+        private void TempClickEditMech(object sender, RoutedEventArgs e)
+        {
+            EditMechanic editMechPage = new EditMechanic();
+            NavigationService.Navigate(editMechPage);
+        }
     }
 }

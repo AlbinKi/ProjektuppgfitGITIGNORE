@@ -11,7 +11,7 @@
     <Grid>
         <Label Content="Välj en mekaniker för mer info" HorizontalAlignment="Left" Margin="29,22,0,0" VerticalAlignment="Top"/>
         <Button Content="Välj" Name ="ChooseMechanic" HorizontalAlignment="Center" Margin="0,409,0,0" VerticalAlignment="Top" Width="34"/>
-        <ListView Margin="30,53,505,26">
+        <ListView Margin="30,53,505,26" Name="AllMechanics" SelectionChanged="AllMechanics_SelectionChanged">
             <ListView.View>
                 <GridView>
                     <GridViewColumn/>
