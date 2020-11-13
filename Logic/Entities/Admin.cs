@@ -5,7 +5,7 @@ using System.IO;
 
 namespace Logic.Entities
 {
-    public class Admin : User
+    public class Admin : User2
     {
 
         public Admin(string username, string password, bool admin)

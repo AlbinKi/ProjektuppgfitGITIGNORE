@@ -18,7 +18,7 @@ namespace Logic.Services
 
         void AddUser(string x, string y, bool z);
 
-        void RemoveUser(User x);
+        void RemoveUser(User2 x);
 
         //public void ChangeMechanic()
         //{

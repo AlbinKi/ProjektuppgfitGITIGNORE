@@ -34,9 +34,9 @@ namespace Logic.Services
             mechanics.Add(e);
             db.Save(mechanics);
         }   
-        public static void Modify(User u)
+        public static void Modify(User2 u)
         {
-            var db = new DataAccess<User>();
+            var db = new DataAccess<User2>();
             var mechanics = db.Load();
             mechanics[mechanics.FindIndex(ind => ind.UserID == u.UserID)] = u;
             mechanics.Add(u);

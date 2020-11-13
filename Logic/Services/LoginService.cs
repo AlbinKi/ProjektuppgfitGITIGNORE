@@ -9,9 +9,9 @@ namespace Logic.Services
 {
     public class LoginService
     {
-        private DataAccess<User> _userdb;
+        private DataAccess<User2> _userdb;
         private DataAccess<Mechanic> _mechanicdb;
-        private List<User> _users;
+        private List<User2> _users;
         private List<Mechanic> _mechanics; 
         private const string _path = @"DAL\User.json";
         private const string _folderpath = @"DAL";
@@ -19,10 +19,10 @@ namespace Logic.Services
 
         public LoginService()
         {
-            _userdb = new DataAccess<User>();
+            _userdb = new DataAccess<User2>();
             _mechanicdb = new DataAccess<Mechanic>();
             _mechanics = new List<Mechanic>();
-            _users = new List<User>();
+            _users = new List<User2>();
 
 
             if (!Directory.Exists(_folderpath))
@@ -58,7 +58,7 @@ namespace Logic.Services
             CurrentUser.user = _users.FirstOrDefault(user => user.Username.Equals(username) && user.Password.Equals(password));         
         }
 
-        private User AddDefaultAdmin()
+        private User2 AddDefaultAdmin()
         {         
             var mechanic = new Mechanic("Bosse", "Andersson", new DateTime(1967, 05, 23));
             mechanic.Skills[0] = "Motor";
@@ -68,7 +68,7 @@ namespace Logic.Services
             mechanic.Skills[4] = "Kaross";
             _mechanicdb.Save(mechanic);
 
-            var user = new User();
+            var user = new User2();
             user.Username = "Bosse";
             user.Password = "Meckarn123";
             user.UserID = mechanic.MechanicID;

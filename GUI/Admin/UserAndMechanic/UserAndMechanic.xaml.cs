@@ -24,12 +24,14 @@ namespace GUI.Admin.UserOrMechanic
     public partial class UserAndMechanic : Page
     {
         private UserService21 _userservice21;
+        
         private Mechanic _mechanic;
         private List<Mechanic> _mechanics;
         private DataAccess<Mechanic> _mechanicdb;
 
-        //private List<User> _users;
-        //private DataAccess<User> _userdb;
+        private User2 _user;
+        private List<User2> _users;
+        private DataAccess<User2> _userdb;
 
         public UserAndMechanic()
         {
@@ -41,115 +43,112 @@ namespace GUI.Admin.UserOrMechanic
             _mechanicdb = new DataAccess<Mechanic>();
 
         }
-
-        private void AddRemoveU_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void AddUser_Click(object sender, RoutedEventArgs e)
         {
-            var box = (ComboBoxItem)(sender as ComboBox).SelectedItem;
-            var value = box.Content.ToString();
+            User1.Items.Add(Username.Text);
 
-            if (value == "Lägg till användare" || value == "Ta bort användare")
-            {
-                Username.Visibility = Visibility.Visible;
-                Password.Visibility = Visibility.Visible;
-            }
-            else
-            {
-                Username.Visibility = Visibility.Hidden;
-                Password.Visibility = Visibility.Hidden;
-                Username.Text = "";
-            }
-        }
-
-        private void AddRemoveUser_Click(object sender, RoutedEventArgs e)
-        {
             var username = Username.Text;
             var password = Password.Text;
 
             var pattern = @"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$";
             var isCorrect = Regex.IsMatch(username, pattern);
             
-
-
             _userservice21.AddUser(username, password, true);
 
-            
+            // tillagda bilmekaniker i wpf
+            AddRemoveM.Items.Add(Firstname.Text + " " + Lastname.Text + " " + DOB.DisplayDate);
+
 
             if (isCorrect)
             {
-                //AddRemoveUser.Visibility = Visibility.Visible;
-
                 MessageBox.Show("Användaren är skapad");
+                Username.Clear();
+                Password.Clear();
             }
             else
             {
-                //AddRemoveUser.Visibility = Visibility.Visible;
                 MessageBox.Show("Ogiltig användarnamn.\nFörsök igen!");
                 Username.Clear();
                 Password.Clear();
             }
+
         }
 
-        private void AddRemoveM_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void RemoveUser_Click(object sender, RoutedEventArgs e)
         {
-            var box = (ComboBoxItem)(sender as ComboBox).SelectedItem;
-            var value = box.Content.ToString();
+            User1.Items.RemoveAt(User1.Items.IndexOf(User1.SelectedItem));
 
-            if (value == "Lägg till bilmekaniker" || value == "Ta bort bilmekaniker")
-            {
-                Firstname.Visibility = Visibility.Visible;
-                Lastname.Visibility = Visibility.Visible;
-                DOB.Visibility = Visibility.Visible;
-            }
-            else
-            {
-                Username.Visibility = Visibility.Hidden;
-                Password.Visibility = Visibility.Hidden;
-                DOB.Visibility = Visibility.Hidden;
-                //Username.Text = "";
-            }
+            _users = new List<User2>();
+            _user = (User2)User1.SelectedItem;
+            _userservice21.RemoveUser(_user);
+            //_userservice21.RemoveUser(User1.SelectedItem as User2);
+
+
+            MessageBox.Show("Användaren är borttagen");
         }
+
+
         /// <summary>
         /// Admin lägger till bilmekaniker
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void AddRemoveMechanic_Click(object sender, RoutedEventArgs e)
+        private void AddMechanic_Click(object sender, RoutedEventArgs e)
         {
+            _mechanics = _mechanicdb.Load();
+
+            AddRemoveM.Items.Add(Firstname.Text + " " + Lastname.Text + " " + DOB.DisplayDate);
+
             string firstName = Firstname.Text;
             string lastName = Lastname.Text;
             DateTime dob = DOB.DisplayDate;
 
-
+            _mechanics = new List<Mechanic>();
             var _mechanic = _userservice21.AddMechanic(firstName, lastName, dob);
-            _mechanics.Add(_mechanic);         
+            _mechanics.Add(_mechanic);
 
-            MessageBox.Show("Bilmekaniker har lagts till"); 
+            _mechanicdb.Save(_mechanics);
+
+            MessageBox.Show($"Bilmekaniker {Firstname.Text} {Lastname.Text} har lagts till");
+
+            Firstname.Clear();
+            Lastname.Clear();
         }
-
-        private void AddRemoveS_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            var box = (ComboBoxItem)(sender as ComboBox).SelectedItem;
-            var value = box.Content.ToString();
-
-            if (value == "Lägg till kompetens" || value == "Ta bort kompetens")
-            {
-                fiveSkills.Visibility = Visibility.Visible;
-            }
-            else
-            {
-                fiveSkills.Visibility = Visibility.Hidden;
-            }
-        }
-
+        /// <summary>
+        /// Admin tar bort bilmekaniker
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void RemoveMechanic_Click(object sender, RoutedEventArgs e)
         {
-            _userservice21.RemoveMechanic(_mechanic);
-            MessageBox.Show("Bilmekaniker har tagits bort");
+            _mechanics = _mechanicdb.Load();
+
+            AddRemoveM.Items.RemoveAt(AddRemoveM.Items.IndexOf(AddRemoveM.SelectedItem));
+
+            //_mechanics = new List<Mechanic>();
+            //_mechanic = (Mechanic)AddRemoveM.SelectedItem;
+            //_mechanics.Remove(_mechanic);
+            
+            _userservice21.RemoveMechanic(_mechanic); // tar ej bort från db?
+            
+            //_mechanicdb.Save(_mechanics); 
+
+            MessageBox.Show($"Bilmekaniker har tagits bort");
         }
 
-        //private void MechanicList_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        //{
+        private void AddSkill_Click(object sender, RoutedEventArgs e)
+        {
+            string skill = (string)fiveSkillsBreaks.SelectionBoxItem + " " + (string)fiveSkillsEngine.SelectionBoxItem + " " + (string)fiveSkillsBody.SelectionBoxItem + " " +
+                            (string)fiveSkillsWindshields.SelectionBoxItem + " " + (string)fiveSkillsTire.SelectionBoxItem;
 
-        //}
+
+            //var skill = fiveskills.Text;
+            
+            _userservice21.AddSkill(_mechanic, skill);
+        }
     }
 }
+
+
+
+

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using Logic.Services;
+using Logic.DAL;
 
 namespace Logic.Entities
 {
@@ -16,8 +17,6 @@ namespace Logic.Entities
         public int NumberOfErrands { get; set; } //Array???
         public DateTime DateOfBirth { get; set; }
         public List<string> Skills { get; set; }
-        
-
 
 
         //public List<Errands> CurrentErrands { get; set; }
@@ -28,7 +27,9 @@ namespace Logic.Entities
             DateOfBirth = dateofbirth;
             Skills = new List<string>(); //Kaross, Vindruta, Motor, Hjul & Bromsar
             NumberOfErrands = 0;
+            
             MechanicID = Guid.NewGuid();
+
             CalculateAge();
             //SetMechanicID();
         }

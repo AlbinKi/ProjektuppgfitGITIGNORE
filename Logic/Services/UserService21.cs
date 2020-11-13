@@ -13,15 +13,15 @@ namespace Logic.Services
         private DataAccess<Mechanic> _mechanicdb;
         private List<Errand> _errands;
         private DataAccess<Errand> _erranddb;
-        private List<User> _users;
-        private DataAccess<User> _userdb;
+        private List<User2> _users;
+        private DataAccess<User2> _userdb;
         private Mechanic _mechanic;
 
         public UserService21()
         {
             _mechanicdb = new DataAccess<Mechanic>();
             _erranddb = new DataAccess<Errand>();
-            _userdb = new DataAccess<User>();
+            _userdb = new DataAccess<User2>();
         }
 
        
@@ -57,7 +57,7 @@ namespace Logic.Services
         /// </summary>
         /// <param name="mechanic"></param>
         /// <param name="skill"></param>
-        public void AddSkill(Mechanic mechanic, String skill)
+        public void AddSkill(Mechanic mechanic, string skill)
         {
             _mechanics = _mechanicdb.Load();
 
@@ -116,7 +116,7 @@ namespace Logic.Services
         /// <param name="admin"></param>
         public void AddUser(string username, string password, bool admin)
         {
-            User user = new User(username, password, admin); //Metod för userid behövs i user-klassen.
+            User2 user = new User2(username, password, admin); //Metod för userid behövs i user-klassen.
 
             _userdb.Save(user);
         }
@@ -125,7 +125,7 @@ namespace Logic.Services
         /// Admin tar bort användare (och mekaniker kopplad till användare).
         /// </summary>
         /// <param name="user"></param>
-        public void RemoveUser(User user)
+        public void RemoveUser(User2 user)
         {
             _users = _userdb.Load();
             _mechanics = _mechanicdb.Load();
@@ -152,3 +152,4 @@ namespace Logic.Services
 
     }
 }
+
