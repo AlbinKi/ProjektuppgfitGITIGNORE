@@ -17,6 +17,7 @@ namespace Logic.Entities
         public DateTime DateOfBirth { get; set; }
         public List<string> Skills { get; set; }
         
+        //Lägga till ett slutdatum som property!!!
 
 
 
