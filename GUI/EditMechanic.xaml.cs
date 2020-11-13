@@ -46,8 +46,12 @@ namespace GUI
         private void AllMechanics_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             _mechanic = (Mechanic)AllMechanics.SelectedItem;
-            FirstName.Text = _mechanic.FirstName;
-            LastName.Text = _mechanic.LastName;
+            if (_mechanic  !=null)
+            {
+                FirstName.Text = _mechanic.FirstName;
+                LastName.Text = _mechanic.LastName;
+            }
+            
         }
 
         private void SaveMechanic_click(object sender, RoutedEventArgs e)
@@ -56,6 +60,10 @@ namespace GUI
             _mechanic.LastName = LastName.Text;
             DBService.Modify(_mechanic);
             MessageBox.Show("Mekanikern är sparad.");
+            _mechanics = _mechanicdb.Load();
+            AllMechanics.ItemsSource = _mechanics;
+            FirstName.Text = null;
+            LastName.Text = null;
         }
 
         private void FirstName_TextChanged(object sender, TextChangedEventArgs e)

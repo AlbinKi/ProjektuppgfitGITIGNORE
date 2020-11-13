@@ -26,7 +26,7 @@
                     <GridViewColumn Header="Förnamn" Width="65" DisplayMemberBinding="{Binding FirstName}"/>
                     <GridViewColumn Header="Efternamn" Width="65" DisplayMemberBinding="{Binding LastName}"/>
                     <GridViewColumn Header="Födelsedatum" Width="85" DisplayMemberBinding="{Binding DateOfBirth}"/>
-                    <GridViewColumn Header="Kompetenser" Width="85" DisplayMemberBinding="{Binding Skills}"/>
+                    <GridViewColumn Header="Kompetenser" Width="85" DisplayMemberBinding="{Binding Skills.Count}"/>
                     <GridViewColumn Header="Ärenden" Width="50" DisplayMemberBinding="{Binding NumberOfErrands}"/>
                     <GridViewColumn Header="Slutdatum" Width="85" DisplayMemberBinding="{Binding NumberOfErrands}"/>
                 </GridView>

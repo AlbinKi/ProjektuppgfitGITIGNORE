@@ -137,6 +137,28 @@ namespace Logic.Services
             _userdb.Save(user);
         }
 
+        public List<Mechanic> MechanicHasUser()
+        {
+            List<Mechanic> mechanicsNoUser = new List<Mechanic>();
+
+            _mechanics = _mechanicdb.Load();
+            _users = _userdb.Load();
+
+            foreach (var m in _mechanics)
+            {
+                var mID = m.MechanicID;
+                foreach (var u in _users)
+                {
+                    if (u.UserID == m.MechanicID)
+                    {
+                        _mechanics.Remove(m);
+                    }
+                }
+            }
+
+            return _mechanics;
+        }
+
         /// <summary>
         /// Admin tar bort användare (och mekaniker kopplad till användare).
         /// </summary>
