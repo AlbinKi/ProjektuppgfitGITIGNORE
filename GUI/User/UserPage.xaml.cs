@@ -1,5 +1,5 @@
-﻿using GUI.User.EndErrand;
-using GUI.User.Skills;
+﻿using GUI.UserPages.EndErrand;
+using GUI.UserPages.Skills;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace GUI.User
+namespace GUI.UserPages
 {
     /// <summary>
     /// Interaction logic for UserPage.xaml

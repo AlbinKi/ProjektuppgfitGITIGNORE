@@ -24,6 +24,7 @@
         <Button Content="Admin" HorizontalAlignment="Left" Margin="155,295,0,0" VerticalAlignment="Top" Click="Button_Click"/>
 
         <Button Content="Tillfällig user skill" HorizontalAlignment="Left" Margin="328,294,0,0" VerticalAlignment="Top" Click="TempClickUser"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="625,366,0,0" VerticalAlignment="Top" Click="Button_Click_1"/>
 
     </Grid>
 </Page>

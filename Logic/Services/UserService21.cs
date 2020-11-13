@@ -13,15 +13,15 @@ namespace Logic.Services
         private DataAccess<Mechanic> _mechanicdb;
         private List<Errand> _errands;
         private DataAccess<Errand> _erranddb;
-        private List<User2> _users;
-        private DataAccess<User2> _userdb;
+        private List<User> _users;
+        private DataAccess<User> _userdb;
         private Mechanic _mechanic;
 
         public UserService21()
         {
             _mechanicdb = new DataAccess<Mechanic>();
             _erranddb = new DataAccess<Errand>();
-            _userdb = new DataAccess<User2>();
+            _userdb = new DataAccess<User>();
         }
 
        
@@ -116,16 +116,31 @@ namespace Logic.Services
         /// <param name="admin"></param>
         public void AddUser(string username, string password, bool admin)
         {
-            User2 user = new User2(username, password, admin); //Metod för userid behövs i user-klassen.
+            User user = new User(username, password, admin); //Metod för userid behövs i user-klassen.
 
             _userdb.Save(user);
         }
 
+        public void MechanicsWithoutUser()
+        {
+            var mechanics = _mechanicdb.Load();
+            var users = _userdb.Load();
+            foreach (var m in mechanics)
+            {              
+                foreach (var u in users)
+                {
+                    if (u.UserID == m.MechanicID)
+                    {
+                        mechanics.Remove(m);
+                    }
+                }
+            }
+        }
         /// <summary>
         /// Admin tar bort användare (och mekaniker kopplad till användare).
         /// </summary>
         /// <param name="user"></param>
-        public void RemoveUser(User2 user)
+        public void RemoveUser(User user)
         {
             _users = _userdb.Load();
             _mechanics = _mechanicdb.Load();
@@ -140,6 +155,7 @@ namespace Logic.Services
                         {
                             _mechanics.Remove(mechanic);
                             _mechanicdb.Save(_mechanics);
+                            break;
                         }
                     }
 

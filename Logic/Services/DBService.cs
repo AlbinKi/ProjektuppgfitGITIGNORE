@@ -22,7 +22,6 @@ namespace Logic.Services
             var db = new DataAccess<Mechanic>();
             var mechanics = db.Load();
             mechanics[mechanics.FindIndex(ind => ind.MechanicID == m.MechanicID)] = m;
-            mechanics.Add(m);
             db.Save(mechanics);
         }
 
@@ -31,15 +30,13 @@ namespace Logic.Services
             var db = new DataAccess<Errand>();
             var mechanics = db.Load();
             mechanics[mechanics.FindIndex(ind => ind.ID == e.ID)] = e;
-            mechanics.Add(e);
             db.Save(mechanics);
         }   
-        public static void Modify(User2 u)
+        public static void Modify(User u)
         {
-            var db = new DataAccess<User2>();
+            var db = new DataAccess<User>();
             var mechanics = db.Load();
             mechanics[mechanics.FindIndex(ind => ind.UserID == u.UserID)] = u;
-            mechanics.Add(u);
             db.Save(mechanics);
         }
     }

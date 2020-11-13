@@ -12,6 +12,10 @@
         <Button Content="Hantera användare och bilmekaniker" HorizontalAlignment="Left" Margin="121,161,0,0" VerticalAlignment="Top" Height="46" Width="234" Click="Button_Click"/>
         <Button Content="Ärenden" HorizontalAlignment="Left" Margin="446,161,0,0" VerticalAlignment="Top" Height="46" Width="224"/>
         <TextBlock HorizontalAlignment="Left" Margin="46,45,0,0" Text="Admin sida" TextWrapping="Wrap" VerticalAlignment="Top" Height="79" Width="286" FontSize="50"/>
+        <Button Content="Lägg till mekaniker" HorizontalAlignment="Left" Height="30" Margin="121,275,0,0" VerticalAlignment="Top" Width="92" Click="Button_Click_1"/>
+        <Button Content="Ta bort användare" HorizontalAlignment="Left" Height="30" Margin="263,285,0,0" VerticalAlignment="Top" Width="92" Click="Button_Click_2"/>
+        <Button Content="Ta bort mekaniker" HorizontalAlignment="Left" Height="30" Margin="466,290,0,0" VerticalAlignment="Top" Width="92" Click="Button_Click_3"/>
+        <Button Content="Lägg till kompetenser på mekaniker" HorizontalAlignment="Left" Height="30" Margin="309,364,0,0" VerticalAlignment="Top" Width="92" Click="Button_Click_4"/>
 
 
     </Grid>

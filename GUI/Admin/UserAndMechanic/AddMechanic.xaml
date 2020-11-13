@@ -1,0 +1,28 @@
+﻿<Page x:Class="GUI.Admin.UserOrMechanic.AddMechanic"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:GUI.Admin.UserOrMechanic" xmlns:extToolkit="http://schemas.xceed.com/wpf/xaml/toolkit"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="UserAndMechanic">
+
+    <Grid>
+
+
+        <Button Content="Lägg till" HorizontalAlignment="Left" Margin="280,239,0,0" VerticalAlignment="Top" Height="22" Width="116" Click="AddMechanic_Click"/>
+
+        <extToolkit:WatermarkTextBox x:Name="Firstname" ToolTip="Ange svar i bokstäver" HorizontalAlignment="Left" Margin="215,112,0,0" Watermark="Förnamn" TextWrapping="Wrap" VerticalAlignment="Top" Width="247" Height="22" Visibility="Visible"/>
+        <extToolkit:WatermarkTextBox x:Name="Lastname" ToolTip="Ange svar i bokstäver" HorizontalAlignment="Left" Margin="215,139,0,0" Watermark="Efternamn" TextWrapping="Wrap" VerticalAlignment="Top" Width="247" Height="22" Visibility="Visible"/>
+        <DatePicker x:Name="DOB" HorizontalAlignment="Left" Margin="346,175,0,0" VerticalAlignment="Top"  DisplayDate="2020-11-09" Width="116" />
+
+
+        <TextBlock HorizontalAlignment="Left" Margin="215,91,0,0" Text="Bilmekaniker" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold"/>
+        <TextBlock HorizontalAlignment="Left" Margin="215,179,0,0" Text="Födelsedatum" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Medium"/>
+
+
+
+
+    </Grid>
+</Page>

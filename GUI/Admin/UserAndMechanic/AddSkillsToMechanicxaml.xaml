@@ -1,0 +1,36 @@
+﻿<Page x:Class="GUI.Admin.UserAndMechanic.AddSkillsToMechanic"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:extToolkit="http://schemas.xceed.com/wpf/xaml/toolkit"
+      xmlns:entities="clr-namespace:Logic.Entities;assembly=Logic"
+      xmlns:local="clr-namespace:GUI.Admin.UserAndMechanic"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="AddSkillToMechanicxaml">
+
+    <Page.Resources>
+        <DataTemplate DataType="{x:Type entities:Mechanic}">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="{Binding LastName}"/>
+                <TextBlock Text=" "/>
+                <TextBlock Text="{Binding FirstName}"/>
+                <TextBlock Text=" "/>
+            </StackPanel>
+        </DataTemplate>
+    </Page.Resources>
+    <Grid>
+        <ListBox x:Name="Skills"  HorizontalAlignment="Left" Margin="278,198,0,0" VerticalAlignment="Top"  MinHeight="20" Visibility="Visible" SelectionMode="Multiple" Width="103">
+
+        </ListBox>
+        <ListBox x:Name="CurrentSkills"  HorizontalAlignment="Left" Margin="419,198,0,0" VerticalAlignment="Top"  MinHeight="20" Visibility="Visible" SelectionMode="Multiple" Width="103">
+
+        </ListBox>
+        <extToolkit:WatermarkComboBox x:Name="Mechanics" Watermark="Bilmekaniker" HorizontalAlignment="Center" Height="21" Margin="0,104,0,0" VerticalAlignment="Top" Width="244" SelectionChanged="Mechanics_SelectionChanged"/>
+        <Button x:Name="AddSkill" Content="Lägg till" HorizontalAlignment="Left" Margin="278,324,0,0" VerticalAlignment="Top" Height="22" Width="103" Click="AddSkill_Click"/>
+        <Button x:Name="RemoveSkill" Content="Ta bort" HorizontalAlignment="Left" Margin="419,324,0,0" VerticalAlignment="Top" Height="22" Width="103" Click="RemoveSkill_Click"/>
+        <TextBox IsReadOnly="True" Text="Nuvarande kompetenser" Margin="402,159,261,0" TextWrapping="Wrap" VerticalAlignment="Top" BorderThickness="0"/>
+        <TextBox IsReadOnly="True" Text="Nya kompetenser"  Margin="278,159,419,0" TextWrapping="Wrap" VerticalAlignment="Top" BorderThickness="0"/>
+    </Grid>
+</Page>

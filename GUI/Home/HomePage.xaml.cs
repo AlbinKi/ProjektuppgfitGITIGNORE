@@ -14,8 +14,8 @@ using System.Windows.Shapes;
 using Logic.DAL;
 using Logic.Entities;
 using GUI.Admin;
-using GUI.User;
-
+using GUI.UserPages;
+using GUI.Admin.UserAndMechanic;
 
 namespace GUI.Home
 {
@@ -52,6 +52,11 @@ namespace GUI.Home
         {
             UserPage userPage = new UserPage();
             NavigationService.Navigate(userPage);
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new RemoveMechanic());
         }
     }
 }

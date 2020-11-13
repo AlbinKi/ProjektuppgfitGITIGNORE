@@ -1,4 +1,5 @@
-﻿using GUI.Admin.UserOrMechanic;
+﻿using GUI.Admin.UserAndMechanic;
+using GUI.Admin.UserOrMechanic;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -26,8 +27,28 @@ namespace GUI.Admin
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            var userAndMechanic = new UserAndMechanic();
-            this.NavigationService.Navigate(userAndMechanic);
+            //var userAndMechanic = new UserAndMechanic();
+            //this.NavigationService.Navigate(userAndMechanic);
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new AddMechanic());
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new RemoveUser());
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new RemoveMechanic());
+        }
+
+        private void Button_Click_4(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new AddSkillsToMechanic());
         }
     }
 }

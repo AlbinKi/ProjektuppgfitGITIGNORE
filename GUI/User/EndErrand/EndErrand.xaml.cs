@@ -18,7 +18,7 @@ using Xceed.Wpf.Toolkit;
 using System.Linq;
 using Logic.DAL;
 
-namespace GUI.User.EndErrand
+namespace GUI.UserPages.EndErrand
 {
     /// <summary>
     /// Interaction logic for EndErrand.xaml

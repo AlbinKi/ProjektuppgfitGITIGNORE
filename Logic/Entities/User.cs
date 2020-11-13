@@ -6,14 +6,14 @@ using System.Text;
 
 namespace Logic.Entities
 {
-    public class User2
+    public class User
     {
         public string Username { get; set; }
         public string Password { get; set; }
         public Guid UserID { get; set; }
         public bool Admin { get; set; }
 
-        public User2(string username, string password, bool admin)
+        public User(string username, string password, bool admin)
         {
             Username = username;
             Password = password;
@@ -41,7 +41,7 @@ namespace Logic.Entities
             }
         }
 
-        public User2()
+        public User()
         {
 
         }
