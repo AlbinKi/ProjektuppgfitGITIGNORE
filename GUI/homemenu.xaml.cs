@@ -32,13 +32,19 @@ namespace GUI
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            PageView.Content = new ErrandPageAdmin();
+            Tab1.Header = "Skapa nytt ärende";
+            Tab2.Header = "Ändra status på ärenden";
+            Tab3.Header = "Lägg till en mekaniker på ärende";
+
+            PageView1.Content = new NewErrandPage();
+            PageView2.Content = new ErrandStatus();
+            PageView3.Content = new ErrandMechanic();
             
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            PageView.Content = new EndErrand();
+
         }
     }
 }

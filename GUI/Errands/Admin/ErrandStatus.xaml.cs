@@ -26,14 +26,7 @@ namespace GUI.Errands.Admin
         {
             InitializeComponent();
             _errandservice = new ErrandService();
-            Errands.ItemsSource = _errandservice.OnGoingErrands();
-
-            if (Errands.Items.Count == 0)
-            {
-                MessageBox.Show("Det finns inga pågående ärenden just nu");
-                //var ep = new ErrandPageAdmin();
-                //NavigationService.Navigate(ep);
-            }
+            Errands.ItemsSource = _errandservice.OnGoingErrands();      
         }
 
         private void EndErrand_Click(object sender, RoutedEventArgs e)
