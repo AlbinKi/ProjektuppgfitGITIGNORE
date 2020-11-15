@@ -27,14 +27,13 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <extToolkit:WatermarkTextBox Watermark="Ange som en epostadress" Name="UserNameAsEmail" HorizontalAlignment="Left" Margin="380,107,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="160"/>
+        <extToolkit:WatermarkTextBox Watermark="Ange som en epostadress" Name="UserNameAsEmail" HorizontalAlignment="Left" Margin="380,107,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="160" ToolTip="Användarnamnet måste vara en epostadress"/>
         <extToolkit:WatermarkTextBox Watermark="Lösenord" Name="Password" HorizontalAlignment="Left" Margin="380,172,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="160"/>
-        <RadioButton Content="Nej" Name="IsAdminFalse" HorizontalAlignment="Left" Margin="386,243,0,0" VerticalAlignment="Top" IsChecked="True"/>
         <Label Content="Användarnamn" HorizontalAlignment="Left" Margin="380,80,0,0" VerticalAlignment="Top"/>
         <Label Content="Lösenord" HorizontalAlignment="Left" Margin="380,141,0,0" VerticalAlignment="Top"/>
-        <RadioButton Content="Ja" Name="IsAdminTrue" HorizontalAlignment="Center" Margin="0,271,0,0" VerticalAlignment="Top"/>
-        <Label Content="Ska den nya användaren vara administratör?" HorizontalAlignment="Left" Margin="380,208,0,0" VerticalAlignment="Top"/>
+        <Label Content="Ska den nya användaren vara administratör?" HorizontalAlignment="Left" Margin="378,208,0,0" VerticalAlignment="Top"/>
         <Button Name="AddNewUser" Content="Spara ny användare" HorizontalAlignment="Left" Margin="386,312,0,0" VerticalAlignment="Top" Click="AddNewUserClick"/>
+        <CheckBox Content="Gör till administratör" Name="IsAdminCheck" HorizontalAlignment="Left" Margin="386,239,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Page>

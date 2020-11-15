@@ -46,19 +46,47 @@ namespace GUI
 
         private void AddNewUserClick(object sender, RoutedEventArgs e)
         {
-            //Bara test nedan! Kollat om regex funkar.
             var userName = UserNameAsEmail.Text;
+            var password = Password.Text;
+            bool isAdmin = false;
 
-            if (_userService.TryUsername(userName).Success)
+            if (NoUserList.SelectedItem==null)
             {
-                MessageBox.Show("Korrekt användarnamn!");
+                MessageBox.Show("Välj först en mekaniker i listan");
+                return;
+            }
+            
+            _mechanic = (Mechanic)NoUserList.SelectedItem;
+            var userGuid = _mechanic.MechanicID;
+
+            if ((bool)IsAdminCheck.IsChecked)
+            {
+                isAdmin = true;
+            }
+
+            if (!_userService.TryUsername(userName).Success)
+            {
+                MessageBox.Show("Ange en epostadress som användarnamn.");
+                UserNameAsEmail.Clear();
+                return;
+            }
+            else if (!_userService.TryPassword(password).Success)
+            {
+                MessageBox.Show("Ange ett lämpligt lösenord!");
+                Password.Clear();
+                return;
             }
             else
             {
-                MessageBox.Show("Ange en epost som användarnamn.");
+                _userService.AddUser(userName, password, isAdmin, userGuid);
+                MessageBox.Show("Användaren har sparats.");
             }
 
             UserNameAsEmail.Clear();
+            Password.Clear();
+            _mechanics = _userService.MechanicNoUser();
+            NoUserList.ItemsSource = _mechanics;
+
         }
     }
 }

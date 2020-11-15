@@ -131,9 +131,9 @@ namespace Logic.Services
         /// <param name="username"></param>
         /// <param name="password"></param>
         /// <param name="admin"></param>
-        public void AddUser(string username, string password, bool admin)
+        public void AddUser(string username, string password, bool admin, Guid userID)
         {
-            User user = new User(username, password, admin); //Metod för userid behövs i user-klassen.
+            User user = new User(username, password, admin, userID);
 
             _userdb.Save(user);
         }
@@ -162,11 +162,20 @@ namespace Logic.Services
             return mechanicsNoUser;
         }
 
-        public Match TryUsername(String email)
+        public Match TryUsername(string email)
         {
-            Regex TryEmail = new Regex(@"[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?");
+            Regex tryEmail = new Regex(@"[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?");
 
-            var match = TryEmail.Match(email);
+            var match = tryEmail.Match(email);
+
+            return match;
+        }
+
+        public Match TryPassword(string password)
+        {
+            Regex tryPass = new Regex(@"^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$");
+
+            var match = tryPass.Match(password);
 
             return match;
         }

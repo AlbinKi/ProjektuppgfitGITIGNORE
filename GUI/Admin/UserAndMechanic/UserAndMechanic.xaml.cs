@@ -70,7 +70,7 @@ namespace GUI.Admin.UserOrMechanic
             
 
 
-            _userservice21.AddUser(username, password, true);
+            //_userservice21.AddUser(username, password, true);
 
             
 

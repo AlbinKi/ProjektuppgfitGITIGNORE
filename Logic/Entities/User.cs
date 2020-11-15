@@ -11,9 +11,12 @@ namespace Logic.Entities
         public Guid UserID { get; set; }
         public bool Admin { get; set; }
 
-        public User(string username, string password, bool admin)
+        public User(string username, string password, bool admin, Guid userID)
         {
             Username = username;
+            Password = password;
+            Admin = admin;
+            UserID = userID;
         }
 
         public User()
