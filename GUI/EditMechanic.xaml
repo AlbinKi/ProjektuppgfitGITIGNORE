@@ -19,7 +19,7 @@
 
     <Grid>
         <Label Content="Välj en mekaniker vars uppgifter du vill redigera" HorizontalAlignment="Left" Margin="29,22,0,0" VerticalAlignment="Top"/>
-        <Button Content="Spara" Name ="SaveMechanic" Click="SaveMechanic_click" HorizontalAlignment="Left" Margin="496,262,0,0" VerticalAlignment="Top" Width="68"/>
+        <Button Content="Spara" Name ="SaveMechanic" Click="SaveMechanic_click" HorizontalAlignment="Left" Margin="568,297,0,0" VerticalAlignment="Top" Width="68"/>
         <ListView Margin="30,53,352,105" Name="AllMechanics" SelectionChanged="AllMechanics_SelectionChanged">
             <ListView.View>
                 <GridView>
@@ -33,10 +33,13 @@
             </ListView.View>
         </ListView>
 
-        <extToolkit:WatermarkTextBox Watermark="Förnamn" Name="FirstName" HorizontalAlignment="Left" Margin="496,53,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="FirstName_TextChanged" ToolTip="Redigera mekanikerns förnamn här" MaxLines="1"/>
-        <extToolkit:WatermarkTextBox Watermark="Efternamn" Name="LastName"  HorizontalAlignment="Left" Margin="496,115,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="LastName_TextChanged" ToolTip="Redigera mekanikerns efternamn här" MaxLines="1"/>
-        <TextBox HorizontalAlignment="Left" Margin="496,166,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox HorizontalAlignment="Left" Margin="496,0,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Center" Width="120"/>
+        <extToolkit:WatermarkTextBox Watermark="Förnamn" Name="FirstName" HorizontalAlignment="Left" Margin="471,53,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="FirstName_TextChanged" ToolTip="Redigera mekanikerns förnamn här" MaxLines="1"/>
+        <extToolkit:WatermarkTextBox Watermark="Efternamn" Name="LastName"  HorizontalAlignment="Left" Margin="471,115,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="LastName_TextChanged" ToolTip="Redigera mekanikerns efternamn här" MaxLines="1"/>
+        <TextBox HorizontalAlignment="Left" Margin="471,166,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Margin="471,0,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Center" Width="120"/>
+        <ListBox Margin="609,53,53,298"/>
+        <Label Content="Den Valda mekanikerns kompetenser" HorizontalAlignment="Left" Margin="600,28,0,0" VerticalAlignment="Top" FontSize="11"/>
+        <ComboBox HorizontalAlignment="Left" Margin="609,188,0,0" VerticalAlignment="Top" Width="120"/>
 
     </Grid>
 </Page>
