@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace Logic.Services
 {
@@ -137,26 +138,37 @@ namespace Logic.Services
             _userdb.Save(user);
         }
 
-        public List<Mechanic> MechanicHasUser()
-        {
-            List<Mechanic> mechanicsNoUser = new List<Mechanic>();
+        
 
+        public List<Mechanic> MechanicNoUser()
+        {
             _mechanics = _mechanicdb.Load();
             _users = _userdb.Load();
+            var mechanicsNoUser = new List<Mechanic>();
 
             foreach (var m in _mechanics)
             {
-                var mID = m.MechanicID;
+                mechanicsNoUser.Add(m);
+
                 foreach (var u in _users)
                 {
                     if (u.UserID == m.MechanicID)
                     {
-                        _mechanics.Remove(m);
+                        mechanicsNoUser.Remove(m);
                     }
                 }
             }
 
-            return _mechanics;
+            return mechanicsNoUser;
+        }
+
+        public Match TryUsername(String email)
+        {
+            Regex TryEmail = new Regex(@"[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?");
+
+            var match = TryEmail.Match(email);
+
+            return match;
         }
 
         /// <summary>

@@ -60,5 +60,11 @@ namespace GUI.Home
             EditMechanic editMechPage = new EditMechanic();
             NavigationService.Navigate(editMechPage);
         }
+
+        private void TempClickNewUser(object sender, RoutedEventArgs e)
+        {
+            NewUser newUser = new NewUser();
+            NavigationService.Navigate(newUser);
+        }
     }
 }
