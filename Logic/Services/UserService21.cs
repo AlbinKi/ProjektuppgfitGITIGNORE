@@ -173,6 +173,7 @@ namespace Logic.Services
 
         public Match TryPassword(string password)
         {
+            //Minimum eight characters, at least one letter and one number.
             Regex tryPass = new Regex(@"^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$");
 
             var match = tryPass.Match(password);
