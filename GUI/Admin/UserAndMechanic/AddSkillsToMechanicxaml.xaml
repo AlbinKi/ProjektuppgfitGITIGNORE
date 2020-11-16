@@ -13,24 +13,24 @@
     <Page.Resources>
         <DataTemplate DataType="{x:Type entities:Mechanic}">
             <StackPanel Orientation="Horizontal">
-                <TextBlock Text="{Binding LastName}"/>
-                <TextBlock Text=" "/>
                 <TextBlock Text="{Binding FirstName}"/>
+                <TextBlock Text=" "/>
+                <TextBlock Text="{Binding LastName}"/>
                 <TextBlock Text=" "/>
             </StackPanel>
         </DataTemplate>
     </Page.Resources>
-    <Grid>
-        <ListBox x:Name="Skills"  HorizontalAlignment="Left" Margin="278,198,0,0" VerticalAlignment="Top"  MinHeight="20" Visibility="Visible" SelectionMode="Multiple" Width="103">
+    <Grid RenderTransformOrigin="0.518,0.499">
+        <ListBox x:Name="Skills"  HorizontalAlignment="Left" Margin="329,137,0,0" VerticalAlignment="Top"  MinHeight="20" Visibility="Visible" SelectionMode="Multiple" Width="153" Height="135">
 
         </ListBox>
-        <ListBox x:Name="CurrentSkills"  HorizontalAlignment="Left" Margin="419,198,0,0" VerticalAlignment="Top"  MinHeight="20" Visibility="Visible" SelectionMode="Multiple" Width="103">
+        <ListBox x:Name="CurrentSkills"  HorizontalAlignment="Left" Margin="504,137,0,0" VerticalAlignment="Top"  MinHeight="20" Visibility="Visible" SelectionMode="Multiple" Width="153" Height="135">
 
         </ListBox>
-        <extToolkit:WatermarkComboBox x:Name="Mechanics" Watermark="Bilmekaniker" HorizontalAlignment="Center" Height="21" Margin="0,104,0,0" VerticalAlignment="Top" Width="244" SelectionChanged="Mechanics_SelectionChanged"/>
-        <Button x:Name="AddSkill" Content="Lägg till" HorizontalAlignment="Left" Margin="278,324,0,0" VerticalAlignment="Top" Height="22" Width="103" Click="AddSkill_Click"/>
-        <Button x:Name="RemoveSkill" Content="Ta bort" HorizontalAlignment="Left" Margin="419,324,0,0" VerticalAlignment="Top" Height="22" Width="103" Click="RemoveSkill_Click"/>
-        <TextBox IsReadOnly="True" Text="Nuvarande kompetenser" Margin="402,159,261,0" TextWrapping="Wrap" VerticalAlignment="Top" BorderThickness="0"/>
-        <TextBox IsReadOnly="True" Text="Nya kompetenser"  Margin="278,159,419,0" TextWrapping="Wrap" VerticalAlignment="Top" BorderThickness="0"/>
+        <extToolkit:WatermarkComboBox x:Name="Mechanics" FontSize="18" Watermark="Bilmekaniker" HorizontalAlignment="Left" Height="27" Margin="329,55,0,0" VerticalAlignment="Top" Width="328" SelectionChanged="Mechanics_SelectionChanged"/>
+        <Button x:Name="AddSkill" Content="Lägg till" HorizontalAlignment="Left" Margin="440,286,0,0" VerticalAlignment="Top" Height="22" Width="104" Click="AddSkill_Click"/>
+        <Button x:Name="RemoveSkill" Content="Ta bort" HorizontalAlignment="Left" Margin="440,313,0,0" VerticalAlignment="Top" Height="22" Width="104" Click="RemoveSkill_Click"/>
+        <TextBlock FontSize="13" HorizontalAlignment="Left" Margin="329,102,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Medium" Height="25" Width="164"><Run Language="sv-se" Text="Tillgängliga"/><Run Text=" kompetenser"/></TextBlock>
+        <TextBlock FontSize="13" HorizontalAlignment="Left" Margin="505,103,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Medium" Height="34" Width="171"><Run Language="sv-se" Text="Bilmekanikers"/><Run Text=" kompetenser"/></TextBlock>
     </Grid>
 </Page>

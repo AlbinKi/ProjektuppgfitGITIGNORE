@@ -12,18 +12,19 @@
     <Page.Resources>
         <DataTemplate DataType="{x:Type entities:Mechanic}">
             <StackPanel Orientation="Horizontal">
-                <TextBlock Text="{Binding LastName}"/>
-                <TextBlock Text=" "/>
-                <TextBlock Text="{Binding FirstName}"/>
+                <TextBlock FontSize="16" Text="{Binding FirstName}"/>
+                <TextBlock FontSize="16" Text=" "/>
+                <TextBlock FontSize="16" Text="{Binding LastName}"/>
                 <TextBlock Text=" "/>
             </StackPanel>
         </DataTemplate>
     </Page.Resources>
 
     <Grid>
-        <ListBox x:Name="RemoveList"  HorizontalAlignment="Left" Margin="250,133,0,0" VerticalAlignment="Top" MinHeight="20" MinWidth="150" />
+        <ListBox x:Name="RemoveList"  HorizontalAlignment="Left" Margin="454,100,0,0" VerticalAlignment="Top" MinHeight="20" MinWidth="150" Height="214" Width="265" />
 
-        <Button Content="Ta bort" HorizontalAlignment="Left" Margin="476,203,0,0" VerticalAlignment="Top" Height="22" Width="116" Click="RemoveMechanic_Click"/>
+        <Button FontSize="15" Content="Ta bort" HorizontalAlignment="Left" Margin="530,336,0,0" VerticalAlignment="Top" Height="35" Width="112" Click="RemoveMechanic_Click"/>
+        <TextBlock FontSize="18" HorizontalAlignment="Left" Margin="496,67,0,0" Text="Ta bort bilmekaniker" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Medium" Height="28" Width="180"/>
 
     </Grid>
 </Page>

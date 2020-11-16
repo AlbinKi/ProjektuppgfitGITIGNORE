@@ -4,36 +4,21 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:GUI.Login"
+      xmlns:extToolkit="http://schemas.xceed.com/wpf/xaml/toolkit"
       mc:Ignorable="d" 
-      d:DesignHeight="350" d:DesignWidth="500"
+      d:DesignHeight="450" d:DesignWidth="800"
       Title="Bosses bilverkstad - Login">
 
-    <Grid Margin="10,0,10,10">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition />
-            <ColumnDefinition />
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-        </Grid.RowDefinitions>
+    <Grid Background="Black">
+        <Image HorizontalAlignment="Left" Height="154" Margin="98,114,0,0" VerticalAlignment="Top" Width="219" Source="/Login/bosse login bild.png"/>
+        <Rectangle HorizontalAlignment="Left" Height="42" Margin="353,116,0,0" Stroke="White" VerticalAlignment="Top" Width="312" RadiusX="18.2" RadiusY="18.2" Fill="White"/>
+        <Rectangle HorizontalAlignment="Left" Height="42" Margin="353,167,0,0" Stroke="White" VerticalAlignment="Top" Width="312" RadiusX="18.2" RadiusY="18.2" Fill="White"/>
+        <Rectangle HorizontalAlignment="Left" Height="42" Margin="353,225,0,0" VerticalAlignment="Top" Width="312" RadiusX="18.2" RadiusY="18.2" Fill="#FF58C4E5"/>
+        <!--<TextBox x:Name="Username" HorizontalAlignment="Left" Margin="375,116,0,0" Text="Användarnamn" TextWrapping="Wrap" VerticalAlignment="Top" Width="270" Height="42" FontSize="18" Background="{x:Null}" BorderBrush="{x:Null}" SelectionBrush="{x:Null}" SelectionTextBrush="{x:Null}" Foreground="Black" VerticalContentAlignment="Center"/>
+        <TextBox x:Name="Password" HorizontalAlignment="Left" Margin="375,167,0,0" Text="Lösenord" TextWrapping="Wrap" VerticalAlignment="Top" Width="270" Height="42" FontSize="18" Background="{x:Null}" BorderBrush="{x:Null}" SelectionBrush="{x:Null}" SelectionTextBrush="{x:Null}" Foreground="Black" VerticalContentAlignment="Center"/>-->
+        <Button x:Name="Login" Content="Logga in" HorizontalAlignment="Left" Margin="375,225,0,0" VerticalAlignment="Top" Height="41" Width="270" Click="Login_Click" Background="{x:Null}" BorderBrush="{x:Null}" FontSize="18" FontWeight="Bold"/>
 
-        <Label Grid.Row="0" Grid.Column="0">Login</Label>
-
-        <Border Grid.Column="0" Grid.Row="1" Height="35" Padding="5" Background="#4E87D4">
-            <Label VerticalAlignment="Center" Foreground="White">Användarnamn:</Label>
-        </Border>
-        
-        <TextBox x:Name="tbUsernam" Grid.Row="1" Grid.Column="1"></TextBox>
-        
-        <Border Grid.Column="0" Grid.Row="2" Height="35" Padding="5" Background="#4E87D4">
-            <Label VerticalAlignment="Center" Foreground="White">Lösenord:</Label>
-        </Border>
-        <PasswordBox x:Name="pbPassword" Grid.Row="2" Grid.Column="1"></PasswordBox>
-
-        <Button x:Name="btnConfirm" Grid.Column="1" Grid.Row="3" Margin="0,10,0,0" Width="125"
-Height="25" HorizontalAlignment="Right" Content="Logga in" Click="Button_Click" IsDefault="True"></Button>        
+        <extToolkit:WatermarkTextBox x:Name="Username" ToolTip="" HorizontalAlignment="Left" Margin="368,116,0,0" Watermark="Användarnamn" TextWrapping="Wrap" VerticalAlignment="Top" Width="282" Height="42" Visibility="Visible" BorderBrush="{x:Null}" SelectionBrush="{x:Null}" SelectionTextBrush="{x:Null}" FontSize="18" VerticalContentAlignment="Center" Foreground="Black" Background="{x:Null}"/>
+        <extToolkit:WatermarkTextBox x:Name="Password" ToolTip="" HorizontalAlignment="Left" Margin="368,167,0,0" Watermark="Lösenord" TextWrapping="Wrap" VerticalAlignment="Top" Width="282" Height="42" Visibility="Visible" BorderBrush="{x:Null}" SelectionBrush="{x:Null}" SelectionTextBrush="{x:Null}" VerticalContentAlignment="Center" FontSize="18" Background="{x:Null}"/>
     </Grid>
 </Page>
