@@ -37,7 +37,7 @@ namespace GUI.Login
 
             //string username = "Bosse";
             //string password = "Meckarn123";
-            string username = tbUsernam.Text;
+            string username = tbUsername.Text;
             string password = pbPassword.Password;
 
             bool successful = _loginService.Login(username, password);
@@ -55,8 +55,8 @@ namespace GUI.Login
             {
 
                 MessageBox.Show(_errorMsg);
-                this.Username.Clear();
-                this.Password.Clear();
+                this.tbUsername.Clear();
+                this.pbPassword.Clear();
             }
         }
     }
