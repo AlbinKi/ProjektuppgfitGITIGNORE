@@ -36,8 +36,10 @@ namespace GUI.Login
         private void Button_Click(object sender, RoutedEventArgs e)
         {
 
-            string username = "Bosse";
-            string password = "Meckarn123";
+            //string username = "Bosse";
+            //string password = "Meckarn123";
+            string username = tbUsernam.Text;
+            string password = pbPassword.Password;
 
             bool successful = _loginService.Login(username, password);
 
