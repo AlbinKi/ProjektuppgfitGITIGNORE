@@ -151,6 +151,15 @@ namespace Logic.Services
             return age;
         }
 
+        public bool IsMechanicUserAdmin(Mechanic m)
+        {
+            _mechanics = _mechanicdb.Load();
+            _users = _userdb.Load();
+            User _user = _users.FirstOrDefault(u => u.UserID == m.MechanicID);
+            //En try/catch?
+            
+        }
+
 
         /// <summary>
         /// Listar mekaniker som ej är tilldelade någon användare.
