@@ -29,13 +29,15 @@ namespace GUI
         private UserService21 _userService;
         private List<Mechanic> _mechanics;
         private DataAccess<Mechanic> _mechanicdb;
+        private MechanicService _mechanicService;
 
         public NewUser()
         {
             InitializeComponent();
             _mechanicdb = new DataAccess<Mechanic>();
             _userService = new UserService21();
-            _mechanics = _userService.MechanicNoUser();
+            _mechanicService = new MechanicService();
+            _mechanics = _mechanicService.MechanicNoUser();
             NoUserList.ItemsSource = _mechanics;
         }
 
@@ -85,7 +87,7 @@ namespace GUI
             UserNameAsEmail.Clear();
             Password.Clear();
             IsAdminCheck.IsChecked = false;
-            _mechanics = _userService.MechanicNoUser();
+            _mechanics = _mechanicService.MechanicNoUser();
             NoUserList.ItemsSource = _mechanics;
 
         }

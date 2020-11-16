@@ -20,51 +20,57 @@
             </StackPanel>
         </DataTemplate>
     </Page.Resources>
-    
+
 
     <Grid>
 
-            <extToolkit:WatermarkComboBox x:Name="Issue" Text="{Binding Issue}" Watermark="Vad är felet på fordonet?" HorizontalAlignment="Left" Margin="94,56,0,0" VerticalAlignment="Top" Width="244" IsReadOnly="True" Height="22" SelectionChanged="Issue_SelectionChanged" >
-                <ComboBoxItem Content="Bromsar"/>
-                <ComboBoxItem Content="Motor"/>
-                <ComboBoxItem Content="Kaross"/>
-                <ComboBoxItem Content="Hjul"/>
-                <ComboBoxItem Content="Vindruta"/>
-            </extToolkit:WatermarkComboBox>
-            <extToolkit:WatermarkTextBox x:Name="Description" Text="{Binding Description}"  MaxLines="5" HorizontalAlignment="Left" Margin="94,92,0,0"  Watermark="Ärendebeskrivning" TextWrapping="Wrap" VerticalAlignment="Top" Width="244" Height="94" />
-            <extToolkit:WatermarkComboBox x:Name="MechanicsAvailable" SelectedValuePath="MechanicID" SelectedValue="{Binding MechanicID}" Watermark="Välj mekaniker" HorizontalAlignment="Left" Height="21" Margin="94,201,0,0" VerticalAlignment="Top" Width="244" />
+        <extToolkit:WatermarkComboBox x:Name="Issue" Text="{Binding Issue}" Watermark="Vad är felet på fordonet?" HorizontalAlignment="Left" Margin="93,73,0,0" VerticalAlignment="Top" Width="250" IsReadOnly="True" Height="28" SelectionChanged="Issue_SelectionChanged" BorderBrush="Black" VerticalContentAlignment="Center" FontSize="13" Background="White">
+            <ComboBoxItem Content="Bromsar"/>
+            <ComboBoxItem Content="Motor"/>
+            <ComboBoxItem Content="Kaross"/>
+            <ComboBoxItem Content="Hjul"/>
+            <ComboBoxItem Content="Vindruta"/>
+        </extToolkit:WatermarkComboBox>
+        <extToolkit:WatermarkTextBox x:Name="Description" Text="{Binding Description}"  MaxLines="5" HorizontalAlignment="Left" Margin="93,111,0,0"  Watermark="Ärendebeskrivning" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" Height="110" BorderBrush="Black" FontSize="13" />
+        <extToolkit:WatermarkComboBox x:Name="MechanicsAvailable" SelectedValuePath="MechanicID" SelectedValue="{Binding MechanicID}" Watermark="Välj mekaniker" HorizontalAlignment="Left" Height="28" Margin="93,231,0,0" VerticalAlignment="Top" Width="250" BorderBrush="Black" VerticalContentAlignment="Center" FontSize="13" Background="Black" />
 
-        <extToolkit:WatermarkTextBox x:Name="Model"  HorizontalAlignment="Left" Margin="460,56,0,0" Watermark="Modell" TextWrapping="Wrap" VerticalAlignment="Top" Width="244" Height="22" />
+        <extToolkit:WatermarkTextBox x:Name="Model"  HorizontalAlignment="Left" Margin="441,73,0,0" Watermark="Ange modell" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" Height="28" BorderBrush="Black" VerticalContentAlignment="Center" FontSize="13" Background="White" />
 
-        <extToolkit:WatermarkTextBox x:Name="RegistrationNumber" Text="{Binding VehicleID}" ToolTip="ange 2-7 tecken" HorizontalAlignment="Left" Margin="460,92,0,0" Watermark="Ange Registreringsnummer" TextWrapping="Wrap" VerticalAlignment="Top" Width="244" Height="22" />
-            <extToolkit:WatermarkTextBox x:Name="Odometer" ToolTip="Ange svar i siffror" HorizontalAlignment="Left" Margin="460,164,0,0" Watermark="Ange hur många mil fordonet har gått" TextWrapping="Wrap" VerticalAlignment="Top" Width="244" Height="22" />
-            <extToolkit:WatermarkComboBox x:Name ="FuelType" HorizontalAlignment="Left" Margin="460,128,0,0" Watermark="Ange fordonets drivmedeltyp" VerticalAlignment="Top" Width="244" Height="22">
-                <ComboBoxItem Content="Bensin"/>
-                <ComboBoxItem Content="Diesel"/>
-                <ComboBoxItem Content="Etanol"/>
-                <ComboBoxItem Content="El"/>
-            </extToolkit:WatermarkComboBox>
+        <extToolkit:WatermarkTextBox x:Name="RegistrationNumber" Text="{Binding VehicleID}" ToolTip="ange 2-7 tecken" HorizontalAlignment="Left" Margin="441,106,0,0" Watermark="Ange registreringsnummer" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" Height="28" FontSize="13" VerticalContentAlignment="Center" BorderBrush="Black" />
+        <extToolkit:WatermarkTextBox x:Name="Odometer" ToolTip="Ange svar i siffror" HorizontalAlignment="Left" Margin="441,172,0,0" Watermark="Ange hur många mil fordonet har gått" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" Height="28" FontWeight="Normal" VerticalContentAlignment="Center" FontSize="13" BorderBrush="Black" />
+        <extToolkit:WatermarkComboBox x:Name ="FuelType" HorizontalAlignment="Left" Margin="441,139,0,0" Watermark="Ange fordonets drivmedeltyp" VerticalAlignment="Top" Width="250" Height="28" VerticalContentAlignment="Center" FontSize="13" Background="{x:Null}" BorderBrush="{DynamicResource {x:Static SystemColors.ActiveCaptionTextBrushKey}}" Foreground="Black">
+            <ComboBoxItem Content="Bensin"/>
+            <ComboBoxItem Content="Diesel"/>
+            <ComboBoxItem Content="Etanol"/>
+            <ComboBoxItem Content="El"/>
+        </extToolkit:WatermarkComboBox>
 
-            <extToolkit:WatermarkTextBox x:Name="MaxSpeed" Text="0" ToolTip="Ange svar i siffror" HorizontalAlignment="Left" Margin="460,200,0,0" Watermark="Ange fordonets maxhastighet" TextWrapping="Wrap" VerticalAlignment="Top" Width="244" Height="22" Visibility="Hidden" />
-            <extToolkit:WatermarkTextBox x:Name="MaxLoad" Text="0" ToolTip="Ange svar i siffror" HorizontalAlignment="Left" Margin="460,200,0,0" Watermark="Ange fordonets maxlast" TextWrapping="Wrap" VerticalAlignment="Top" Width="244" Height="22" Visibility="Hidden" />
-            <extToolkit:WatermarkTextBox x:Name="MaxPassenger" Text="0" ToolTip="Ange svar i siffror" HorizontalAlignment="Left" Margin="460,200,0,0" Watermark="Ange fordonets maxpassagerare" TextWrapping="Wrap" VerticalAlignment="Top" Width="244" Height="22" Visibility="Hidden" />
-            <RadioButton x:Name="Towbar1" Content="Dragkrok" HorizontalAlignment="Left" Margin="460,204,0,0" VerticalAlignment="Top" Visibility="Hidden" />
-            <RadioButton x:Name="Towbar2" IsChecked="True" Content="Ej dragkrok" HorizontalAlignment="Left" Margin="625,204,0,0" VerticalAlignment="Top" Visibility="Hidden" />
-            <extToolkit:WatermarkComboBox x:Name="CarType" HorizontalAlignment="Left" Margin="460,200,0,0" Watermark="Ange typ av bil" VerticalAlignment="Top" Width="244" Height="22" Visibility="Hidden">
-                <ComboBoxItem Content="Sedan"/>
-                <ComboBoxItem Content="Herrgårdsvagn"/>
-                <ComboBoxItem Content="Cabriolet"/>
-                <ComboBoxItem Content="Halvkombi"/>
-            </extToolkit:WatermarkComboBox>
+        <extToolkit:WatermarkTextBox x:Name="MaxSpeed" Text="0" ToolTip="Ange svar i siffror" HorizontalAlignment="Left" Margin="441,205,0,0" Watermark="Ange fordonets maxhastighet" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" Height="32" Visibility="Hidden" VerticalContentAlignment="Center" BorderBrush="Black" FontSize="13" />
+        <extToolkit:WatermarkTextBox x:Name="MaxLoad" Text="0" ToolTip="Ange svar i siffror" HorizontalAlignment="Left" Margin="441,205,0,0" Watermark="Ange fordonets maxlast" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" Height="28" Visibility="Hidden" BorderBrush="Black" VerticalContentAlignment="Center" FontSize="13" />
+        <extToolkit:WatermarkTextBox x:Name="MaxPassenger" Text="0" ToolTip="Ange svar i siffror" HorizontalAlignment="Left" Margin="441,205,0,0" Watermark="Ange fordonets maxpassagerare" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" Height="28" Visibility="Hidden" FontSize="13" VerticalContentAlignment="Center" BorderBrush="Black" />
+        <RadioButton x:Name="Towbar1" Content="Dragkrok" HorizontalAlignment="Left" Margin="460,213,0,0" VerticalAlignment="Top" Visibility="Hidden" VerticalContentAlignment="Center" FontSize="13" />
+        <RadioButton x:Name="Towbar2" IsChecked="True" Content="Ej dragkrok" HorizontalAlignment="Left" Margin="582,213,0,0" VerticalAlignment="Top" Visibility="Hidden" VerticalContentAlignment="Center" FontSize="13" />
+        <extToolkit:WatermarkComboBox x:Name="CarType" HorizontalAlignment="Left" Margin="441,206,0,0" Watermark="Ange typ av bil" VerticalAlignment="Top" Width="250" Height="28" Visibility="Visible" FontSize="13" VerticalContentAlignment="Center" BorderBrush="Black">
+            <ComboBoxItem Content="Sedan"/>
+            <ComboBoxItem Content="Herrgårdsvagn"/>
+            <ComboBoxItem Content="Cabriolet"/>
+            <ComboBoxItem Content="Halvkombi"/>
+        </extToolkit:WatermarkComboBox>
 
-            <extToolkit:WatermarkComboBox x:Name="VehicleType" Watermark="Välj fordonstyp" HorizontalAlignment="Left" Height="21" Margin="94,238,0,0" VerticalAlignment="Top" Width="244" SelectionChanged="VehicleType_SelectionChanged" >
+        <extToolkit:WatermarkComboBox x:Name="VehicleType" Watermark="Välj fordonstyp" HorizontalAlignment="Left" Height="28" Margin="93,265,0,0" VerticalAlignment="Top" Width="250" SelectionChanged="VehicleType_SelectionChanged" BorderBrush="Black" FontSize="13" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" >
+            <extToolkit:WatermarkComboBox.Background>
+                <LinearGradientBrush EndPoint="0,1">
+                    <GradientStop Color="#FFF0F0F0"/>
+                    <GradientStop Color="White" Offset="1"/>
+                </LinearGradientBrush>
+            </extToolkit:WatermarkComboBox.Background>
             <ComboBoxItem Content="Bil"/>
             <ComboBoxItem Content="Buss"/>
             <ComboBoxItem Content="Lastbil"/>
             <ComboBoxItem Content="Motorcykel"/>
         </extToolkit:WatermarkComboBox>
 
-        <Button x:Name="AddErrand" Content="Lägg till ärende" HorizontalAlignment="Left" Margin="616,288,0,0" VerticalAlignment="Top" Height="33" Width="88"  Click="AddErrand_CLICK"/>
+        <Button x:Name="AddErrand" Content="Lägg till ärende" HorizontalAlignment="Left" Margin="571,265,0,0" VerticalAlignment="Top" Height="32" Width="120"  Click="AddErrand_CLICK" FontWeight="Bold" BorderBrush="Black"/>
 
     </Grid>
 </Page>

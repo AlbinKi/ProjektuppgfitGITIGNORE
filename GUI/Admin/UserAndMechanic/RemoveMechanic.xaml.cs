@@ -25,12 +25,16 @@ namespace GUI.Admin.UserAndMechanic
         DataAccess<Mechanic> _mechanicdb;
         DataAccess<User> _userDB;
         UserService21 _userservice;
+        MechanicService _mechanicService;
+        
         private List<Mechanic> _mechanics;
         public RemoveMechanic()
         {
             _mechanicdb = new DataAccess<Mechanic>();
             _userDB = new DataAccess<User>();
             _userservice = new UserService21();
+            _mechanicService = new MechanicService();
+
             InitializeComponent();
             UpdateList();
            
@@ -61,7 +65,7 @@ namespace GUI.Admin.UserAndMechanic
                         }                 
                 }
             }
-            _userservice.RemoveMechanic(mechanic);
+            _mechanicService.RemoveMechanic(mechanic);
             UpdateList();         
         }
 
