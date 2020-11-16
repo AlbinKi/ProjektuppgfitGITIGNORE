@@ -1,4 +1,5 @@
-﻿using GUI.Validators;
+﻿using GUI.ErrandScreen;
+using GUI.Validators;
 using Logic.Entities;
 using Logic.Services;
 using System;
@@ -23,12 +24,12 @@ namespace GUI.Errands.Admin
     /// </summary>
     public partial class ErrandMechanic : Page
     {
-        private ErrandService _errandserivce;
+        private ErrandService _errandservice;
         public ErrandMechanic()
         {
-            _errandserivce = new ErrandService();          
+            _errandservice = new ErrandService();          
             InitializeComponent();
-            ErrandList.ItemsSource = _errandserivce.UnassignedErrands();
+            ErrandList.ItemsSource = _errandservice.UnassignedErrands();
             if (ErrandList.Items.Count == 0)
             {
                 AddMechanic.IsEnabled = false;
@@ -37,22 +38,23 @@ namespace GUI.Errands.Admin
                 var noErrand = new string[] { "Det finns inga ärenden utan mekaniker" };
                 ErrandList.ItemsSource = noErrand;
             }
-
-
         }
 
         private void ErrandList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            AddMechanic.IsEnabled = true;
+            
             var errand = ErrandList.SelectedItem as Errand;
             var value = errand.Issue;
 
-            MechanicList.ItemsSource = _errandserivce.AvailableMechanics(value);
+            MechanicList.ItemsSource = _errandservice.AvailableMechanics(value);
             if (MechanicList.Items.Count == 0)
             {
                 AddMechanic.IsEnabled = false;
                 var noMechanic = new string[] { "Det finns inga mekaniker lediga för ärendet ännu" };
                 MechanicList.ItemsSource = noMechanic;
+            } else
+            {
+                AddMechanic.IsEnabled = true;
             }
         }
 
@@ -85,6 +87,10 @@ namespace GUI.Errands.Admin
 
             DBService.Modify(mechanic);
             DBService.Modify(errand);
+
+            ErrandPageAdmin ep = new ErrandPageAdmin();
+            NavigationService.Navigate(ep);
+            
 
 
         }

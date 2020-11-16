@@ -95,7 +95,7 @@ namespace GUI.Errands.Admin.NewErrand
             }
             #endregion
         }
-
+        
         /// <summary>
         /// Matchar mekaniker med det valda ärendet
         /// </summary>
@@ -205,7 +205,6 @@ namespace GUI.Errands.Admin.NewErrand
                 mechanic.NumberOfErrands += 1;
                 DBService.Modify(mechanic);
             }
-
 
             //Sparar ärendet till databasen
             _errand.Status = true;

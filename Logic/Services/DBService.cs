@@ -22,6 +22,7 @@ namespace Logic.Services
             var db = new DataAccess<Mechanic>();
             var mechanics = db.Load();
             mechanics[mechanics.FindIndex(ind => ind.MechanicID == m.MechanicID)] = m;
+
             db.Save(mechanics);
         }
 

@@ -66,6 +66,7 @@ namespace Logic.Services
             mechanic.Skills.Add("Bromsar");
             mechanic.Skills.Add("Vindruta");
             mechanic.Skills.Add("Kaross");
+
             _mechanicdb.Save(mechanic);
 
             var user = new User();

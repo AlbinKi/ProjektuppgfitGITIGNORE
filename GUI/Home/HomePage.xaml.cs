@@ -14,7 +14,7 @@ using System.Windows.Shapes;
 using Logic.DAL;
 using Logic.Entities;
 using GUI.Admin;
-using GUI.User;
+using GUI.UserPages;
 
 
 namespace GUI.Home
@@ -35,6 +35,7 @@ namespace GUI.Home
 
             //Lägg till "if user admin==true - gå till adminErrandPage. GÖR KONTROLLEN VID INLOGG!!!
             this.NavigationService.Navigate(errandPage);
+
         }
 
         public void Skills_CLICK(object sender, RoutedEventArgs e)

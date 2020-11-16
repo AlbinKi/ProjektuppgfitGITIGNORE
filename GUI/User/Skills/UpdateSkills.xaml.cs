@@ -18,7 +18,7 @@ using Xceed.Wpf.Toolkit;
 using System.Linq;
 using Logic.DAL;
 
-namespace GUI.User.Skills
+namespace GUI.UserPages.Skills
 {
     /// <summary>
     /// Interaction logic for UpdateSkills.xaml

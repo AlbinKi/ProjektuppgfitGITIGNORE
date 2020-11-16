@@ -18,7 +18,7 @@ using Xceed.Wpf.Toolkit;
 using System.Linq;
 using Logic.DAL;
 
-namespace GUI.User.EndErrand
+namespace GUI.UserPages.EndErrand
 {
     /// <summary>
     /// Interaction logic for EndErrand.xaml
@@ -29,6 +29,7 @@ namespace GUI.User.EndErrand
         private UserService21 _userService;
         private DataAccess<Mechanic> _mechanicdb;
         private List<Errand> errandList;
+
 
         public EndErrand()
         {

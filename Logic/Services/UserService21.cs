@@ -122,6 +122,26 @@ namespace Logic.Services
             DBService.Modify(_mechanic);
         }
 
+        public int DaysUntilBirthday(Mechanic mechanic)
+        {
+                      
+            DateTime today = DateTime.Today;
+            DateTime next = mechanic.DateOfBirth.AddYears(today.Year - mechanic.DateOfBirth.Year);
+
+            if (next < today)
+                next = next.AddYears(1);
+
+            int numDays = (next - today).Days;
+
+            return numDays;
+        }
+
+        public Mechanic NextBirthday()
+        {
+            var mechanics = _mechanicdb.Load();
+            mechanics = mechanics.OrderBy(m => DaysUntilBirthday(m)).ToList();
+            return mechanics[0];
+        }
 
         /// <summary>
         /// Admin lägger till en användare.

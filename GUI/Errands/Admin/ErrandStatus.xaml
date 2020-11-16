@@ -9,6 +9,8 @@
       Title="ErrandStatus">
 
     <Grid>
-        
+        <ListBox x:Name="Errands" HorizontalAlignment="Left" Height="386" Margin="419,22,0,0" VerticalAlignment="Top" Width="314"/>
+        <Button x:Name="EndErrand" Content="Avsluta ärende" HorizontalAlignment="Left" Height="37" Margin="155,123,0,0" VerticalAlignment="Top" Width="127" Click="EndErrand_Click" />
+
     </Grid>
 </Page>

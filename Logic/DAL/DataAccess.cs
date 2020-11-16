@@ -17,7 +17,6 @@ namespace Logic.DAL
         /// Hämtar alla objekt i en lista av förvald typ
         /// </summary>
         /// <returns></returns>
-        ///
         public List<T> Load()
         {
             if (!File.Exists(path))
@@ -37,7 +36,7 @@ namespace Logic.DAL
             catch (JsonException)
             {
                 return new List<T>();
-            }     
+            }
         }
 
         /// <summary>
@@ -54,7 +53,6 @@ namespace Logic.DAL
             JsonSerializerOptions options = new JsonSerializerOptions
             {
                 WriteIndented = true,
-
             };
 
             var jsonString = JsonSerializer.Serialize(entities, options);
