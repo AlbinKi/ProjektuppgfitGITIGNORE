@@ -43,7 +43,7 @@
                 <TextBlock  x:Name="ThisUser" Text="hej" FontWeight="Bold" />
             </Viewbox>
             <Viewbox Grid.Column="3" Grid.Row="1">
-                <Button Content="Logga ut" Click="Button_Click"/>
+                <Button Content="Logga ut" Click="Button_Click" Height="32" Width="100" FontSize="16"/>
             </Viewbox>
         </Grid>
         <Grid Grid.RowSpan="2">

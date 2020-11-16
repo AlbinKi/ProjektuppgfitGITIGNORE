@@ -9,11 +9,11 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Bosses bilverkstad - Login">
 
-    <Grid Background="Black">
+    <Grid Background="LightGray">
         <Image HorizontalAlignment="Left" Height="154" Margin="98,114,0,0" VerticalAlignment="Top" Width="219" Source="/Login/bosse login bild.png"/>
         <Rectangle HorizontalAlignment="Left" Height="42" Margin="353,116,0,0" Stroke="White" VerticalAlignment="Top" Width="312" RadiusX="18.2" RadiusY="18.2" Fill="White"/>
         <Rectangle HorizontalAlignment="Left" Height="42" Margin="353,167,0,0" Stroke="White" VerticalAlignment="Top" Width="312" RadiusX="18.2" RadiusY="18.2" Fill="White"/>
-        <Rectangle HorizontalAlignment="Left" Height="42" Margin="353,225,0,0" VerticalAlignment="Top" Width="312" RadiusX="18.2" RadiusY="18.2" Fill="#FF58C4E5"/>
+        <Rectangle HorizontalAlignment="Left" Height="42" Margin="353,225,0,0" VerticalAlignment="Top" Width="312" RadiusX="18.2" RadiusY="18.2" Fill="#FF6CC6EE"/>
         <Button BorderThickness="0" x:Name="Login" Content="Logga in" HorizontalAlignment="Left" IsDefault="True" Margin="375,225,0,0" VerticalAlignment="Top" Height="41" Width="270" Click="Login_Click" Background="{x:Null}" BorderBrush="{x:Null}" FontSize="18" FontWeight="Bold"/>
 
         <extToolkit:WatermarkTextBox BorderThickness="0" x:Name="tbUsername" ToolTip="" HorizontalAlignment="Left" Margin="368,116,0,0" Watermark="Användarnamn" TextWrapping="Wrap" VerticalAlignment="Top" Width="282" Height="42" Visibility="Visible" BorderBrush="{x:Null}" SelectionBrush="{x:Null}" SelectionTextBrush="{x:Null}" FontSize="18" VerticalContentAlignment="Center" Foreground="Black" Background="{x:Null}"/>
