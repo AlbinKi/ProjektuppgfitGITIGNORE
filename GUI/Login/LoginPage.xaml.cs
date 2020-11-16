@@ -46,7 +46,7 @@ namespace GUI.Login
 
                 _loginService.GetCurrentUser(username, password);
                 
-                homemenu home = new homemenu();
+                HomeMenu home = new HomeMenu();
                 home.Show();
                 Window.GetWindow(this).Close();
             }

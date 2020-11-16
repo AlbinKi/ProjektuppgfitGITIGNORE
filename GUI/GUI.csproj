@@ -15,10 +15,4 @@
     <ProjectReference Include="..\Logic\Logic.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="ButtonFrames\" />
-    <Folder Include="LandingPages\Admin\" />
-    <Folder Include="LandingPages\User\" />
-  </ItemGroup>
-
 </Project>

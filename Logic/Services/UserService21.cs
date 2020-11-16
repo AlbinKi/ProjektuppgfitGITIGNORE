@@ -108,9 +108,16 @@ namespace Logic.Services
 
         public int DaysUntilBirthday(Mechanic mechanic)
         {
-            var next = mechanic.DateOfBirth.AddYears(DateTime.Today.Year - mechanic.DateOfBirth.Year);
-            var numdays = (next - DateTime.Today).Days;
-            return numdays;
+                      
+            DateTime today = DateTime.Today;
+            DateTime next = mechanic.DateOfBirth.AddYears(today.Year - mechanic.DateOfBirth.Year);
+
+            if (next < today)
+                next = next.AddYears(1);
+
+            int numDays = (next - today).Days;
+
+            return numDays;
         }
 
         public Mechanic NextBirthday()
