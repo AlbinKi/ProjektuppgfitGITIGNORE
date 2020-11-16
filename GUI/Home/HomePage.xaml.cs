@@ -56,6 +56,7 @@ namespace GUI.Home
         }
 
 
+
         private void TempClickEditMech(object sender, RoutedEventArgs e)
         {
             EditMechanic editMechPage = new EditMechanic();

@@ -58,7 +58,7 @@ namespace Logic.Services
         /// </summary>
         /// <param name="mechanic"></param>
         /// <param name="skill"></param>
-        public void AddSkill(Mechanic mechanic, String skill)
+        public void AddSkill(Mechanic mechanic, string skill)
         {
             _mechanics = _mechanicdb.Load();
 
@@ -156,6 +156,7 @@ namespace Logic.Services
             _userdb.Save(user);
         }
 
+
         //Kopia av metoden som finns i klassen Mechanic
         public int CalculateAge(DateTime dob)
         {
@@ -227,6 +228,23 @@ namespace Logic.Services
             return match;
         }
 
+
+        public void MechanicsWithoutUser()
+        {
+            var mechanics = _mechanicdb.Load();
+            var users = _userdb.Load();
+            foreach (var m in mechanics)
+            {              
+                foreach (var u in users)
+                {
+                    if (u.UserID == m.MechanicID)
+                    {
+                        mechanics.Remove(m);
+                    }
+                }
+            }
+        }
+
         /// <summary>
         /// Admin tar bort användare (och mekaniker kopplad till användare).
         /// </summary>
@@ -246,6 +264,7 @@ namespace Logic.Services
                         {
                             _mechanics.Remove(mechanic);
                             _mechanicdb.Save(_mechanics);
+                            break;
                         }
                     }
 
@@ -258,3 +277,4 @@ namespace Logic.Services
 
     }
 }
+

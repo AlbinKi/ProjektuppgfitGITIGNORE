@@ -21,6 +21,7 @@
         <Button Content="Admin" HorizontalAlignment="Left" Margin="155,295,0,0" VerticalAlignment="Top" Click="Button_Click"/>
 
         <Button Content="Tillfällig user skill" HorizontalAlignment="Left" Margin="328,294,0,0" VerticalAlignment="Top" Click="TempClickUser"/>
+
         <Button Content="Tillfällig edit mech" HorizontalAlignment="Left" Margin="523,299,0,0" VerticalAlignment="Top" Click="TempClickEditMech"/>
         <Button Content="Tillf. ny användare" HorizontalAlignment="Left" Margin="670,294,0,97" Width="70" Click="TempClickNewUser"/>
 

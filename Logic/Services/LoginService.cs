@@ -62,6 +62,7 @@ namespace Logic.Services
         {         
             var mechanic = new Mechanic("Bosse", "Andersson", new DateTime(1967, 05, 23));
             mechanic.Skills.Add("Motor");
+
             mechanic.Skills.Add("Hjul");
             mechanic.Skills.Add("Bromsar");
             mechanic.Skills.Add("Vindruta");

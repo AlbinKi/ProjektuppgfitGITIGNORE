@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Logic.DAL;
+using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Text;
 
 namespace Logic.Entities
@@ -15,6 +17,7 @@ namespace Logic.Entities
         {
             Username = username;
             Password = password;
+
             Admin = admin;
             UserID = userID;
         }

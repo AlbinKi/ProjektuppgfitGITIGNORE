@@ -1,5 +1,4 @@
-﻿
-using GUI.Home;
+﻿using GUI.Home;
 using Logic.Entities;
 using Logic.Services;
 using System;
@@ -31,9 +30,9 @@ namespace GUI.Login
             ShowsNavigationUI = false;
             _loginService = new LoginService();
         }
-        
-        
-        private void Button_Click(object sender, RoutedEventArgs e)
+
+
+        private void Login_Click(object sender, RoutedEventArgs e)
         {
 
             //string username = "Bosse";
@@ -56,8 +55,8 @@ namespace GUI.Login
             {
 
                 MessageBox.Show(_errorMsg);
-                this.tbUsernam.Clear();
-                this.pbPassword.Clear();
+                this.Username.Clear();
+                this.Password.Clear();
             }
         }
     }

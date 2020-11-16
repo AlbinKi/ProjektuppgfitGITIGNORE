@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using Logic.Services;
+using Logic.DAL;
 
 namespace Logic.Entities
 {
@@ -14,7 +15,9 @@ namespace Logic.Entities
         public int NumberOfErrands { get; set; }
         public DateTime DateOfBirth { get; set; }
         public List<string> Skills { get; set; }
+
         public DateTime EndDate { get; set; }
+
 
         public Mechanic(string firstname, string lastname, DateTime dateofbirth)
         {
@@ -23,7 +26,9 @@ namespace Logic.Entities
             DateOfBirth = dateofbirth;
             Skills = new List<string>();
             NumberOfErrands = 0;
+            
             MechanicID = Guid.NewGuid();
+
             CalculateAge();
         }
 
