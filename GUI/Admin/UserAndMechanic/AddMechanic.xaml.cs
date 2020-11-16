@@ -24,6 +24,7 @@ namespace GUI.Admin.UserOrMechanic
     public partial class AddMechanic : Page
     {
         private UserService21 _userservice;
+        private MechanicService _mechanicService;
 
         private Mechanic _mechanic;
         private List<Mechanic> _mechanics;
@@ -33,6 +34,7 @@ namespace GUI.Admin.UserOrMechanic
         {
             InitializeComponent();
             _userservice = new UserService21();
+            _mechanicService = new MechanicService();
 
             _mechanic = new Mechanic();
             _mechanics = new List<Mechanic>();
@@ -58,7 +60,7 @@ namespace GUI.Admin.UserOrMechanic
             DateTime dob = DOB.DisplayDate;
 
             
-            var _mechanic = _userservice.AddMechanic(firstName, lastName, dob);
+            var _mechanic = _mechanicService.AddMechanic(firstName, lastName, dob);
             
 
 

@@ -28,6 +28,7 @@ namespace GUI
 
         private Mechanic _mechanic;
         private UserService21 _userService;
+        private MechanicService _mechanicService;
         private List<Mechanic> _mechanics;
         private DataAccess<Mechanic> _mechanicdb;
 
@@ -63,7 +64,7 @@ namespace GUI
             _mechanic.FirstName = FirstName.Text;
             _mechanic.LastName = LastName.Text;
             _mechanic.DateOfBirth = (DateTime)NewBirthDate.SelectedDate;
-            _mechanic.Age = _userService.CalculateAge(_mechanic.DateOfBirth);
+            _mechanic.Age = _mechanicService.CalculateAge(_mechanic.DateOfBirth);
             //_mechanic.EndDate = (DateTime)SetEndDate.SelectedDate;
             DBService.Modify(_mechanic);
             MessageBox.Show("Mekanikern är sparad.");

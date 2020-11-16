@@ -29,6 +29,7 @@ namespace GUI.UserPages.EndErrand
         private UserService21 _userService;
         private DataAccess<Mechanic> _mechanicdb;
         private List<Errand> errandList;
+        private MechanicService _mechanicService;
 
 
         public EndErrand()
@@ -36,8 +37,11 @@ namespace GUI.UserPages.EndErrand
             InitializeComponent();
 
             _userService = new UserService21();
+            _mechanicService = new MechanicService();
             _mechanicdb = new DataAccess<Mechanic>();
-            errandList = _userService.ListErrands();
+            //errandList = _userService.ListErrands();
+            errandList = _mechanicService.ListErrands();
+
             Errands.ItemsSource = errandList;
         }
 
@@ -59,7 +63,8 @@ namespace GUI.UserPages.EndErrand
 
             _userService.EndActiveErrand(selectedErrand);
 
-            errandList = _userService.ListErrands();
+            errandList = _mechanicService.ListErrands();
+            //errandList = _userService.ListErrands();
             Errands.ItemsSource = errandList;
         }
     }

@@ -31,6 +31,7 @@ namespace GUI.UserPages.Skills
         private UserService21 _userService;
         private List<Mechanic> _mechanics;
         private DataAccess<Mechanic> _mechanicdb;
+        private MechanicService _mechanicService;
 
 
         public UpdateSkills()
@@ -38,8 +39,9 @@ namespace GUI.UserPages.Skills
             InitializeComponent();
             _mechanicdb = new DataAccess<Mechanic>();
             _userService = new UserService21();
+            _mechanicService = new MechanicService();
 
-            List<string> SkillList = _userService.ListSkills();
+            List<string> SkillList = _mechanicService.ListSkills();
             CurrentSkills.ItemsSource = SkillList;
 
         }
@@ -57,7 +59,7 @@ namespace GUI.UserPages.Skills
 
             _mechanic = _mechanics.FirstOrDefault(mechanic => mechanic.MechanicID == CurrentUser.user.UserID);
 
-            List<string> SkillList = _userService.ListSkills();
+            List<string> SkillList = _mechanicService.ListSkills();
 
             var skill = SkillBox.Text;
 
@@ -85,7 +87,7 @@ namespace GUI.UserPages.Skills
 
             _mechanic = _mechanics.FirstOrDefault(mechanic => mechanic.MechanicID == CurrentUser.user.UserID);
 
-            List<string> SkillList = _userService.ListSkills();
+            List<string> SkillList = _mechanicService.ListSkills();
 
             var skill = SkillBox.Text;
 

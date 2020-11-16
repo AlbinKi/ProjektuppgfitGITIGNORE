@@ -34,7 +34,7 @@ namespace GUI
         private string menu;
         public HomeMenu()
         {
-            var us = new UserService21();
+            var us = new MechanicService();
             InitializeComponent();
             ThisUser.Text = CurrentUser.user.Username;
             Tabs.Visibility = Visibility.Hidden;           

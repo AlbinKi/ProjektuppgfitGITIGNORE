@@ -25,33 +25,6 @@ namespace Logic.Services
             _userdb = new DataAccess<User>();
         }
 
-       
-        public Mechanic AddMechanic(string firstName, string lastName, DateTime dob)
-        {
-
-            Mechanic mechanic = new Mechanic(firstName, lastName, dob);
-
-            _mechanicdb.Save(mechanic);
-
-            return mechanic;
-
-        }
-
-        public void RemoveMechanic(Mechanic mechanic)
-        {
-            _mechanics = _mechanicdb.Load();
-
-            foreach (var item in _mechanics)
-            {
-                if (item.MechanicID == mechanic.MechanicID)
-                {
-                    _mechanics.Remove(item);
-                    _mechanicdb.Save(_mechanics);
-                    
-                    return;
-                }
-            }
-        }
 
         /// <summary>
         /// Admin och användare kan lägga till kompetenser.
@@ -79,31 +52,6 @@ namespace Logic.Services
                     return;
                 }
             }
-        }
-
-        /// <summary>
-        /// Returnerar en lista med den inloggade mekanikerns nuvarande kompetenser.
-        /// </summary>
-        /// <returns></returns>
-        public List<string> ListSkills()
-        {
-            _mechanics = _mechanicdb.Load();
-
-            _mechanic = _mechanics.FirstOrDefault(mechanic => mechanic.MechanicID == CurrentUser.user.UserID);
-            
-            return _mechanic.Skills;
-        }
-
-        /// <summary>
-        /// Returnerar en lista med den inloggade mekanikerns pågående ärenden.
-        /// </summary>
-        /// <returns></returns>
-        public List<Errand> ListErrands()
-        {
-            _errands = _erranddb.Load();
-
-            return _errands.Where(e => (e.MechanicID == CurrentUser.user.UserID) && (e.Status == true)).ToList();
-
         }
 
         /// <summary>
@@ -156,49 +104,6 @@ namespace Logic.Services
             _userdb.Save(user);
         }
 
-
-        //Kopia av metoden som finns i klassen Mechanic
-        public int CalculateAge(DateTime dob)
-        {
-            var today = DateTime.Today;
-
-            int age = today.Year - dob.Year;
-
-            if (DateTime.Now.DayOfYear < dob.DayOfYear)
-            {
-                age = age - 1;
-            }
-
-            return age;
-        }
-
-
-        /// <summary>
-        /// Listar mekaniker som ej är tilldelade någon användare.
-        /// </summary>
-        /// <returns></returns>
-        public List<Mechanic> MechanicNoUser()
-        {
-            _mechanics = _mechanicdb.Load();
-            _users = _userdb.Load();
-            var mechanicsNoUser = new List<Mechanic>();
-
-            foreach (var m in _mechanics)
-            {
-                mechanicsNoUser.Add(m);
-
-                foreach (var u in _users)
-                {
-                    if (u.UserID == m.MechanicID)
-                    {
-                        mechanicsNoUser.Remove(m);
-                    }
-                }
-            }
-
-            return mechanicsNoUser;
-        }
-
         /// <summary>
         /// Testar om angiven sträng är en giltig epostadress.
         /// </summary>
@@ -226,23 +131,6 @@ namespace Logic.Services
             var match = tryPass.Match(password);
 
             return match;
-        }
-
-
-        public void MechanicsWithoutUser()
-        {
-            var mechanics = _mechanicdb.Load();
-            var users = _userdb.Load();
-            foreach (var m in mechanics)
-            {              
-                foreach (var u in users)
-                {
-                    if (u.UserID == m.MechanicID)
-                    {
-                        mechanics.Remove(m);
-                    }
-                }
-            }
         }
 
         /// <summary>
