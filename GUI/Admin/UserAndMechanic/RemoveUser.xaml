@@ -18,9 +18,9 @@
     </Page.Resources>
 
     <Grid>
-        <ListBox x:Name="RemoveList"  HorizontalAlignment="Left" Margin="250,133,0,0" VerticalAlignment="Top" MinHeight="20" MinWidth="150" />
+        <ListBox x:Name="RemoveList"  HorizontalAlignment="Left" Margin="250,138,0,0" VerticalAlignment="Top" MinHeight="20" MinWidth="150" />
 
-        <Button Content="Ta bort" HorizontalAlignment="Left" Margin="476,203,0,0" VerticalAlignment="Top" Height="22" Width="116" Click="RemoveUser_Click"/>
+        <Button Content="Ta bort" HorizontalAlignment="Left" Margin="476,208,0,0" VerticalAlignment="Top" Height="22" Width="116" Click="RemoveUser_Click"/>
 
     </Grid>
 </Page>

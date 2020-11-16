@@ -17,8 +17,9 @@
             <RowDefinition Height="1*"/>
             <RowDefinition Height="9*"/>
         </Grid.RowDefinitions>
+        
         <Grid Grid.Row="1" Grid.Column="1">
-            <TabControl x:Name="Tabs">
+            <TabControl x:Name="Tabs" SelectionChanged="Tabs_SelectionChanged">
                 <TabItem x:Name="Tab1">
                     <Frame x:Name="PageView1" NavigationUIVisibility="Hidden" />
                 </TabItem>
@@ -27,6 +28,9 @@
                 </TabItem>
                 <TabItem x:Name="Tab3">
                     <Frame x:Name="PageView3" NavigationUIVisibility="Hidden" />
+                </TabItem> 
+                <TabItem x:Name="Tab4">
+                    <Frame x:Name="PageView4" NavigationUIVisibility="Hidden" />
                 </TabItem>
             </TabControl>
         </Grid>
@@ -46,7 +50,7 @@
                 <TextBlock Foreground="White" x:Name="ThisUser" Text="hej" FontWeight="Bold" />
             </Viewbox>
             <Viewbox Grid.Column="3" Grid.Row="1">
-                <Button Content="Logga ut"/>
+                <Button Content="Logga ut" Click="Logout_Click"/>
             </Viewbox>
         </Grid>
         <Grid Grid.RowSpan="2">
@@ -68,8 +72,10 @@
                     <ColumnDefinition Width="8*"/>
                     <ColumnDefinition Width="1*"/>
                 </Grid.ColumnDefinitions>
+                <Image Grid.Column="1" Grid.Row="0" Source="/Home/bossesLogo.png"/>
+
                 <Grid Grid.Column="1" Grid.Row="5">
-                    <Button Grid.ColumnSpan="3" Grid.RowSpan="3" Click="Button_Click_2">
+                    <Button Click="Button_Click_2">
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="1*"/>
@@ -91,7 +97,7 @@
                 </Grid>
 
                 <Grid Grid.Column="1" Grid.Row="1">
-                    <Button  Grid.ColumnSpan="3" Grid.RowSpan="3" Click="Button_Click">
+                    <Button Click="Button_Click">
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="1*"/>
@@ -112,7 +118,7 @@
 
                 <Grid Grid.Column="1" Grid.Row="3">
 
-                    <Button Grid.ColumnSpan="3" Grid.RowSpan="3">
+                    <Button Click="Button_Click_1">
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="1*"/>
@@ -133,8 +139,8 @@
 
                 </Grid>
                 <TextBox x:Name="Birthday" TextWrapping="Wrap" IsReadOnly="True" Grid.Row="7" Grid.RowSpan="2" Grid.Column="1" />
-            </Grid>
 
+            </Grid>
         </Grid>
     </Grid>
 </Window>

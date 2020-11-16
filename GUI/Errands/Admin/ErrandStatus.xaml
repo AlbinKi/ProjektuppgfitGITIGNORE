@@ -4,13 +4,23 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:GUI.Errands.Admin"
+      xmlns:entitites="clr-namespace:Logic.Entities;assembly=Logic"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="ErrandStatus">
 
+    <Page.Resources>
+        <DataTemplate DataType="{x:Type entitites:Errand}">
+            <StackPanel Orientation="Vertical">
+                <TextBlock Text="{Binding Issue}" FontWeight="Bold"/>
+                <TextBlock Text="{Binding Description}"/>
+            </StackPanel>
+        </DataTemplate>
+    </Page.Resources>
+
     <Grid>
-        <ListBox x:Name="Errands" HorizontalAlignment="Left" Height="386" Margin="419,22,0,0" VerticalAlignment="Top" Width="314"/>
-        <Button x:Name="EndErrand" Content="Avsluta ärende" HorizontalAlignment="Left" Height="37" Margin="155,123,0,0" VerticalAlignment="Top" Width="127" Click="EndErrand_Click" />
+        <ListBox x:Name="Errands" HorizontalAlignment="Left" Height="260" Margin="400,73,0,0" VerticalAlignment="Top" Width="314"/>
+        <Button x:Name="EndErrand" Content="Avsluta ärende" HorizontalAlignment="Left" Height="37" Margin="165,166,0,0" VerticalAlignment="Top" Width="127" Click="EndErrand_Click" />
 
     </Grid>
 </Page>

@@ -22,8 +22,10 @@ namespace GUI.Errands.Admin
     public partial class ErrandStatus : Page
     {
         private ErrandService _errandservice;
+        private UserService21 _userservice;
         public ErrandStatus()
         {
+            _userservice = new UserService21();
             InitializeComponent();
             _errandservice = new ErrandService();
             Errands.ItemsSource = _errandservice.OnGoingErrands();      
@@ -31,9 +33,15 @@ namespace GUI.Errands.Admin
 
         private void EndErrand_Click(object sender, RoutedEventArgs e)
         {
-
+            if (Errands.SelectedItem == null)
+            {
+                return;
+            }
             var errand = Errands.SelectedItem as Errand;
             errand.Status = false;
+            var mechanic = _userservice.GetMechanic(errand.MechanicID);
+            mechanic.NumberOfErrands -= 1;
+            DBService.Modify(mechanic);
             DBService.Modify(errand);
             Errands.ItemsSource = _errandservice.OnGoingErrands();
 

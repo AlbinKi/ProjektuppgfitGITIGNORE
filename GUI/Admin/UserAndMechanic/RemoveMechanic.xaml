@@ -21,10 +21,10 @@
     </Page.Resources>
 
     <Grid>
-        <ListBox x:Name="RemoveList"  HorizontalAlignment="Left" Margin="454,100,0,0" VerticalAlignment="Top" MinHeight="20" MinWidth="150" Height="214" Width="265" />
+        <ListBox x:Name="RemoveList"  HorizontalAlignment="Center" Margin="0,100,0,0" VerticalAlignment="Top" MinHeight="20" MinWidth="150" Height="214" Width="264" />
 
-        <Button FontSize="15" Content="Ta bort" HorizontalAlignment="Left" Margin="530,336,0,0" VerticalAlignment="Top" Height="35" Width="112" Click="RemoveMechanic_Click"/>
-        <TextBlock FontSize="18" HorizontalAlignment="Left" Margin="496,67,0,0" Text="Ta bort bilmekaniker" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Medium" Height="28" Width="180"/>
+        <Button FontSize="15" Content="Ta bort" HorizontalAlignment="Center" Margin="0,332,0,0" VerticalAlignment="Top" Height="35" Width="112" Click="RemoveMechanic_Click"/>
+        <TextBlock FontSize="18" HorizontalAlignment="Center" Margin="0,67,0,0" Text="Ta bort bilmekaniker" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Medium" Height="28" Width="180"/>
 
     </Grid>
 </Page>

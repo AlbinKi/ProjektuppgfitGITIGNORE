@@ -1,0 +1,74 @@
+﻿<Window x:Class="GUI.UserHome"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GUI"
+        mc:Ignorable="d"
+        Title="UserHome" Height="500" Width="1000">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="8*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="9*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="1" Grid.Column="1">
+            <TabControl x:Name="Tabs">
+                <TabItem x:Name="Tab1">
+                    <Frame x:Name="PageView1" NavigationUIVisibility="Hidden" />
+                </TabItem>
+                <TabItem x:Name="Tab2">
+                    <Frame x:Name="PageView2" NavigationUIVisibility="Hidden" />
+                </TabItem>
+            </TabControl>
+        </Grid>
+        <Grid Grid.Column="1" Background="Black">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="8*"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="0.1*"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+            <Viewbox Grid.Row="1" Grid.Column="1" HorizontalAlignment="Right">
+                <TextBlock Foreground="White" x:Name="ThisUser" Text="hej" FontWeight="Bold" />
+            </Viewbox>
+            <Viewbox Grid.Column="3" Grid.Row="1">
+                <Button Content="Logga ut" Click="Button_Click"/>
+            </Viewbox>
+        </Grid>
+        <Grid Grid.RowSpan="2">
+            <Grid Background="Black">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="0.5*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="8*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <Image Grid.Column="1" Grid.Row="0" Source="/Home/bossesLogo.png"/>
+                <TextBox x:Name="Birthday" TextWrapping="Wrap" IsReadOnly="True" Grid.Row="3" Grid.RowSpan="2" Grid.Column="1" />
+
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>

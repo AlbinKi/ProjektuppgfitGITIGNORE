@@ -11,15 +11,15 @@
     <Grid>
 
 
-        <Button FontSize="15" Content="Lägg till" HorizontalAlignment="Left" Margin="390,287,0,0" VerticalAlignment="Top" Height="29" Width="166" Click="AddMechanic_Click"/>
+        <Button FontSize="15" Content="Lägg till" HorizontalAlignment="Center" Margin="0,296,0,0" VerticalAlignment="Top" Height="29" Width="166" Click="AddMechanic_Click"/>
 
-        <extToolkit:WatermarkTextBox x:Name="Firstname" ToolTip="" HorizontalAlignment="Left" Margin="298,123,0,0" Watermark="Förnamn" TextWrapping="Wrap" VerticalAlignment="Top" Width="352" Height="28" Visibility="Visible"/>
-        <extToolkit:WatermarkTextBox x:Name="Lastname" ToolTip="" HorizontalAlignment="Left" Margin="298,158,0,0" Watermark="Efternamn" TextWrapping="Wrap" VerticalAlignment="Top" Width="352" Height="28" Visibility="Visible"/>
-        <DatePicker x:Name="DOB" FontSize="18" HorizontalAlignment="Left" Margin="502,204,0,0" VerticalAlignment="Top"  DisplayDate="2020-11-09" Width="148" Height="31" />
+        <extToolkit:WatermarkTextBox x:Name="Firstname" ToolTip="" HorizontalAlignment="Center" Margin="0,132,0,0" Watermark="Förnamn" TextWrapping="Wrap" VerticalAlignment="Top" Width="352" Height="28" Visibility="Visible"/>
+        <extToolkit:WatermarkTextBox x:Name="Lastname" ToolTip="" HorizontalAlignment="Center" Margin="0,167,0,0" Watermark="Efternamn" TextWrapping="Wrap" VerticalAlignment="Top" Width="352" Height="28" Visibility="Visible"/>
+        <DatePicker x:Name="DOB" FontSize="18" HorizontalAlignment="Left" Margin="429,213,0,0" VerticalAlignment="Top"  DisplayDate="2020-11-09" Width="148" Height="31" />
 
 
-        <TextBlock FontSize="20" HorizontalAlignment="Left" Margin="298,86,0,0" Text="Bilmekaniker" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold" Height="24" Width="133"/>
-        <TextBlock FontSize="18" HorizontalAlignment="Left" Margin="298,210,0,0" Text="Födelsedatum" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Medium" Height="25" Width="117"/>
+        <TextBlock FontSize="20" HorizontalAlignment="Left" Margin="225,95,0,0" Text="Bilmekaniker" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold" Height="24" Width="133"/>
+        <TextBlock FontSize="18" HorizontalAlignment="Left" Margin="225,219,0,0" Text="Födelsedatum" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Medium" Height="25" Width="117"/>
 
 
 

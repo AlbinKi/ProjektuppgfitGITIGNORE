@@ -44,12 +44,19 @@ namespace GUI.Login
 
             if (successful)
             {
-
                 _loginService.GetCurrentUser(username, password);
-                
-                HomeMenu home = new HomeMenu();
-                home.Show();
-                Window.GetWindow(this).Close();
+
+                if (CurrentUser.user.Admin == true)
+                {
+                    HomeMenu home = new HomeMenu();
+                    home.Show();
+                    Window.GetWindow(this).Close();
+                } else
+                {
+                    UserHome home = new UserHome();
+                    home.Show();
+                    Window.GetWindow(this).Close();
+                }
             }
             else
             {

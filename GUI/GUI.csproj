@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Home\bossesLogo.png" />
     <None Remove="Login\bosse login bild.png" />
   </ItemGroup>
 
@@ -20,6 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Home\bossesLogo.png" />
     <Resource Include="Login\bosse login bild.png" />
   </ItemGroup>
 

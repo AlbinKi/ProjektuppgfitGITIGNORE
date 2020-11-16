@@ -133,7 +133,7 @@ namespace Logic.Services
 
             int numDays = (next - today).Days;
 
-            return numDays;
+            return numDays - 1; //Dunno why men verkar vara något konstigt med antingen DateTime.today eller något annat då det läggs på en extra dag på numdays
         }
 
         public Mechanic NextBirthday()
@@ -273,8 +273,16 @@ namespace Logic.Services
                     return;
                 }
             }
+
+        
         }
 
+        public Mechanic GetMechanic(Guid ID)
+        {
+            _mechanics = _mechanicdb.Load();
+            var mechanic = _mechanics.FirstOrDefault(m => m.MechanicID == ID);
+            return mechanic;
+        }
     }
 }
 
