@@ -71,6 +71,7 @@ namespace GUI
             AllMechanics.ItemsSource = _mechanics;
             FirstName.Text = null;
             LastName.Text = null;
+            NewBirthDate.SelectedDate = null;
         }
 
         private void FirstName_TextChanged(object sender, TextChangedEventArgs e)
