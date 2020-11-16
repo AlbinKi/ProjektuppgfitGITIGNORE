@@ -7,32 +7,26 @@ namespace Logic.Entities
 {
     public class Mechanic
     {
-        //public string MechanicID { get; set; }
-
         public Guid MechanicID { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public int Age { get; set; }
-        public int NumberOfErrands { get; set; } //Array???
+        public int NumberOfErrands { get; set; }
         public DateTime DateOfBirth { get; set; }
         public List<string> Skills { get; set; }
-        
-        //Lägga till ett slutdatum som property!!!
+        public DateTime EndDate { get; set; }
 
-
-
-        //public List<Errands> CurrentErrands { get; set; }
         public Mechanic(string firstname, string lastname, DateTime dateofbirth)
         {
             FirstName = firstname;
             LastName = lastname;
             DateOfBirth = dateofbirth;
-            Skills = new List<string>(); //Kaross, Vindruta, Motor, Hjul & Bromsar
+            Skills = new List<string>();
             NumberOfErrands = 0;
             MechanicID = Guid.NewGuid();
             CalculateAge();
-            //SetMechanicID();
         }
+
         public Mechanic()
         {
 

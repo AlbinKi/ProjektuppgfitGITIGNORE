@@ -18,30 +18,32 @@
     </Page.Resources>
 
     <Grid>
-        <Label Content="Välj en mekaniker du vill redigera" HorizontalAlignment="Left" Margin="29,22,0,0" VerticalAlignment="Top"/>
-        <Button Content="Spara" Name ="SaveMechanic" Click="SaveMechanic_click" HorizontalAlignment="Left" Margin="568,297,0,0" VerticalAlignment="Top" Width="68"/>
-        <ListView Margin="30,53,352,105" Name="AllMechanics" SelectionChanged="AllMechanics_SelectionChanged">
+        <Label Content="Välj en mekaniker vars information du vill redigera" HorizontalAlignment="Left" Margin="29,22,0,0" VerticalAlignment="Top"/>
+        <Button Content="Spara" Name ="SaveMechanic" Click="SaveMechanic_click" HorizontalAlignment="Left" Margin="661,357,0,0" VerticalAlignment="Top" Width="68"/>
+        <ListView Margin="30,53,367,105" Name="AllMechanics" SelectionChanged="AllMechanics_SelectionChanged">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Förnamn" Width="65" DisplayMemberBinding="{Binding FirstName}"/>
-                    <GridViewColumn Header="Efternamn" Width="65" DisplayMemberBinding="{Binding LastName}"/>
-                    <GridViewColumn Header="Födelsedatum" Width="85" DisplayMemberBinding="{Binding DateOfBirth}"/>
-                    <GridViewColumn Header="Kompetenser" Width="85" DisplayMemberBinding="{Binding Skills.Count}"/>
+                    <GridViewColumn Header="Förnamn" Width="75" DisplayMemberBinding="{Binding FirstName}"/>
+                    <GridViewColumn Header="Efternamn" Width="80" DisplayMemberBinding="{Binding LastName}"/>
+                    <GridViewColumn Header="Ålder" Width="45" DisplayMemberBinding="{Binding Age}"/>
+                    <GridViewColumn Header="Kompetenser" Width="80" DisplayMemberBinding="{Binding Skills.Count}"/>
                     <GridViewColumn Header="Ärenden" Width="50" DisplayMemberBinding="{Binding NumberOfErrands}"/>
-                    <GridViewColumn Header="Slutdatum" Width="85" DisplayMemberBinding="{Binding NumberOfErrands}"/>
+                    <GridViewColumn Header="Slutdatum" Width="70" DisplayMemberBinding="{Binding EndDate}"/>
                 </GridView>
             </ListView.View>
         </ListView>
 
-        <extToolkit:WatermarkTextBox Watermark="Förnamn" Name="FirstName" HorizontalAlignment="Left" Margin="471,53,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="FirstName_TextChanged" ToolTip="Redigera mekanikerns förnamn här" MaxLines="1"/>
-        <extToolkit:WatermarkTextBox Watermark="Efternamn" Name="LastName"  HorizontalAlignment="Left" Margin="471,115,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="LastName_TextChanged" ToolTip="Redigera mekanikerns efternamn här" MaxLines="1"/>
-        <TextBox HorizontalAlignment="Left" Margin="471,166,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox HorizontalAlignment="Left" Margin="471,0,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Center" Width="120"/>
-        <ListBox Margin="609,53,53,298"/>
+        <extToolkit:WatermarkTextBox Watermark="Förnamn" Name="FirstName" HorizontalAlignment="Left" Margin="448,53,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="FirstName_TextChanged" ToolTip="Redigera mekanikerns förnamn här" MaxLines="1"/>
+        <extToolkit:WatermarkTextBox Watermark="Efternamn" Name="LastName"  HorizontalAlignment="Left" Margin="448,97,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="LastName_TextChanged" ToolTip="Redigera mekanikerns efternamn här" MaxLines="1"/>
+        <ListBox Margin="609,53,53,317"/>
         <Label Content="Den Valda mekanikerns kompetenser" HorizontalAlignment="Left" Margin="600,28,0,0" VerticalAlignment="Top" FontSize="11"/>
-        <ComboBox HorizontalAlignment="Left" Margin="609,191,0,0" VerticalAlignment="Top" Width="120"/>
-        <Label Content="Välj kompetens att lägga till/ta bort" HorizontalAlignment="Left" Margin="601,164,0,0" VerticalAlignment="Top"/>
+        <ComboBox HorizontalAlignment="Left" Margin="609,169,0,0" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Välj kompetens att lägga till/ta bort" HorizontalAlignment="Left" Margin="601,142,0,0" VerticalAlignment="Top"/>
         <CheckBox Content="Gör till admin" HorizontalAlignment="Left" Margin="612,242,0,0" VerticalAlignment="Top"/>
+        <DatePicker Name="SetEndDate" HorizontalAlignment="Left" Margin="448,343,0,0" VerticalAlignment="Top" ToolTip="Det datum då mekanikerns anställning avslutas"/>
+        <Label Content="Välj ett slutdatum för mekanikern" HorizontalAlignment="Left" Margin="444,315,0,0" VerticalAlignment="Top"/>
+        <DatePicker Name="NewBirthDate" HorizontalAlignment="Left" Margin="448,290,0,0" VerticalAlignment="Top"/>
+        <Label Content="Ändra mekanikerns födelsedatum" HorizontalAlignment="Left" Margin="443,264,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Page>

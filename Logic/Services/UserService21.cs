@@ -87,7 +87,6 @@ namespace Logic.Services
         /// <returns></returns>
         public List<string> ListSkills()
         {
-            //Kan inte längre ladda en lista, blir null!
             _mechanics = _mechanicdb.Load();
 
             _mechanic = _mechanics.FirstOrDefault(mechanic => mechanic.MechanicID == CurrentUser.user.UserID);
@@ -107,11 +106,10 @@ namespace Logic.Services
 
         }
 
-        public void ShowInfo(Mechanic m)
-        {
-
-        }
-
+        /// <summary>
+        /// En användare kan ändra status på ett pågående ärende till "klart".
+        /// </summary>
+        /// <param name="e"></param>
         public void EndActiveErrand(Errand e)
         {
             _mechanics = _mechanicdb.Load();
@@ -138,8 +136,26 @@ namespace Logic.Services
             _userdb.Save(user);
         }
 
-        
+        //Kopia av metoden som finns i klassen Mechanic
+        public int CalculateAge(DateTime dob)
+        {
+            var today = DateTime.Today;
 
+            int age = today.Year - dob.Year;
+
+            if (DateTime.Now.DayOfYear < dob.DayOfYear)
+            {
+                age = age - 1;
+            }
+
+            return age;
+        }
+
+
+        /// <summary>
+        /// Listar mekaniker som ej är tilldelade någon användare.
+        /// </summary>
+        /// <returns></returns>
         public List<Mechanic> MechanicNoUser()
         {
             _mechanics = _mechanicdb.Load();
@@ -162,6 +178,11 @@ namespace Logic.Services
             return mechanicsNoUser;
         }
 
+        /// <summary>
+        /// Testar om angiven sträng är en giltig epostadress.
+        /// </summary>
+        /// <param name="email"></param>
+        /// <returns>Kolla om match==success för att använda</returns>
         public Match TryUsername(string email)
         {
             Regex tryEmail = new Regex(@"[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?");
@@ -171,6 +192,11 @@ namespace Logic.Services
             return match;
         }
 
+        /// <summary>
+        /// Testar om angiven sträng är ett giltigt lösenord.
+        /// </summary>
+        /// <param name="password"></param>
+        /// <returns>Kolla om match==success för att använda</returns>
         public Match TryPassword(string password)
         {
             //Minimum eight characters, at least one letter and one number.

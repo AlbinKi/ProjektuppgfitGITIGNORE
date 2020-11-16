@@ -84,6 +84,7 @@ namespace GUI
 
             UserNameAsEmail.Clear();
             Password.Clear();
+            IsAdminCheck.IsChecked = false;
             _mechanics = _userService.MechanicNoUser();
             NoUserList.ItemsSource = _mechanics;
 
