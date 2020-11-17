@@ -22,10 +22,10 @@ namespace GUI.Admin.UserAndMechanic
     /// </summary>
     public partial class RemoveMechanic : Page
     {
-        DataAccess<Mechanic> _mechanicdb;
-        DataAccess<User> _userDB;
-        UserService21 _userservice;
-        MechanicService _mechanicService;
+        private IDataAccess<Mechanic> _mechanicdb;
+        private IDataAccess<User> _userDB;
+        private UserService21 _userservice;
+        private MechanicService _mechanicService;
         
         private List<Mechanic> _mechanics;
         public RemoveMechanic()

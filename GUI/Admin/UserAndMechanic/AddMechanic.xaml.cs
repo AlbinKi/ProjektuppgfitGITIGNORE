@@ -28,7 +28,7 @@ namespace GUI.Admin.UserOrMechanic
 
         private Mechanic _mechanic;
         private List<Mechanic> _mechanics;
-        private DataAccess<Mechanic> _mechanicdb;
+        private IDataAccess<Mechanic> _mechanicdb;
 
         public AddMechanic()
         {

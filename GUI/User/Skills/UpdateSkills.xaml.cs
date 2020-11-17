@@ -30,7 +30,7 @@ namespace GUI.UserPages.Skills
         private Mechanic _mechanic;
         private UserService21 _userService;
         private List<Mechanic> _mechanics;
-        private DataAccess<Mechanic> _mechanicdb;
+        private IDataAccess<Mechanic> _mechanicdb;
         private MechanicService _mechanicService;
 
 

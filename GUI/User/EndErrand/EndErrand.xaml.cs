@@ -27,8 +27,9 @@ namespace GUI.UserPages.EndErrand
     {
 
         private UserService21 _userService;
-        private DataAccess<Mechanic> _mechanicdb;
-        private List<Errand> errandList;
+        private IDataAccess<Mechanic> _mechanicdb;
+        //private List<Errand> _activeErrandList;
+        //private List<Errand> _endErrandList;
         private MechanicService _mechanicService;
 
 
@@ -40,12 +41,19 @@ namespace GUI.UserPages.EndErrand
             _mechanicService = new MechanicService();
             _mechanicdb = new DataAccess<Mechanic>();
             //errandList = _userService.ListErrands();
-            errandList = _mechanicService.ListErrands();
+            //_activeErrandList = _mechanicService.ListActiveErrands();
+            //_endErrandList = _mechanicService.ListEndErrands();
 
-            Errands.ItemsSource = errandList;
+            Errands.ItemsSource = _mechanicService.ListActiveErrands();
+            EndErrands.ItemsSource = _mechanicService.ListEndErrands();
         }
 
         private void Errands_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void EndErrands_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
         }
@@ -63,9 +71,11 @@ namespace GUI.UserPages.EndErrand
 
             _userService.EndActiveErrand(selectedErrand);
 
-            errandList = _mechanicService.ListErrands();
-            //errandList = _userService.ListErrands();
-            Errands.ItemsSource = errandList;
+            //_activeErrandList = _mechanicService.ListActiveErrands();
+            //_endErrandList = _mechanicService.ListEndErrands();
+            Errands.ItemsSource = _mechanicService.ListActiveErrands();
+            EndErrands.ItemsSource = _mechanicService.ListEndErrands();
         }
+
     }
 }

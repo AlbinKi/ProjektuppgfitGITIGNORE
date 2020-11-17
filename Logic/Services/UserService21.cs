@@ -8,14 +8,14 @@ using System.Text.RegularExpressions;
 
 namespace Logic.Services
 {
-    public class UserService21 //: IAdmin, IUser
+    public class UserService21
     {
         private List<Mechanic> _mechanics;
-        private DataAccess<Mechanic> _mechanicdb;
+        private IDataAccess<Mechanic> _mechanicdb;
         private List<Errand> _errands;
-        private DataAccess<Errand> _erranddb;
+        private IDataAccess<Errand> _erranddb;
         private List<User> _users;
-        private DataAccess<User> _userdb;
+        private IDataAccess<User> _userdb;
         private Mechanic _mechanic;
 
         public UserService21()

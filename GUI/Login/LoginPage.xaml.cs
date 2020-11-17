@@ -25,7 +25,7 @@ namespace GUI.Login
     public partial class LoginPage : Page
     {
         private const string _errorMsg = "Inloggningen misslyckades";
-        private DataAccess<User> _userdb;
+        private IDataAccess<User> _userdb;
 
 
         private LoginService _loginService;
