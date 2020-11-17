@@ -28,7 +28,8 @@ namespace GUI.Errands.Admin
             _userservice = new UserService21();
             InitializeComponent();
             _errandservice = new ErrandService();
-            Errands.ItemsSource = _errandservice.OnGoingErrands();      
+            Errands.ItemsSource = _errandservice.OnGoingErrands();
+            FinishedErrands.ItemsSource = _errandservice.FinishedErrands();
         }
 
         private void EndErrand_Click(object sender, RoutedEventArgs e)
@@ -43,7 +44,10 @@ namespace GUI.Errands.Admin
             mechanic.NumberOfErrands -= 1;
             DBService.Modify(mechanic);
             DBService.Modify(errand);
+            Errands.ItemsSource = null;
+            FinishedErrands.ItemsSource = null;
             Errands.ItemsSource = _errandservice.OnGoingErrands();
+            FinishedErrands.ItemsSource = _errandservice.FinishedErrands();
 
         }
     }
