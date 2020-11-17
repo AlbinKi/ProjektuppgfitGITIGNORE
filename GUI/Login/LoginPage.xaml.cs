@@ -1,8 +1,11 @@
 ﻿using GUI.Home;
+using Logic.DAL;
 using Logic.Entities;
+using Logic.Exceptions;
 using Logic.Services;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -22,10 +25,13 @@ namespace GUI.Login
     public partial class LoginPage : Page
     {
         private const string _errorMsg = "Inloggningen misslyckades";
+        private DataAccess<User> _userdb;
+
 
         private LoginService _loginService;
         public LoginPage()
         {
+            _userdb = new DataAccess<User>();
             InitializeComponent();
             ShowsNavigationUI = false;
             _loginService = new LoginService();
@@ -40,8 +46,12 @@ namespace GUI.Login
             string username = tbUsername.Text;
             string password = pbPassword.Password;
 
-            bool successful = _loginService.Login(username, password);
 
+            
+                bool successful = _loginService.Login(username, password);
+
+                
+           
             if (successful)
             {
                 _loginService.GetCurrentUser(username, password);
@@ -60,10 +70,22 @@ namespace GUI.Login
             }
             else
             {
-
-                MessageBox.Show(_errorMsg);
-                this.tbUsername.Clear();
-                this.pbPassword.Clear();
+                try
+                {
+                    if (_userdb.Load().FirstOrDefault(u => u.Username == username) != null)
+                        throw new IncorrectPasswordException("Fel lösenord för användaren: ", tbUsername.Text);
+                    else
+                    {
+                        MessageBox.Show(_errorMsg);
+                        this.pbPassword.Clear();
+                        this.tbUsername.Clear();
+                    }
+                }
+                catch (IncorrectPasswordException ex)
+                {
+                    MessageBox.Show(ex.Message + ex.UserName);                   
+                    this.pbPassword.Clear();
+                }              
             }
         }
     }

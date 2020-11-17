@@ -48,5 +48,10 @@ namespace Logic.Services
             var errands = _erranddb.Load();
             return errands.Where(errand => errand.Status == true && errand.MechanicID != Guid.Empty).OrderBy(o => o.Issue).ToList();
         }
+        public List<Errand> FinishedErrands()
+        {
+            var errands = _erranddb.Load();
+            return errands.Where(errand => errand.Status == false && errand.MechanicID != Guid.Empty).OrderBy(o => o.Issue).ToList();
+        }
     }
 }
