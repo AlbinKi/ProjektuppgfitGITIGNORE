@@ -36,8 +36,15 @@ namespace GUI
             var us = new UserService21();
             ThisUser.Text = CurrentUser.user.Username;            
             var mechanic = us.NextBirthday();
-            Birthday.Text = $"{mechanic.FirstName} {mechanic.LastName} fyller år om {us.DaysUntilBirthday(mechanic)} dagar.";
-
+            if(us.DaysUntilBirthday(mechanic) == 0)
+            {
+                Birthday.Text = $"{mechanic.FirstName} {mechanic.LastName} fyller år idag!";
+            }
+            else
+            {
+                Birthday.Text = $"{mechanic.FirstName} {mechanic.LastName} fyller år om {us.DaysUntilBirthday(mechanic)} dagar.";
+            }
+           
             Tab1.Header = "Avsluta ett av dina ärenden";
             Tab2.Header = "Ändra på dina kompetenser";
             PageView1.Content = new EndErrand();
