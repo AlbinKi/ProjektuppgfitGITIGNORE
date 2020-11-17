@@ -165,6 +165,20 @@ namespace Logic.Services
         
         }
 
+        
+        public List<User> UserIsAdmin()
+        {
+            _users = _userdb.Load();
+            List<User> userAdminTrue = _users.Where(u => u.Admin==true).ToList();
+        }
+
+        public List<User> UserNotAdmin()
+        {
+            _users = _userdb.Load().Where(u => u.Admin == false).ToList();
+            //List<User> userAdminFalse = _users.Where(u => u.Admin == false).ToList();
+            return _users;
+        }
+
         public Mechanic GetMechanic(Guid ID)
         {
             _mechanics = _mechanicdb.Load();
