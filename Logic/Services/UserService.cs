@@ -66,6 +66,19 @@ namespace Logic.Services
             DBService.Modify(e);
             DBService.Modify(_mechanic);
         }
+        public List<User> UserIsAdmin()
+        {
+            _users = _userdb.Load().Where(u => u.Admin == true).ToList();
+            //List<User> userAdminTrue = _users.Where(u => u.Admin == true).ToList();
+            return _users;
+        }
+
+        public List<User> UserNotAdmin()
+        {
+            _users = _userdb.Load().Where(u => u.Admin == false).ToList();
+            //List<User> userAdminFalse = _users.Where(u => u.Admin == false).ToList();
+            return _users;
+        }
 
         public int DaysUntilBirthday(Mechanic mechanic)
         {

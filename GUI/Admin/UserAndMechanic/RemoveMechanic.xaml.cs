@@ -24,7 +24,7 @@ namespace GUI.Admin.UserAndMechanic
     {
         private IDataAccess<Mechanic> _mechanicdb;
         private IDataAccess<User> _userDB;
-        private UserService21 _userservice;
+        private UserService _userservice;
         private MechanicService _mechanicService;
         
         private List<Mechanic> _mechanics;

@@ -26,7 +26,7 @@ namespace GUI.UserPages.EndErrand
     public partial class EndErrand : Page
     {
 
-        private UserService21 _userService;
+        private UserService _userService;
         private IDataAccess<Mechanic> _mechanicdb;
         //private List<Errand> _activeErrandList;
         //private List<Errand> _endErrandList;
@@ -37,7 +37,7 @@ namespace GUI.UserPages.EndErrand
         {
             InitializeComponent();
 
-            _userService = new UserService21();
+            _userService = new UserService();
             _mechanicService = new MechanicService();
             _mechanicdb = new DataAccess<Mechanic>();
             //errandList = _userService.ListErrands();

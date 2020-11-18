@@ -28,13 +28,13 @@ namespace GUI
         private IDataAccess<User> _userdb;
         private User _user;
         private List<User> _users;
-        private UserService21 _userService;
+        private UserService _userService;
         
         public EditAdmin()
         {
             InitializeComponent();
             _userdb = new DataAccess<User>();
-            _userService = new UserService21();
+            _userService = new UserService();
 
             NotAdminList.ItemsSource = _userService.UserNotAdmin();
             IsAdminList.ItemsSource = _userService.UserIsAdmin();
