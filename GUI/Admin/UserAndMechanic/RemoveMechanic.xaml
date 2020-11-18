@@ -12,19 +12,19 @@
     <Page.Resources>
         <DataTemplate DataType="{x:Type entities:Mechanic}">
             <StackPanel Orientation="Horizontal">
-                <TextBlock FontSize="16" Text="{Binding FirstName}"/>
-                <TextBlock FontSize="16" Text=" "/>
-                <TextBlock FontSize="16" Text="{Binding LastName}"/>
-                <TextBlock Text=" "/>
+                <TextBlock  FontSize="12" Text="{Binding FirstName}"/>
+                <TextBlock  FontSize="12" Text=" " />
+                <TextBlock  FontSize="12" Text="{Binding LastName}"/>
+                <TextBlock  FontSize="12" Text=" " />
             </StackPanel>
         </DataTemplate>
     </Page.Resources>
 
     <Grid>
-        <ListBox x:Name="RemoveList"  HorizontalAlignment="Center" Margin="0,100,0,0" VerticalAlignment="Top" MinHeight="20" MinWidth="150" Height="214" Width="264" />
+        <ListBox x:Name="RemoveList"  HorizontalAlignment="Left" Margin="244,83,0,0" VerticalAlignment="Top" MinHeight="20" MinWidth="150" Height="214" Width="264" />
 
-        <Button FontSize="15" Content="Ta bort" HorizontalAlignment="Center" Margin="0,332,0,0" VerticalAlignment="Top" Height="35" Width="112" Click="RemoveMechanic_Click"/>
-        <TextBlock FontSize="18" HorizontalAlignment="Center" Margin="0,67,0,0" Text="Ta bort bilmekaniker" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Medium" Height="28" Width="180"/>
+        <Button Content="Ta bort" HorizontalAlignment="Left" Margin="525,271,0,0" VerticalAlignment="Top" Height="26" Width="78" Click="RemoveMechanic_Click" FontWeight="Normal"/>
+        <TextBlock FontSize="18" HorizontalAlignment="Left" Margin="244,50,0,0" Text="Ta bort bilmekaniker" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Normal" Height="28" Width="180" TextAlignment="Center"/>
 
     </Grid>
 </Page>

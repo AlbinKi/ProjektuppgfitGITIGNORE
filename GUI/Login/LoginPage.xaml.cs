@@ -41,10 +41,10 @@ namespace GUI.Login
         private void Login_Click(object sender, RoutedEventArgs e)
         {
 
-            //string username = "Bosse";
-            //string password = "Meckarn123";
-            string username = tbUsername.Text;
-            string password = pbPassword.Password;
+            string username = "Bosse";
+            string password = "Meckarn123";
+            //string username = tbUsername.Text;
+            //string password = pbPassword.Password;
 
 
             

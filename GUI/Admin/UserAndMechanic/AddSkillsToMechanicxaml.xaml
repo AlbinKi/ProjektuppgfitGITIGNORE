@@ -27,10 +27,10 @@
         <ListBox x:Name="CurrentSkills"  HorizontalAlignment="Left" Margin="405,132,0,0" VerticalAlignment="Top"  MinHeight="20" Visibility="Visible" SelectionMode="Multiple" Width="153" Height="135">
 
         </ListBox>
-        <extToolkit:WatermarkComboBox x:Name="Mechanics" FontSize="18" Watermark="Bilmekaniker" HorizontalAlignment="Left" Height="27" Margin="230,58,0,0" VerticalAlignment="Top" Width="328" SelectionChanged="Mechanics_SelectionChanged"/>
+        <extToolkit:WatermarkComboBox x:Name="Mechanics" Watermark="Bilmekaniker" HorizontalAlignment="Left" Height="27" Margin="230,58,0,0" VerticalAlignment="Top" Width="328" SelectionChanged="Mechanics_SelectionChanged" VerticalContentAlignment="Center"/>
         <Button x:Name="AddSkill" Content="Lägg till" HorizontalAlignment="Left" Margin="254,283,0,0" VerticalAlignment="Top" Height="22" Width="104" Click="AddSkill_Click"/>
         <Button x:Name="RemoveSkill" Content="Ta bort" HorizontalAlignment="Left" Margin="430,283,0,0" VerticalAlignment="Top" Height="22" Width="104" Click="RemoveSkill_Click"/>
-        <TextBlock FontSize="13" HorizontalAlignment="Left" Margin="224,102,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Medium" Height="25" Width="164"><Run Language="sv-se" Text="Tillgängliga"/><Run Text=" kompetenser"/></TextBlock>
-        <TextBlock FontSize="13" HorizontalAlignment="Left" Margin="396,102,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Medium" Height="34" Width="171"><Run Language="sv-se" Text="Bilmekanikers"/><Run Text=" kompetenser"/></TextBlock>
+        <TextBlock FontSize="13" HorizontalAlignment="Left" Margin="230,102,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Normal" Height="25" Width="164"><Run Language="sv-se" Text="Tillgängliga"/><Run Text=" kompetenser"/></TextBlock>
+        <TextBlock FontSize="13" HorizontalAlignment="Left" Margin="405,102,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Normal" Height="34" Width="171"><Run Language="sv-se" Text="Bilmekanikers"/><Run Text=" kompetenser"/></TextBlock>
     </Grid>
 </Page>
