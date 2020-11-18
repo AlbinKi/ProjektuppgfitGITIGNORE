@@ -168,8 +168,9 @@ namespace Logic.Services
         
         public List<User> UserIsAdmin()
         {
-            _users = _userdb.Load();
-            List<User> userAdminTrue = _users.Where(u => u.Admin==true).ToList();
+            _users = _userdb.Load().Where(u => u.Admin == true).ToList();
+            //List<User> userAdminTrue = _users.Where(u => u.Admin == true).ToList();
+            return _users;
         }
 
         public List<User> UserNotAdmin()
