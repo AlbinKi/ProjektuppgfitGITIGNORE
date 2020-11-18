@@ -97,5 +97,7 @@
             <Button x:Name="AddMechanic" MaxHeight="50" MaxWidth=" 130" Content="Lägg till mekaniker" FontSize="14" Click="AddMechanic_Click" />
 
         </Grid>
+        <Label Content="Lediga mekaniker" Grid.Column="1" HorizontalAlignment="Center" Grid.Row="1" VerticalAlignment="Top" Margin="0,14,0,0"/>
+        <Label Content="Ärenden utan mekaniker" Grid.Column="3" HorizontalAlignment="Center" Grid.Row="1" VerticalAlignment="Top" Margin="0,14,0,0"/>
     </Grid>
 </Page>

@@ -86,13 +86,7 @@ namespace GUI.Errands.Admin
             errand.MechanicID = mechanic.MechanicID;
 
             DBService.Modify(mechanic);
-            DBService.Modify(errand);
-
-            ErrandPageAdmin ep = new ErrandPageAdmin();
-            NavigationService.Navigate(ep);
-            
-
-
+            DBService.Modify(errand);         
         }
     }
 }
