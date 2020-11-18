@@ -8,7 +8,7 @@ using System.Text.Json;
 
 namespace Logic.DAL
 {
-    public class DataAccess<T>
+    public class DataAccess<T> : IDataAccess<T>
     {
         //Path == T:s beteckning. Exempelvis DataAccess<User> gör så att pathen blir Dal\User.Json
         private readonly string path = $@"DAL\{typeof(T).Name}.json";
