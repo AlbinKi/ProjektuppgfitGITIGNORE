@@ -27,7 +27,6 @@ namespace GUI
     {
 
         private Mechanic _mechanic;
-        private UserService _userService;
         private MechanicService _mechanicService;
         private List<Mechanic> _mechanics;
         private IDataAccess<Mechanic> _mechanicdb;
@@ -36,7 +35,7 @@ namespace GUI
         {
             InitializeComponent();
             _mechanicdb = new DataAccess<Mechanic>();
-            _userService = new UserService();
+            _mechanicService = new MechanicService();
 
             _mechanics = _mechanicdb.Load();
 
@@ -61,11 +60,16 @@ namespace GUI
 
         private void SaveMechanic_click(object sender, RoutedEventArgs e)
         {
+            if (AllMechanics.SelectedItem==null)
+            {
+                return;
+            }
+            
             _mechanic.FirstName = FirstName.Text;
             _mechanic.LastName = LastName.Text;
             _mechanic.DateOfBirth = (DateTime)NewBirthDate.SelectedDate;
             _mechanic.Age = _mechanicService.CalculateAge(_mechanic.DateOfBirth);
-            //_mechanic.EndDate = (DateTime)SetEndDate.SelectedDate;
+            _mechanic.EndDate = (DateTime)SetEndDate.SelectedDate;
             DBService.Modify(_mechanic);
             MessageBox.Show("Mekanikern är sparad.");
             _mechanics = _mechanicdb.Load();
