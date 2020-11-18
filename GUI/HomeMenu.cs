@@ -51,7 +51,7 @@ namespace GUI
 
             Tab1.Header = "Skapa en ny användare";
             Tab2.Header = "Radera en användare";
-            Tab3.Visibility = Visibility.Hidden;
+            Tab3.Header = "Ändra admin-status";
             PageView1.Content = new NewUser();
             menu = "användare";
           
@@ -120,6 +120,7 @@ namespace GUI
                         {
                             page1 = new NewUser();
                             page2 = new RemoveUser();
+                            page3 = new EditAdmin();
                             break;
 
                         }

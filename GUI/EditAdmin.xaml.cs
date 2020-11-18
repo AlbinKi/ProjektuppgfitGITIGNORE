@@ -52,18 +52,29 @@ namespace GUI
 
         private void AddAdminClick(object sender, RoutedEventArgs e)
         {
-            _user = (User)NotAdminList.SelectedItem;
+            if (NotAdminList.SelectedItem == null)
+            {
+                return;
+            }
+
+            _user = NotAdminList.SelectedItem as User;
             _user.Admin = true;
-            _userdb.Save(_user);
+            DBService.Modify(_user);
             NotAdminList.ItemsSource = _userService.UserNotAdmin();
             IsAdminList.ItemsSource = _userService.UserIsAdmin();
         }
 
         private void RemoveAdminClick(object sender, RoutedEventArgs e)
         {
-            _user = (User)NotAdminList.SelectedItem;
+
+            if (IsAdminList.SelectedItem==null)
+            {
+                return;
+            }
+
+            _user = IsAdminList.SelectedItem as User;
             _user.Admin = false;
-            _userdb.Save(_user);
+            DBService.Modify(_user);
             NotAdminList.ItemsSource = _userService.UserNotAdmin();
             IsAdminList.ItemsSource = _userService.UserIsAdmin();
         }
