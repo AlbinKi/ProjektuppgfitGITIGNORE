@@ -13,7 +13,7 @@ namespace GUI.Admin.UserAndMechanic
     /// </summary>
     public partial class AddSkillsToMechanic : Page
     {
-        private DataAccess<Mechanic> _mechanicdb;
+        private IDataAccess<Mechanic> _mechanicdb;
         private List<string> _allskills;
         public AddSkillsToMechanic()
         {

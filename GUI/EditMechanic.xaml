@@ -18,9 +18,9 @@
     </Page.Resources>
 
     <Grid>
-        <Label Content="Välj en mekaniker vars information du vill redigera" HorizontalAlignment="Left" Margin="29,22,0,0" VerticalAlignment="Top"/>
-        <Button Content="Spara" Name ="SaveMechanic" Click="SaveMechanic_click" HorizontalAlignment="Left" Margin="603,325,0,0" VerticalAlignment="Top" Width="69"/>
-        <ListView Margin="30,53,341,105" Name="AllMechanics" SelectionChanged="AllMechanics_SelectionChanged">
+        <Label Content="Välj en mekaniker vars information du vill redigera" HorizontalAlignment="Left" Margin="15,22,0,0" VerticalAlignment="Top"/>
+        <Button Content="Spara" Name ="SaveMechanic" Click="SaveMechanic_click" HorizontalAlignment="Left" Margin="553,307,0,0" VerticalAlignment="Top" Width="68"/>
+        <ListView Margin="16,53,390,105" Name="AllMechanics" SelectionChanged="AllMechanics_SelectionChanged">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Förnamn" Width="75" DisplayMemberBinding="{Binding FirstName}"/>
@@ -33,13 +33,12 @@
             </ListView.View>
         </ListView>
 
-        <extToolkit:WatermarkTextBox Watermark="Förnamn" Name="FirstName" HorizontalAlignment="Left" Margin="489,53,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="183" TextChanged="FirstName_TextChanged" ToolTip="Redigera mekanikerns förnamn här" MaxLines="1" Height="24"/>
-        <extToolkit:WatermarkTextBox Watermark="Efternamn" Name="LastName"  HorizontalAlignment="Left" Margin="489,95,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="183" TextChanged="LastName_TextChanged" ToolTip="Redigera mekanikerns efternamn här" MaxLines="1" Height="24"/>
-        <CheckBox Content="Gör till admin" HorizontalAlignment="Left" Margin="488,273,0,0" VerticalAlignment="Top"/>
-        <DatePicker Name="SetEndDate" HorizontalAlignment="Left" Margin="489,226,0,0" VerticalAlignment="Top" ToolTip="Det datum då mekanikerns anställning avslutas" Width="183"/>
-        <Label Content="Välj ett slutdatum för mekanikern" HorizontalAlignment="Left" Margin="485,198,0,0" VerticalAlignment="Top"/>
-        <DatePicker Name="NewBirthDate" HorizontalAlignment="Left" Margin="489,173,0,0" VerticalAlignment="Top" Width="183"/>
-        <Label Content="Ändra mekanikerns födelsedatum" HorizontalAlignment="Left" Margin="484,147,0,0" VerticalAlignment="Top"/>
+        <extToolkit:WatermarkTextBox Watermark="Förnamn" Name="FirstName" HorizontalAlignment="Left" Margin="448,53,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="FirstName_TextChanged" ToolTip="Redigera mekanikerns förnamn här" MaxLines="1"/>
+        <extToolkit:WatermarkTextBox Watermark="Efternamn" Name="LastName"  HorizontalAlignment="Left" Margin="448,97,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="LastName_TextChanged" ToolTip="Redigera mekanikerns efternamn här" MaxLines="1"/>
+        <DatePicker Name="SetEndDate" HorizontalAlignment="Left" Margin="453,228,0,0" VerticalAlignment="Top" ToolTip="Det datum då mekanikerns anställning avslutas"/>
+        <Label Content="Välj ett slutdatum för mekanikern" HorizontalAlignment="Left" Margin="449,200,0,0" VerticalAlignment="Top"/>
+        <DatePicker Name="NewBirthDate" HorizontalAlignment="Left" Margin="453,175,0,0" VerticalAlignment="Top"/>
+        <Label Content="Ändra mekanikerns födelsedatum" HorizontalAlignment="Left" Margin="448,149,0,0" VerticalAlignment="Top" ToolTip="Ändra på mekanikerns födelsedateum"/>
 
     </Grid>
 </Page>

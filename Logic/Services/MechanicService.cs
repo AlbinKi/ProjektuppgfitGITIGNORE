@@ -11,11 +11,11 @@ namespace Logic.Services
     public class MechanicService
     {
         private List<Mechanic> _mechanics;
-        private DataAccess<Mechanic> _mechanicdb;
+        private IDataAccess<Mechanic> _mechanicdb;
         private List<Errand> _errands;
-        private DataAccess<Errand> _erranddb;
+        private IDataAccess<Errand> _erranddb;
         private List<User> _users;
-        private DataAccess<User> _userdb;
+        private IDataAccess<User> _userdb;
         private Mechanic _mechanic;
 
         public MechanicService()
@@ -71,12 +71,19 @@ namespace Logic.Services
         /// Returnerar en lista med den inloggade mekanikerns pågående ärenden.
         /// </summary>
         /// <returns></returns>
-        public List<Errand> ListErrands()
+        public List<Errand> ListActiveErrands()
         {
             _errands = _erranddb.Load();
 
             return _errands.Where(e => (e.MechanicID == CurrentUser.user.UserID) && (e.Status == true)).ToList();
 
+        }
+
+        public List<Errand> ListEndErrands()
+        {
+            _errands = _erranddb.Load();
+
+            return _errands.Where(e => (e.MechanicID == CurrentUser.user.UserID) && (e.Status == false)).ToList();
         }
 
         public int DaysUntilBirthday(Mechanic mechanic)

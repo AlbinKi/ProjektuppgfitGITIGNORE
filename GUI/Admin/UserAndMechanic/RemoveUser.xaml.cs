@@ -23,8 +23,8 @@ namespace GUI.Admin.UserAndMechanic
     public partial class RemoveUser : Page
     {
 
-        DataAccess<User> _userDB;
-        UserService _userservice;
+        private IDataAccess<User> _userDB;
+        private UserService _userservice;
         private List<User> _users;
         public RemoveUser()
         {

@@ -14,15 +14,17 @@
     <Page.Resources>
         <DataTemplate DataType="{x:Type entities:Errand}">
             <StackPanel Orientation="Vertical">
-                <TextBlock Text="{Binding Issue}"/>
+                <TextBlock Text="{Binding Issue}" FontWeight="Bold"/>
                 <TextBlock Text="{Binding Description}"/>
             </StackPanel>
         </DataTemplate>
     </Page.Resources>
 
     <Grid>
-        <Button Content="Avsluta ärende" Name="EndErrand_button" HorizontalAlignment="Left" Margin="245,125,0,0" VerticalAlignment="Top" Height="31" Width="96" Click="EndErrand_button_Click"/>
-        <ListBox Name="Errands" Margin="357,122,233,177" SelectionChanged="Errands_SelectionChanged" />
-        <Label Content="Välj ett ärende att som är klart och kan avslutas." HorizontalAlignment="Left" Margin="351,96,0,0" VerticalAlignment="Top"/>
+        <Button Content="Avsluta ärende" Name="EndErrand_button" HorizontalAlignment="Left" Margin="156,342,0,0" VerticalAlignment="Top" Height="31" Width="96" Click="EndErrand_button_Click"/>
+        <ListBox Name="Errands" Margin="156,172,434,127" SelectionChanged="Errands_SelectionChanged" />
+        <ListBox Name="EndErrands" Margin="427,172,163,127" SelectionChanged="EndErrands_SelectionChanged"/>
+        <Label Content="Välj ett ärende som är klart och kan avslutas." HorizontalAlignment="Left" Margin="150,146,0,0" VerticalAlignment="Top"/>
+        <Label Content="Här listas dina avslutade ärenden" HorizontalAlignment="Left" Margin="427,146,0,0" VerticalAlignment="Top"/>
     </Grid>
 </Page>

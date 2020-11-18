@@ -28,7 +28,7 @@ namespace GUI
         private Mechanic _mechanic;
         private UserService _userService;
         private List<Mechanic> _mechanics;
-        private DataAccess<Mechanic> _mechanicdb;
+        private IDataAccess<Mechanic> _mechanicdb;
         private MechanicService _mechanicService;
 
         public NewUser()

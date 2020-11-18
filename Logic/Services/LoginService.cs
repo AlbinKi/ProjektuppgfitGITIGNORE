@@ -9,8 +9,8 @@ namespace Logic.Services
 {
     public class LoginService
     {
-        private DataAccess<User> _userdb;
-        private DataAccess<Mechanic> _mechanicdb;
+        private IDataAccess<User> _userdb;
+        private IDataAccess<Mechanic> _mechanicdb;
         private List<User> _users;
         private List<Mechanic> _mechanics; 
         private const string _path = @"DAL\User.json";

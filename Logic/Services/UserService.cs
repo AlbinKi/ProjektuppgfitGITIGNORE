@@ -11,17 +11,14 @@ namespace Logic.Services
     public class UserService //: IAdmin, IUser
     {
         private List<Mechanic> _mechanics;
-        private DataAccess<Mechanic> _mechanicdb;
-        private List<Errand> _errands;
-        private DataAccess<Errand> _erranddb;
+        private IDataAccess<Mechanic> _mechanicdb;
         private List<User> _users;
-        private DataAccess<User> _userdb;
+        private IDataAccess<User> _userdb;
         private Mechanic _mechanic;
 
         public UserService()
         {
             _mechanicdb = new DataAccess<Mechanic>();
-            _erranddb = new DataAccess<Errand>();
             _userdb = new DataAccess<User>();
         }
 
@@ -68,6 +65,19 @@ namespace Logic.Services
 
             DBService.Modify(e);
             DBService.Modify(_mechanic);
+        }
+        public List<User> UserIsAdmin()
+        {
+            _users = _userdb.Load().Where(u => u.Admin == true).ToList();
+            //List<User> userAdminTrue = _users.Where(u => u.Admin == true).ToList();
+            return _users;
+        }
+
+        public List<User> UserNotAdmin()
+        {
+            _users = _userdb.Load().Where(u => u.Admin == false).ToList();
+            //List<User> userAdminFalse = _users.Where(u => u.Admin == false).ToList();
+            return _users;
         }
 
         public int DaysUntilBirthday(Mechanic mechanic)

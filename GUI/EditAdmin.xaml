@@ -1,0 +1,30 @@
+﻿<Page x:Class="GUI.EditAdmin"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:entities="clr-namespace:Logic.Entities;assembly=Logic"
+      xmlns:local="clr-namespace:GUI"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="EditAdmin">
+
+
+    <Page.Resources>
+        <DataTemplate DataType="{x:Type entities:User}">
+            <StackPanel>
+                <TextBlock Text="{Binding Username}"/>
+            </StackPanel>
+        </DataTemplate>
+    </Page.Resources>
+
+    <Grid>
+        <ListBox Name="NotAdminList" Margin="135,94,485,147" SelectionChanged="NotAdminList_SelectionChanged"/>
+        <ListBox Name="IsAdminList" Margin="474,94,146,147" SelectionChanged="IsAdminList_SelectionChanged"/>
+        <Label Content="Välj en användare att göra till admin" HorizontalAlignment="Left" Margin="135,63,0,0" VerticalAlignment="Top"/>
+        <Label Content="Välj en användare att ta bort som admin" HorizontalAlignment="Left" Margin="474,63,0,0" VerticalAlignment="Top"/>
+        <Button Content="Gör till admin" Name="AddAdmin" HorizontalAlignment="Left" Margin="236,358,0,0" VerticalAlignment="Top" Click="AddAdminClick"/>
+        <Button Content="Ta bort som admin" Name="RemoveAdmin" HorizontalAlignment="Left" Margin="551,355,0,0" VerticalAlignment="Top" Click="RemoveAdminClick"/>
+
+    </Grid>
+</Page>
