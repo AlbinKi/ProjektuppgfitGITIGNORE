@@ -66,17 +66,24 @@ namespace Logic.Services
             DBService.Modify(e);
             DBService.Modify(_mechanic);
         }
+        
+        /// <summary>
+        /// Listar alla användare som är admin förutom Bosse.
+        /// </summary>
+        /// <returns></returns>
         public List<User> UserIsAdmin()
         {
-            _users = _userdb.Load().Where(u => u.Admin == true).ToList();
-            //List<User> userAdminTrue = _users.Where(u => u.Admin == true).ToList();
+            _users = _userdb.Load().Where(u => (u.Admin == true) && (u.Username != "Bosse")).ToList();
             return _users;
         }
 
+        /// <summary>
+        /// Listar alla användare som inte är admin.
+        /// </summary>
+        /// <returns></returns>
         public List<User> UserNotAdmin()
         {
             _users = _userdb.Load().Where(u => u.Admin == false).ToList();
-            //List<User> userAdminFalse = _users.Where(u => u.Admin == false).ToList();
             return _users;
         }
 
