@@ -24,7 +24,7 @@
         <ListBox x:Name="RemoveList"  HorizontalAlignment="Left" Margin="244,83,0,0" VerticalAlignment="Top" MinHeight="20" MinWidth="150" Height="214" Width="264" />
 
         <Button Content="Ta bort" HorizontalAlignment="Left" Margin="525,271,0,0" VerticalAlignment="Top" Height="26" Width="78" Click="RemoveMechanic_Click" FontWeight="Normal"/>
-        <TextBlock FontSize="18" HorizontalAlignment="Left" Margin="244,50,0,0" Text="Ta bort bilmekaniker" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Normal" Height="28" Width="180" TextAlignment="Center"/>
+        <TextBlock FontSize="14" HorizontalAlignment="Left" Margin="244,55,0,0" Text="Ta bort bilmekaniker" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Normal" Height="23" Width="132" TextAlignment="Center"/>
 
     </Grid>
 </Page>

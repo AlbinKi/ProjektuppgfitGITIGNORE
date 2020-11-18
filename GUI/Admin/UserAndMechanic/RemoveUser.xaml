@@ -21,7 +21,7 @@
         <ListBox x:Name="RemoveList"  HorizontalAlignment="Center" Margin="0,91,0,0" VerticalAlignment="Top" MinHeight="20" MinWidth="150" Height="232" Width="238" />
 
         <Button Content="Ta bort" HorizontalAlignment="Left" Margin="547,303,0,0" VerticalAlignment="Top" Height="20" Width="81" Click="RemoveUser_Click" FontWeight="Normal"/>
-        <TextBlock HorizontalAlignment="Left" Margin="281,62,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Normal" Height="24" Width="177" ScrollViewer.HorizontalScrollBarVisibility="Disabled" FontSize="18"><Run Language="sv-se" Text="Aktuella användare"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="281,62,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Normal" Height="24" Width="177" ScrollViewer.HorizontalScrollBarVisibility="Disabled" FontSize="16"><Run Language="sv-se" Text="Aktuella användare"/></TextBlock>
 
     </Grid>
 </Page>

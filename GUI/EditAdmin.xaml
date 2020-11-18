@@ -19,12 +19,12 @@
     </Page.Resources>
 
     <Grid>
-        <ListBox Name="NotAdminList" Margin="135,94,485,147" SelectionChanged="NotAdminList_SelectionChanged"/>
-        <ListBox Name="IsAdminList" Margin="474,94,146,147" SelectionChanged="IsAdminList_SelectionChanged"/>
-        <Label Content="Välj en användare att göra till admin" HorizontalAlignment="Left" Margin="135,63,0,0" VerticalAlignment="Top"/>
-        <Label Content="Välj en användare att ta bort som admin" HorizontalAlignment="Left" Margin="474,63,0,0" VerticalAlignment="Top"/>
-        <Button Content="Gör till admin" Name="AddAdmin" HorizontalAlignment="Left" Margin="236,358,0,0" VerticalAlignment="Top" Click="AddAdminClick"/>
-        <Button Content="Ta bort som admin" Name="RemoveAdmin" HorizontalAlignment="Left" Margin="551,355,0,0" VerticalAlignment="Top" Click="RemoveAdminClick"/>
+        <ListBox Name="NotAdminList" Margin="122,64,436,148" SelectionChanged="NotAdminList_SelectionChanged"/>
+        <ListBox Name="IsAdminList" Margin="450,65,110,148" SelectionChanged="IsAdminList_SelectionChanged"/>
+        <Label Content="Välj en användare att göra till admin" HorizontalAlignment="Left" Margin="142,34,0,0" VerticalAlignment="Top"/>
+        <Label Content="Välj en användare att ta bort som admin" HorizontalAlignment="Left" Margin="459,34,0,0" VerticalAlignment="Top"/>
+        <Button Content="Gör till admin" Name="AddAdmin" HorizontalAlignment="Left" Margin="188,254,0,0" VerticalAlignment="Top" Click="AddAdminClick" Height="26" Width="110"/>
+        <Button Content="Ta bort som admin" Name="RemoveAdmin" HorizontalAlignment="Left" Margin="514,254,0,0" VerticalAlignment="Top" Click="RemoveAdminClick" Height="26" Width="112"/>
 
     </Grid>
 </Page>
