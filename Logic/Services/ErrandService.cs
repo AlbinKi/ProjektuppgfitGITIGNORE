@@ -8,9 +8,8 @@ namespace Logic.Services
 {
     public class ErrandService
     {
-   
-        private DataAccess<Mechanic> _mechanicdb;
-        private DataAccess<Errand> _erranddb;
+        private IDataAccess<Mechanic> _mechanicdb;
+        private IDataAccess<Errand> _erranddb;
 
         public ErrandService()
         {

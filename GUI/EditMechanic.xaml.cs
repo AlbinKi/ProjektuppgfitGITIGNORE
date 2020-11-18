@@ -30,7 +30,7 @@ namespace GUI
         private UserService _userService;
         private MechanicService _mechanicService;
         private List<Mechanic> _mechanics;
-        private DataAccess<Mechanic> _mechanicdb;
+        private IDataAccess<Mechanic> _mechanicdb;
 
         public EditMechanic()
         {
