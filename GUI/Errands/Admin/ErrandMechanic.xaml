@@ -46,7 +46,7 @@
         </Grid.RowDefinitions>
         <Grid Grid.Row="2" Grid.Column="3">
 
-            <ListBox x:Name="ErrandList" BorderThickness="0" SelectionChanged="ErrandList_SelectionChanged">
+            <ListBox x:Name="ErrandList" BorderThickness="1" SelectionChanged="ErrandList_SelectionChanged" BorderBrush="Black">
                 <ListBox.Resources>
                     <Style TargetType="ListBoxItem">
                         <Setter Property="Template">
@@ -70,7 +70,7 @@
 
         </Grid>
         <Grid Grid.Row="2" Grid.Column="1">
-            <ListBox x:Name="MechanicList" BorderThickness="0">
+            <ListBox x:Name="MechanicList" BorderThickness="1" BorderBrush="Black">
                 <ListBox.Resources>
                     <Style TargetType="ListBoxItem">
                         <Setter Property="Template">
@@ -94,10 +94,10 @@
         </Grid>
 
         <Grid Grid.Row="2" Grid.Column="2">
-            <Button x:Name="AddMechanic" MaxHeight="50" MaxWidth=" 130" Content="Lägg till mekaniker" FontSize="14" Click="AddMechanic_Click" />
+            <Button x:Name="AddMechanic" MaxHeight="45" MaxWidth=" 120" Content="Lägg till mekaniker" Click="AddMechanic_Click" />
 
         </Grid>
-        <Label Content="Lediga mekaniker" Grid.Column="1" HorizontalAlignment="Center" Grid.Row="1" VerticalAlignment="Top" Margin="0,14,0,0"/>
-        <Label Content="Ärenden utan mekaniker" Grid.Column="3" HorizontalAlignment="Center" Grid.Row="1" VerticalAlignment="Top" Margin="0,14,0,0"/>
+        <Label Content="Lediga mekaniker" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,41,0,0" Grid.RowSpan="2" FontSize="14"/>
+        <Label Content="Ärenden utan mekaniker" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,36,0,0" Grid.RowSpan="2" FontSize="14"/>
     </Grid>
 </Page>

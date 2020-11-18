@@ -26,7 +26,7 @@ namespace GUI.Admin.UserAndMechanic
                 "Kaross",
                 "Bromsar",
                 "Hjul",
-                "Vindruta"
+                "Vindrutor"
             };
         }
 

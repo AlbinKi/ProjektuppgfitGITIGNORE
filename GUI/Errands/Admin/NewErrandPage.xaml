@@ -28,7 +28,7 @@
             <ComboBoxItem Content="Motor"/>
             <ComboBoxItem Content="Kaross"/>
             <ComboBoxItem Content="Hjul"/>
-            <ComboBoxItem Content="Vindruta"/>
+            <ComboBoxItem Content="Vindrutor"/>
         </extToolkit:WatermarkComboBox>
 
         <extToolkit:WatermarkTextBox x:Name="Description" Text="{Binding Description}"  MaxLines="5" HorizontalAlignment="Left" Margin="93,111,0,0"  Watermark="Ärendebeskrivning" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" Height="110" BorderBrush="Gray" />

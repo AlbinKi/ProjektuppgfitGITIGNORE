@@ -21,11 +21,11 @@
     <Grid>
 
 
-        <ListBox x:Name="Errands" HorizontalAlignment="Left" Height="260" Margin="240,0,0,0" VerticalAlignment="Center" Width="182"/>
-        <Button x:Name="EndErrand" Content="Avsluta ärende" HorizontalAlignment="Left" Height="38" Margin="96,187,0,0" VerticalAlignment="Top" Width="128" Click="EndErrand_Click" />
-        <ListBox x:Name="FinishedErrands"  HorizontalAlignment="Left" Height="260" Margin="488,0,0,0" VerticalAlignment="Center" Width="182"/>
-        <TextBlock HorizontalAlignment="Left" Margin="282,66,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Language="sv-se" Text="Pågående ärenden"/></TextBlock>
-        <TextBlock HorizontalAlignment="Left" Margin="530,66,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Language="sv-se" Text="Avslutade ärenden"/></TextBlock>
+        <ListBox x:Name="Errands" HorizontalAlignment="Left" Height="220" Margin="77,80,0,0" VerticalAlignment="Top" Width="260"/>
+        <Button x:Name="EndErrand" Content="Avsluta ärende" HorizontalAlignment="Center" Height="38" Margin="0,324,0,0" VerticalAlignment="Top" Width="128" Click="EndErrand_Click" />
+        <ListBox x:Name="FinishedErrands"  HorizontalAlignment="Left" Height="220" Margin="447,80,0,0" VerticalAlignment="Top" Width="260"/>
+        <TextBlock HorizontalAlignment="Left" Margin="148,39,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="14"><Run Language="sv-se" Text="Pågående ärenden"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="520,33,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="14"><Run Language="sv-se" Text="Avslutade ärenden"/></TextBlock>
 
 
     </Grid>

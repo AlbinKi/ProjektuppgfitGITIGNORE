@@ -78,6 +78,10 @@ namespace GUI.Errands.Admin
                 MessageBox.Show(sb.ToString());
                 return;
             }
+            else
+            {
+                MessageBox.Show("Bilmekaniker är nu lagd på det valda ärende");
+            }
             var errand = ErrandList.SelectedItem as Errand;
             var mechanic = MechanicList.SelectedItem as Mechanic;
 

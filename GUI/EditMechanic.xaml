@@ -20,7 +20,7 @@
     <Grid>
         <Label Content="Välj en mekaniker vars information du vill redigera" HorizontalAlignment="Left" Margin="29,22,0,0" VerticalAlignment="Top"/>
         <Button Content="Spara" Name ="SaveMechanic" Click="SaveMechanic_click" HorizontalAlignment="Left" Margin="603,325,0,0" VerticalAlignment="Top" Width="69"/>
-        <ListView Margin="30,53,341,162" Name="AllMechanics" SelectionChanged="AllMechanics_SelectionChanged">
+        <ListView Margin="30,53,341,105" Name="AllMechanics" SelectionChanged="AllMechanics_SelectionChanged">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Förnamn" Width="75" DisplayMemberBinding="{Binding FirstName}"/>

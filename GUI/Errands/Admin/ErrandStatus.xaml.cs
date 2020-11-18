@@ -23,11 +23,13 @@ namespace GUI.Errands.Admin
     {
         private ErrandService _errandservice;
         private UserService _userservice;
+        private MechanicService _mechanicService;
         public ErrandStatus()
         {
             _userservice = new UserService();
             InitializeComponent();
             _errandservice = new ErrandService();
+            _mechanicService = new MechanicService();
             Errands.ItemsSource = _errandservice.OnGoingErrands();
             FinishedErrands.ItemsSource = _errandservice.FinishedErrands();
         }
@@ -40,7 +42,7 @@ namespace GUI.Errands.Admin
             }
             var errand = Errands.SelectedItem as Errand;
             errand.Status = false;
-            var mechanic = _userservice.GetMechanic(errand.MechanicID);
+            var mechanic = _mechanicService.GetMechanic(errand.MechanicID);
             mechanic.NumberOfErrands -= 1;
             DBService.Modify(mechanic);
             DBService.Modify(errand);

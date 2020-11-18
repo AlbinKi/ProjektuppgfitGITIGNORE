@@ -161,15 +161,6 @@ namespace Logic.Services
                     return;
                 }
             }
-
-        
-        }
-
-        public Mechanic GetMechanic(Guid ID)
-        {
-            _mechanics = _mechanicdb.Load();
-            var mechanic = _mechanics.FirstOrDefault(m => m.MechanicID == ID);
-            return mechanic;
         }
     }
 }
