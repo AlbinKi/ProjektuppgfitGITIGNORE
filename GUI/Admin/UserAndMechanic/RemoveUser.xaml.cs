@@ -53,6 +53,8 @@ namespace GUI.Admin.UserAndMechanic
             _users = _userDB.Load();
             var user = _users.FirstOrDefault(u => u.UserID == CurrentUser.user.UserID);
             _users.Remove(user);
+            user = _users.FirstOrDefault(u => u.Username == "Bosse");
+            _users.Remove(user);
             RemoveList.ItemsSource = null;
             RemoveList.ItemsSource = _users;
         }
