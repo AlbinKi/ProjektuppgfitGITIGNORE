@@ -23,7 +23,7 @@ namespace GUI.Admin.UserOrMechanic
     /// </summary>
     public partial class AddMechanic : Page
     {
-        private UserService21 _userservice;
+        private UserService _userservice;
         private MechanicService _mechanicService;
 
         private Mechanic _mechanic;
@@ -33,7 +33,7 @@ namespace GUI.Admin.UserOrMechanic
         public AddMechanic()
         {
             InitializeComponent();
-            _userservice = new UserService21();
+            _userservice = new UserService();
             _mechanicService = new MechanicService();
 
             _mechanic = new Mechanic();

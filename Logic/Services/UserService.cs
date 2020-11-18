@@ -8,7 +8,7 @@ using System.Text.RegularExpressions;
 
 namespace Logic.Services
 {
-    public class UserService21 //: IAdmin, IUser
+    public class UserService //: IAdmin, IUser
     {
         private List<Mechanic> _mechanics;
         private DataAccess<Mechanic> _mechanicdb;
@@ -18,7 +18,7 @@ namespace Logic.Services
         private DataAccess<User> _userdb;
         private Mechanic _mechanic;
 
-        public UserService21()
+        public UserService()
         {
             _mechanicdb = new DataAccess<Mechanic>();
             _erranddb = new DataAccess<Errand>();

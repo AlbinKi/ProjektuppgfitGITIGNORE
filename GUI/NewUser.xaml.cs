@@ -26,7 +26,7 @@ namespace GUI
     public partial class NewUser : Page
     {
         private Mechanic _mechanic;
-        private UserService21 _userService;
+        private UserService _userService;
         private List<Mechanic> _mechanics;
         private DataAccess<Mechanic> _mechanicdb;
         private MechanicService _mechanicService;
@@ -35,7 +35,7 @@ namespace GUI
         {
             InitializeComponent();
             _mechanicdb = new DataAccess<Mechanic>();
-            _userService = new UserService21();
+            _userService = new UserService();
             _mechanicService = new MechanicService();
             _mechanics = _mechanicService.MechanicNoUser();
             NoUserList.ItemsSource = _mechanics;

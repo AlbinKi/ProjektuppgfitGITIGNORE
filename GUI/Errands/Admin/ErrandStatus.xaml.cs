@@ -22,10 +22,10 @@ namespace GUI.Errands.Admin
     public partial class ErrandStatus : Page
     {
         private ErrandService _errandservice;
-        private UserService21 _userservice;
+        private UserService _userservice;
         public ErrandStatus()
         {
-            _userservice = new UserService21();
+            _userservice = new UserService();
             InitializeComponent();
             _errandservice = new ErrandService();
             Errands.ItemsSource = _errandservice.OnGoingErrands();

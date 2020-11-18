@@ -28,7 +28,7 @@ namespace GUI.UserPages.Skills
 
         
         private Mechanic _mechanic;
-        private UserService21 _userService;
+        private UserService _userService;
         private List<Mechanic> _mechanics;
         private DataAccess<Mechanic> _mechanicdb;
         private MechanicService _mechanicService;
@@ -38,7 +38,7 @@ namespace GUI.UserPages.Skills
         {
             InitializeComponent();
             _mechanicdb = new DataAccess<Mechanic>();
-            _userService = new UserService21();
+            _userService = new UserService();
             _mechanicService = new MechanicService();
 
             List<string> SkillList = _mechanicService.ListSkills();

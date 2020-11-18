@@ -24,13 +24,13 @@ namespace GUI.Admin.UserAndMechanic
     {
 
         DataAccess<User> _userDB;
-        UserService21 _userservice;
+        UserService _userservice;
         private List<User> _users;
         public RemoveUser()
         {
 
             _userDB = new DataAccess<User>();
-            _userservice = new UserService21();
+            _userservice = new UserService();
             InitializeComponent();
             UpdateList();
 

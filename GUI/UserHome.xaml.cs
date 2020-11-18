@@ -33,7 +33,7 @@ namespace GUI
         {
             InitializeComponent();
 
-            var us = new UserService21();
+            var us = new UserService();
             ThisUser.Text = CurrentUser.user.Username;            
             var mechanic = us.NextBirthday();
             if(us.DaysUntilBirthday(mechanic) == 0)
