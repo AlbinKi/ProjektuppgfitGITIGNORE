@@ -11,17 +11,14 @@ namespace Logic.Services
     public class UserService //: IAdmin, IUser
     {
         private List<Mechanic> _mechanics;
-        private DataAccess<Mechanic> _mechanicdb;
-        private List<Errand> _errands;
-        private DataAccess<Errand> _erranddb;
+        private IDataAccess<Mechanic> _mechanicdb;
         private List<User> _users;
-        private DataAccess<User> _userdb;
+        private IDataAccess<User> _userdb;
         private Mechanic _mechanic;
 
         public UserService()
         {
             _mechanicdb = new DataAccess<Mechanic>();
-            _erranddb = new DataAccess<Errand>();
             _userdb = new DataAccess<User>();
         }
 
