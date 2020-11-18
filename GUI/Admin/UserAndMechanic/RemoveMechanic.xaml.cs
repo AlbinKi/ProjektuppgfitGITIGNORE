@@ -46,33 +46,31 @@ namespace GUI.Admin.UserAndMechanic
                 return;
             }
 
-           var mechanic = RemoveList.SelectedItem as Mechanic;
-            if (_userDB.Load().FirstOrDefault(u => u.UserID == mechanic.MechanicID) != null)
+            var mechanic = RemoveList.SelectedItem as Mechanic;
+
+            var dr = MessageBox.Show("Detta kommer även att radera användaren som är knuten till mekanikern. Är du säker på att du vill radera mekanikern och dess användare?", "Radera mekaniker och den knytna användaren", MessageBoxButton.YesNo);
+
+            switch (dr)
             {
-               var dr = MessageBox.Show("Detta kommer även att radera användaren som är knuten till mekanikern. Är du säker på att du vill radera mekanikern och dess användare?", "Radera mekaniker och den knytna användaren", MessageBoxButton.YesNo);
-                switch(dr)
-                {
-                    case MessageBoxResult.Yes:
-                        {
-                            var user = _userDB.Load().FirstOrDefault(u => u.UserID == mechanic.MechanicID);
-                            _userservice.RemoveUser(user);
-                            UpdateList();
-                            return;
-                        }
-                    case MessageBoxResult.No:
-                        {
-                            return;
-                        }                 
-                }
-            }
-            _mechanicService.RemoveMechanic(mechanic);
-            UpdateList();         
+                case MessageBoxResult.Yes:
+                    {
+                        _mechanicService.RemoveMechanic(mechanic);
+                        UpdateList();
+                        return;
+                    }
+                case MessageBoxResult.No:
+                    {
+                        return;
+                    }
+            }         
         }
 
         private void UpdateList()
         {
             _mechanics = _mechanicdb.Load();
             var mechanic = _mechanics.FirstOrDefault(m => m.MechanicID == CurrentUser.user.UserID);
+            _mechanics.Remove(mechanic);
+            mechanic = _mechanics.FirstOrDefault(m => (m.FirstName == "Bosse") && (m.LastName == "Andersson")); //Hade funkat bättre med guid, men kan vara så här tills vidare.
             _mechanics.Remove(mechanic);
             RemoveList.ItemsSource = null;
             RemoveList.ItemsSource = _mechanics;

@@ -38,14 +38,29 @@ namespace Logic.Services
 
         }
 
+        /// <summary>
+        /// Tar bort en mekaniker permanent (och eventuell användare kopplad till mekanikern).
+        /// </summary>
+        /// <param name="mechanic"></param>
         public void RemoveMechanic(Mechanic mechanic)
         {
             _mechanics = _mechanicdb.Load();
+            _users = _userdb.Load();
 
             foreach (var item in _mechanics)
             {
                 if (item.MechanicID == mechanic.MechanicID)
                 {
+                    foreach (var user in _users)
+                    {
+                        if (user.UserID == item.MechanicID)
+                        {
+                            _users.Remove(user);
+                            _userdb.Save(_users);
+                            break;
+                        }
+                    }
+                    
                     _mechanics.Remove(item);
                     _mechanicdb.Save(_mechanics);
 
@@ -53,6 +68,7 @@ namespace Logic.Services
                 }
             }
         }
+
 
         /// <summary>
         /// Returnerar en lista med den inloggade mekanikerns nuvarande kompetenser.

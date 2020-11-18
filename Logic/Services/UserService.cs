@@ -150,29 +150,19 @@ namespace Logic.Services
             return match;
         }
 
+
         /// <summary>
-        /// Admin tar bort användare (och mekaniker kopplad till användare).
+        /// Admin tar bort användare.
         /// </summary>
         /// <param name="user"></param>
         public void RemoveUser(User user)
         {
             _users = _userdb.Load();
-            _mechanics = _mechanicdb.Load();
 
             foreach (var item in _users)
             {
                 if (item.UserID == user.UserID)
                 {
-                    foreach (var mechanic in _mechanics)
-                    {
-                        if (mechanic.MechanicID == item.UserID)
-                        {
-                            _mechanics.Remove(mechanic);
-                            _mechanicdb.Save(_mechanics);
-                            break;
-                        }
-                    }
-
                     _users.Remove(item);
                     _userdb.Save(_users);
                     return;
