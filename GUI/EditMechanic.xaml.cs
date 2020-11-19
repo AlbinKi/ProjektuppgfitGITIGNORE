@@ -40,7 +40,6 @@ namespace GUI
             _mechanics = _mechanicdb.Load();
 
             AllMechanics.ItemsSource = _mechanics;
-
         }
 
 
@@ -54,6 +53,7 @@ namespace GUI
                 NewBirthDate.DisplayDate = _mechanic.DateOfBirth;
                 NewBirthDate.Text = _mechanic.DateOfBirth.ToString();
                 SetEndDate.DisplayDate = _mechanic.EndDate;
+                SetEndDate.Text = _mechanic.EndDateString;
             }
             
         }
@@ -70,6 +70,7 @@ namespace GUI
             _mechanic.DateOfBirth = (DateTime)NewBirthDate.SelectedDate;
             _mechanic.Age = _mechanicService.CalculateAge(_mechanic.DateOfBirth);
             _mechanic.EndDate = (DateTime)SetEndDate.SelectedDate;
+            _mechanic.EndDateString = _mechanic.EndDate.ToString("yyy/MM/dd");
             DBService.Modify(_mechanic);
             MessageBox.Show("Mekanikern är sparad.");
             _mechanics = _mechanicdb.Load();

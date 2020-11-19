@@ -54,7 +54,7 @@ namespace GUI
 
             if (NoUserList.SelectedItem==null)
             {
-                MessageBox.Show("Välj först en mekaniker i listan");
+                MessageBox.Show("Välj först en mekaniker i listan.");
                 return;
             }
             
@@ -74,7 +74,7 @@ namespace GUI
             }
             else if (!_userService.TryPassword(password).Success)
             {
-                MessageBox.Show("Ange ett lämpligt lösenord!");
+                MessageBox.Show("Ange ett lämpligt lösenord. Det måste vara minst åtta tecken långt och innehålla minst en bokstav och en siffra.");
                 Password.Clear();
                 return;
             }

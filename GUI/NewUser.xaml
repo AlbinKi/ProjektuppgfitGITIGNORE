@@ -28,7 +28,7 @@
             </ListView.View>
         </ListView>
         <extToolkit:WatermarkTextBox Watermark="Ange som epostadress" Name="UserNameAsEmail" HorizontalAlignment="Left" Margin="423,106,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="242" ToolTip="Användarnamnet måste vara en giltig epostadress" Height="24"/>
-        <extToolkit:WatermarkTextBox Watermark="Lösenord" Name="Password" HorizontalAlignment="Left" Margin="423,171,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="242" ToolTip="Lösenordet måste vara minst åtta tecken långt och innehålla minst en siffra" Height="24"/>
+        <extToolkit:WatermarkTextBox Watermark="Lösenord" Name="Password" HorizontalAlignment="Left" Margin="423,171,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="242" ToolTip="Lösenordet måste vara minst åtta tecken långt och innehålla minst en bokstav och en siffra" Height="24"/>
         <Label Content="Användarnamn" HorizontalAlignment="Left" Margin="423,79,0,0" VerticalAlignment="Top"/>
         <Label Content="Lösenord" HorizontalAlignment="Left" Margin="421,145,0,0" VerticalAlignment="Top"/>
         <Label Content="Ska den nya användaren vara administratör?" HorizontalAlignment="Left" Margin="421,207,0,0" VerticalAlignment="Top"/>

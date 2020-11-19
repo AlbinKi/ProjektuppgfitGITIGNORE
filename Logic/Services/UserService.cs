@@ -3,12 +3,11 @@ using Logic.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
 
 namespace Logic.Services
 {
-    public class UserService //: IAdmin, IUser
+    public class UserService
     {
         private List<Mechanic> _mechanics;
         private IDataAccess<Mechanic> _mechanicdb;
@@ -143,7 +142,7 @@ namespace Logic.Services
         public Match TryPassword(string password)
         {
             //Minimum eight characters, at least one letter and one number.
-            Regex tryPass = new Regex(@"^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$");
+            Regex tryPass = new Regex(@"^(?=.*[A-Öa-ö])(?=.*\d)[A-Öa-ö\d]{8,}$");
 
             var match = tryPass.Match(password);
 

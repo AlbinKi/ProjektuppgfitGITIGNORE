@@ -28,7 +28,7 @@
                     <GridViewColumn Header="Ålder" Width="45" DisplayMemberBinding="{Binding Age}"/>
                     <GridViewColumn Header="Kompetenser" Width="80" DisplayMemberBinding="{Binding Skills.Count}"/>
                     <GridViewColumn Header="Ärenden" Width="50" DisplayMemberBinding="{Binding NumberOfErrands}"/>
-                    <GridViewColumn Header="Slutdatum" Width="70" DisplayMemberBinding="{Binding EndDate}"/>
+                    <GridViewColumn Header="Slutdatum" Width="75" DisplayMemberBinding="{Binding EndDateString}"/>
                 </GridView>
             </ListView.View>
         </ListView>

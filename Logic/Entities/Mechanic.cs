@@ -15,8 +15,8 @@ namespace Logic.Entities
         public int NumberOfErrands { get; set; }
         public DateTime DateOfBirth { get; set; }
         public List<string> Skills { get; set; }
-
         public DateTime EndDate { get; set; }
+        public string EndDateString { get; set; }
 
 
         public Mechanic(string firstname, string lastname, DateTime dateofbirth)
@@ -26,7 +26,7 @@ namespace Logic.Entities
             DateOfBirth = dateofbirth;
             Skills = new List<string>();
             NumberOfErrands = 0;
-            
+            EndDateString = "---";
             MechanicID = Guid.NewGuid();
 
             CalculateAge();

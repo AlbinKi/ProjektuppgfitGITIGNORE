@@ -165,22 +165,6 @@ namespace Logic.Services
             return mechanicsNoUser;
         }
 
-        public void MechanicsWithoutUser()
-        {
-            var mechanics = _mechanicdb.Load();
-            var users = _userdb.Load();
-            foreach (var m in mechanics)
-            {
-                foreach (var u in users)
-                {
-                    if (u.UserID == m.MechanicID)
-                    {
-                        mechanics.Remove(m);
-                    }
-                }
-            }
-        }
-
         public Mechanic GetMechanic(Guid ID)
         {
             _mechanics = _mechanicdb.Load();
