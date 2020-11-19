@@ -47,22 +47,28 @@ namespace GUI.Admin.UserAndMechanic
             }
 
             var mechanic = RemoveList.SelectedItem as Mechanic;
-
-            var dr = MessageBox.Show("Detta kommer även att radera användaren som är knuten till mekanikern. Är du säker på att du vill radera mekanikern och dess användare?", "Radera mekaniker och den knytna användaren", MessageBoxButton.YesNo);
-
-            switch (dr)
+            if (_userDB.Load().FirstOrDefault(u => u.UserID == mechanic.MechanicID) != default)
             {
-                case MessageBoxResult.Yes:
-                    {
-                        _mechanicService.RemoveMechanic(mechanic);
-                        UpdateList();
-                        return;
-                    }
-                case MessageBoxResult.No:
-                    {
-                        return;
-                    }
-            }         
+                var dr = MessageBox.Show("Detta kommer även att radera användaren som är knuten till mekanikern. Är du säker på att du vill radera mekanikern och dess användare?", "Radera mekaniker och den knytna användaren", MessageBoxButton.YesNo);
+
+                switch (dr)
+                {
+                    case MessageBoxResult.Yes:
+                        {
+                            var user = _userDB.Load().FirstOrDefault(u => u.UserID == mechanic.MechanicID);
+                            _userservice.RemoveUser(user);                           
+                            UpdateList();
+                            break;
+                        }
+                    case MessageBoxResult.No:
+                        {
+                            return;
+                        }
+                }
+            }
+            _mechanicService.RemoveMechanic(mechanic);
+            UpdateList();
+            
         }
 
         private void UpdateList()
